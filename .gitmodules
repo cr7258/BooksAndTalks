@@ -1,0 +1,9 @@
+[submodule "Golang-Conference"]
+	path = Golang-Conference
+	url = https://github.com/gopherchina/conference.git
+[submodule "CNCF-Presentations"]
+	path = CNCF-Presentations
+	url = https://github.com/cncf/presentations.git
+[submodule "Could-Native-Academy"]
+	path = Could-Native-Academy
+	url = https://github.com/cloudnativeto/academy.git

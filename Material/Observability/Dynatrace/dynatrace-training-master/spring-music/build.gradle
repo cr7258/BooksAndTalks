@@ -1,0 +1,67 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'eclipse-wtp'
+    id 'idea'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    javaCfEnvVersion = '2.4.0'
+}
+
+dependencies {
+    // Spring Boot
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb"
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation "org.springframework.boot:spring-boot-starter-validation"
+
+    // Java CfEnv
+    implementation "io.pivotal.cfenv:java-cfenv-boot:${javaCfEnvVersion}"
+
+    // JPA Persistence
+    runtimeOnly "org.apache.commons:commons-pool2"
+    runtimeOnly "com.h2database:h2"
+    runtimeOnly "mysql:mysql-connector-java"
+    runtimeOnly "org.postgresql:postgresql"
+    runtimeOnly "com.microsoft.sqlserver:mssql-jdbc"
+
+    // uncomment to use Lettuce instead of Jedis for Redis connections
+    // runtime "io.lettuce:lettuce-core"
+
+    // Webjars
+    implementation "org.webjars:bootstrap:3.1.1"
+    implementation "org.webjars:angularjs:1.2.16"
+    implementation "org.webjars:angular-ui:0.4.0-2"
+    implementation "org.webjars:angular-ui-bootstrap:0.10.0-1"
+    implementation "org.webjars:jquery:2.1.0-2"
+
+    // Oracle - uncomment one of the following after placing driver in ./libs
+    // compile files('libs/ojdbc8.jar')
+    // compile files('libs/ojdbc7.jar')
+
+    // Testing
+    testImplementation "junit:junit"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    if (JavaVersion.current() != project.targetCompatibility) {
+        logger.warn("The build is using Java ${JavaVersion.current()} to build a Java ${project.targetCompatibility} compatible archive.")
+        logger.warn("See the project README for instructions on changing the target Java version.")
+    }
+}
+
+jar {
+    enabled = false
+}
