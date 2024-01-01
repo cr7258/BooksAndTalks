@@ -1,0 +1,763 @@
+ {
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.214.103.20210406-215236"
+  },
+  "id": "4c9c4df5-3171-441e-8d99-f8032e38a494",
+  "dashboardMetadata": {
+    "name": "SAP Core Monitoring Dashboard",
+    "shared": true,
+    "owner": "i500537",
+    "dashboardFilter": {
+      "timeframe": "l_2_HOURS"
+    }
+  },
+  "tiles": [
+    {
+      "name": "Host health",
+      "tileType": "HOSTS",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 0,
+        "width": 380,
+        "height": 342
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 1178,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## Availability\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 0,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "markdown": "### Hosts\nHosts with problems are shown in red. Click on the tile to get more information"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 418,
+        "width": 380,
+        "height": 114
+      },
+      "tileFilter": {},
+      "markdown": "### Services\n\nServices with problems are shown in red. Click on the tile to get more information"
+    },
+    {
+      "name": "Service health",
+      "tileType": "SERVICES",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 418,
+        "width": 380,
+        "height": 342
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Database health",
+      "tileType": "DATABASES_OVERVIEW",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 836,
+        "width": 342,
+        "height": 342
+      },
+      "tileFilter": {},
+      "chartVisible": true
+    },
+    {
+      "name": "Problems",
+      "tileType": "OPEN_PROBLEMS",
+      "configured": true,
+      "bounds": {
+        "top": 152,
+        "left": 456,
+        "width": 152,
+        "height": 152
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 456,
+        "width": 342,
+        "height": 152
+      },
+      "tileFilter": {},
+      "markdown": "## Problems\n\nDynatrace automatically detects problems in your environment. Click on the tile to get information about the problems\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 380,
+        "left": 836,
+        "width": 342,
+        "height": 114
+      },
+      "tileFilter": {},
+      "markdown": "### Databases\n\nDatabases with problems are shown in red. Click on the tile to get more information"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 874,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## Network"
+    },
+    {
+      "name": "Network metrics",
+      "tileType": "NETWORK",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 874,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {}
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 988,
+        "left": 0,
+        "width": 570,
+        "height": 380
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Number of Requests",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:service.requestCount.total",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "SERVICE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "SERVICE-6745B37101029334": {
+              "lastModified": 1559817529567,
+              "customColor": "#debbf3"
+            },
+            "SERVICE-6E4F41B8E21B6C70": {
+              "lastModified": 1559817640681,
+              "customColor": "#1f651f"
+            },
+            "SERVICE-D1735602D2C188A3": {
+              "lastModified": 1559817784856,
+              "customColor": "#ff0000"
+            },
+            "SERVICE-59D9CF6990637A9E": {
+              "lastModified": 1559817556108,
+              "customColor": "#00a1b2"
+            },
+            "SERVICE-440C4237E266F849": {
+              "lastModified": 1559817645074,
+              "customColor": "#25d30f"
+            },
+            "SERVICE-0145C3E5DED77978": {
+              "lastModified": 1559817551449,
+              "customColor": "#ef651f"
+            },
+            "SERVICE-A6C2B57733189E28": {
+              "lastModified": 1559817518660,
+              "customColor": "#ffd0ab"
+            },
+            "SERVICE-4636E16F4E28EB71": {
+              "lastModified": 1559817537889,
+              "customColor": "#4fd5e0"
+            },
+            "SERVICE-1201BBA27C4D89F8": {
+              "lastModified": 1559817535708,
+              "customColor": "#f5d30f"
+            },
+            "SERVICE-DAD138118C0DE44B": {
+              "lastModified": 1559817541108,
+              "customColor": "#a972cc"
+            },
+            "SERVICE-1424C7F1A6AFAE6D": {
+              "lastModified": 1559817558328,
+              "customColor": "#008cdb"
+            },
+            "SERVICE-4E9C45A852F48FA6": {
+              "lastModified": 1559817730760,
+              "customColor": "#bbbbbb"
+            },
+            "SERVICE-F9F577A01B249752": {
+              "lastModified": 1559817596718,
+              "customColor": "#a9ae0e"
+            },
+            "SERVICE-52AC624D70C377BC": {
+              "lastModified": 1559817523053,
+              "customColor": "#aeebf0"
+            },
+            "SERVICE-87E63AA5D17686CA": {
+              "lastModified": 1559817520160,
+              "customColor": "#fff29a"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 0,
+        "width": 570,
+        "height": 380
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Databases Requests",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:service.requestCount.total",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "DATABASE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 988,
+        "left": 1140,
+        "width": 342,
+        "height": 380
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Services failure rate",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:service.errors.total.rate",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "SERVICE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1406,
+        "left": 0,
+        "width": 570,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## Databases"
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 1140,
+        "width": 342,
+        "height": 380
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Database failure rate",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:service.errors.total.rate",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "DATABASE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 988,
+        "left": 570,
+        "width": 570,
+        "height": 380
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Response time",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:service.response.time",
+              "aggregation": "PERCENTILE",
+              "percentile": 50,
+              "type": "LINE",
+              "entityType": "SERVICE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1520,
+        "left": 570,
+        "width": 570,
+        "height": 380
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Response time",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:service.response.time",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "DATABASE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1976,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "HTTP 5xx errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:service.errors.fivexx.count",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "SERVICE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 1976,
+        "left": 304,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "HTTP 4xx errors",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:service.errors.fourxx.count",
+              "aggregation": "NONE",
+              "type": "LINE",
+              "entityType": "SERVICE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2356,
+        "left": 0,
+        "width": 304,
+        "height": 456
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "CPU usage of Hosts",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:host.cpu.usage",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "HOST",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 0,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {},
+      "markdown": "## Tutorial\n\n* In the following dashboard you will find metrics related to:\n\n    * Problems detected by Dynatrace\n    * Network\n    * Availability\n    * Services/Requests health\n    * Database/Requests health\n    * 4xx and 5xx errors\n    * Hosts/Processes health\n\n\n* Use the filter to select the Management Zone of your team\n\n\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 874,
+        "left": 0,
+        "width": 1178,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "## Services\n"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 0,
+        "width": 570,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "This tile shows the number of requests for each service. Services with abrupt changes in their number of requests should be analysed. Click on the tile for more details."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 570,
+        "width": 570,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "This tile shows the response time for each service. Services with abrupt changes in their response time should be analysed. Click on the tile for more details."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 912,
+        "left": 1140,
+        "width": 342,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "This tile shows the failure rate for each service. High failure rate in your applications should be checked"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1444,
+        "left": 0,
+        "width": 570,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "This tile shows the number of queries for each database. Databases with abrupt changes in their number of queries should be analysed. Click on the tile for more details."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1444,
+        "left": 1140,
+        "width": 342,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "This tile shows the failure rate for each database. High failure rate in your applications should be checked"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1444,
+        "left": 570,
+        "width": 570,
+        "height": 76
+      },
+      "tileFilter": {},
+      "markdown": "This tile shows the response time for each database. Database with abrupt changes in their response time should be analysed. Click on the tile for more details."
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 1938,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### Http 4xx and 5xx Errors"
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 2318,
+        "left": 0,
+        "width": 304,
+        "height": 38
+      },
+      "tileFilter": {},
+      "markdown": "### Host and Processes"
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2356,
+        "left": 304,
+        "width": 304,
+        "height": 456
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "CPU usage",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TOP_LIST",
+          "series": [
+            {
+              "metric": "builtin:tech.generic.cpu.usage",
+              "aggregation": "AVG",
+              "type": "LINE",
+              "entityType": "PROCESS_GROUP_INSTANCE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {
+            "PROCESS_GROUP_INSTANCE-E435022343473568": {
+              "lastModified": 1559898130277,
+              "customColor": "#f5d30f"
+            },
+            "PROCESS_GROUP_INSTANCE-2C10D9AE3514CBC9": {
+              "lastModified": 1559898128444,
+              "customColor": "#2ab6f4"
+            },
+            "PROCESS_GROUP_INSTANCE-FFDBEB821B9221FA": {
+              "lastModified": 1559898139738,
+              "customColor": "#0000ff"
+            }
+          }
+        },
+        "filtersPerEntityType": {}
+      }
+    },
+    {
+      "name": "Custom chart",
+      "tileType": "CUSTOM_CHARTING",
+      "configured": true,
+      "bounds": {
+        "top": 2356,
+        "left": 608,
+        "width": 608,
+        "height": 456
+      },
+      "tileFilter": {},
+      "filterConfig": {
+        "type": "MIXED",
+        "customName": "Tomcat busy threads",
+        "defaultName": "Custom chart",
+        "chartConfig": {
+          "legendShown": true,
+          "type": "TIMESERIES",
+          "series": [
+            {
+              "metric": "builtin:tech.tomcat.tomcat.currentThreadsBusy",
+              "aggregation": "MAX",
+              "type": "LINE",
+              "entityType": "PROCESS_GROUP_INSTANCE",
+              "dimensions": [],
+              "sortAscending": false,
+              "sortColumn": true,
+              "aggregationRate": "TOTAL"
+            }
+          ],
+          "resultMetadata": {}
+        },
+        "filtersPerEntityType": {}
+      }
+    }
+  ]
+}
