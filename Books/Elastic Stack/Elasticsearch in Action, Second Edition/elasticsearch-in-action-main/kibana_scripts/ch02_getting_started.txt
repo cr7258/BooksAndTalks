@@ -1,0 +1,664 @@
+## 
+## A handy scripts file for hands-on exercises on Kibana
+## Copy the whole contents of this file to Kibana's DevTools
+
+## If you wish to follow the running commentary for these scripts, 
+## follow the Ch2 Getting Started wiki page here: https://github.com/madhusudhankonda/elasticsearch-in-action/wiki/Ch-2:-Getting-Started
+##
+## Please let me know if you find any issues with this script
+
+
+
+# Indexing a few documents into books index
+PUT books/_doc/1
+{
+  "title":"Effective Java",
+  "author":"Joshua Bloch",
+  "release_date":"2001-06-01",
+  "amazon_rating":4.7,
+  "best_seller":true,
+  "prices": {
+    "usd":9.95,
+    "gbp":7.95,
+    "eur":8.95
+  }
+}
+PUT books/_doc/2
+{
+  "title":"Core Java Volume I - Fundamentals",
+  "author":"Cay S. Horstmann",
+  "release_date":"2018-08-27",
+  "amazon_rating":4.8,
+  "best_seller":true,
+  "prices": {
+    "usd":19.95,
+    "gbp":17.95,
+    "eur":18.95
+  }
+}
+PUT books/_doc/3
+{
+  "title":"Java: A Beginner’s Guide",
+  "author":"Herbert Schildt",
+  "release_date":"2018-11-20",
+  "amazon_rating":4.2,
+  "best_seller":true,
+  "prices": {
+    "usd":19.99,
+    "gbp":19.99,
+    "eur":19.99
+  }
+}
+
+#Getting number of documents in books index
+GET books/_count
+
+#Adding another index with a sample doc
+PUT fiction/_doc/1
+{
+  "title":"The Enchanters' Child",
+  "author":"Navya Sarikonda"
+}
+# Fetching all documents from multiple indices
+GET books,fiction/_count
+
+#Fetch from ALL indices
+GET /_count
+
+#You can also use a wildcard too
+GET b*/_count
+
+# Fetching the document by its ID
+GET books/_doc/1
+
+# To fetch source only
+GET books/_source/1
+
+# To fetch multiple documents give a set of IDs using ids query
+GET books/_search
+{
+  "query": {
+    "ids": {
+      "values": [1,2,3]
+    }
+  }
+}
+# Turn off the source 
+GET books/_search
+{
+  "_source": false, 
+  "query": {
+    "ids": {
+      "values": [1,2,3]
+    }
+  }
+}
+# Retrieving all documents in one go from the books index
+GET books/_search
+
+# Searching for books by an author
+GET books/_search
+{
+  "query": {
+    "match": {
+      "author": "Joshua"
+    }
+  }
+}
+
+# Search using different cased letters
+GET books/_search
+{
+  "query": {
+    "match": {
+      "author": "JoShUa"
+    }
+  }
+}
+
+# Search using surname
+GET books/_search
+{
+  "query": {
+    "match": {
+      "author": "Bloch"
+    }
+  }
+}
+
+# Searching like regex won't return retun results
+GET books/_search
+{
+  "query": {
+    "match": {
+      "author": "Josh"
+    }
+  }
+}
+
+# Searching like regex with prefix query - make sure the criteria is lowercased 
+GET books/_search
+{
+  "query": {
+    "prefix": {
+      "author": "josh"
+    }
+  }
+}
+
+#Searching for different keywords will still bring the results 
+GET books/_search
+{
+  "query": {
+    "match": {
+      "author": {
+        "query": "Joshua Sarikonda"
+      }
+    }
+  }
+}
+GET books/_search
+{
+  "query": {
+   "match": {
+     "author": "Joshua Schildt"
+   }
+  }
+}
+
+#Searching for different keywords with an operator 
+GET books/_search
+{
+  "query": {
+    "match": {
+      "author": {
+        "query": "Joshua Herbert"
+      }
+    }
+  }
+}
+
+GET books/_search
+{
+  "query": {
+    "match": {
+      "author": {
+        "query": "Joshua Herbert",
+        "operator": "AND"
+      }
+    }
+  }
+}
+
+# Indexing lots of documents using bulk API
+# Copy the contents of books-kibana-dataset.txt from book's repository(https://github.com/madhusudhankonda/elasticsearch-in-action/blob/main/datasets/books-kibana-dataset.txt)
+
+# Searching across multiple fields using multi_match query
+GET books/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "Java",
+      "fields": ["title","synopsis"]
+    }
+  }
+}
+# Boosting scores
+GET books/_search
+{
+  "query": {
+    "multi_match": { 
+      "query": "Java",
+      "fields": ["title^3","synopsis"]
+    }
+  }
+}
+# Phrase search
+GET books/_search
+{
+  "query": {
+    "match_phrase": {#A The match_phrase query expects a sequence of words
+      "synopsis": "must-have book for every Java programmer"#B Our phrase
+    }
+  }
+}
+
+# Match Phrase query
+GET books/_search
+{
+  "query": {
+    "match_phrase": {
+      "synopsis": "must-have book for every Java programmer"
+    }
+  }
+}
+
+# Match Phrase query with highlights
+GET books/_search
+{
+  "query": {
+    "match_phrase": {
+      "synopsis": "must-have book for every Java programmer"
+    }
+  },
+  "highlight": {
+    "fields": {
+      "synopsis": {}
+    }
+  }
+}
+
+# Match Phrase query with a word missing - doesn't get results
+GET books/_search
+{
+  "query": {
+    "match_phrase": {
+      "synopsis": "must-have book every Java programmer"
+    }
+  }
+}
+
+# Match Phrase query with slop 1
+GET books/_search
+{
+  "query": {
+    "match_phrase": {
+      "synopsis": {
+      "query": "must-have book every Java programmer",
+      "slop": 1
+      }
+    }
+  }
+}
+
+#Fuzzy query (forgiving spelling mistakes)
+GET books/_search
+{
+  "query": {
+    "fuzzy": {
+      "title": {
+        "value": "kava",
+        "fuzziness": 1 
+      }
+    }
+  }
+}
+
+#Add few adhoc documents to the books index to run match_phrase_prefix query
+PUT books/_doc/99
+{
+  "title":"Java Collections Deep Dive"
+}
+PUT books/_doc/100
+{
+  "title":"Java Computing World"
+}
+
+GET books/_search
+{
+  "query": {
+    "match_phrase_prefix": {
+      "title": "Java co"
+    }
+  }
+}
+
+## TERM queries
+# Get the index mapping
+GET books/_mapping
+
+# Getting third edition books using term query
+GET books/_search
+{
+ 
+  "query": {
+    "term": {
+      "edition": {
+        "value": 3
+      }
+    }
+  }
+}
+
+# Range query
+GET books/_search
+{
+  "query": {
+    "range": {
+      "amazon_rating": {
+        "gte": 4.5,
+        "lte": 5
+      }
+    }
+  }
+}
+
+## Bool queries
+# Must  clause with match query
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "author": "Joshua Bloch"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Must  clause with two leaf queries - match and match_phrase
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "author": "Joshua Bloch"
+          }
+        },
+        {
+          "match_phrase": {
+            "synopsis": "best Java programming books"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Must and must_not clauses
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "author": "Joshua"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "range": {
+            "amazon_rating": {
+              "lt": 4.7
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Must, must_not and should clauses
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "author": "Joshua"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "range": {
+            "amazon_rating": {
+              "lt": 4.7
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "tags": "Software"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Should clause without a match - the query will not fail
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "author": "Joshua"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "range": {
+            "amazon_rating": {
+              "lt": 4.7
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "tags": "movies"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Adding a filter clause - drops books older than 2015
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "author": "Joshua"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "range": {
+            "amazon_rating": {
+              "lt": 4.7
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "tags": "Software"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "release_date": {
+              "gte": "2015-01-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Adding a filter clause - drops books older than 2015
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "author": "Joshua"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "range": {
+            "amazon_rating": {
+              "lt": 4.7
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "tags": "Software"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "release_date": {
+              "gte": "2015-01-01"
+            }
+          }
+        },
+        {
+          "term": {
+            "edition": 3
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Adding a second filter (term query to check the edition )
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [{"match": {"author": "Joshua"}}],
+      "must_not":[{"range":{"amazon_rating":{"lt":4.7}}}],
+      "should": [{"match": {"tags": "Software"}}],
+      "filter":[
+        {"range":{"release_date":{"gte": "2015-01-01"}}},
+        {"term": {"edition": 3}}
+      ]}
+   }
+}
+#Analytics
+## Average rating of books - Query DSL sample
+GET books/_search
+{
+  "aggs": {
+    "avg_rating": {
+      "avg": {
+        "field": "amazon_rating"
+      }
+    }
+  }
+}
+
+## Copy the contents of covid-26march2021.txt from datasets (https://github.com/madhusudhankonda/elasticsearch-in-action/blob/main/datasets/covid-26march2021.txt) to Kibana's DevTools. Once copied, execute them using the _bulk API
+
+# Sum metric
+GET covid/_search
+{
+  "size": 0, 
+  "aggs": {
+    "critical_patients": {
+      "sum": {
+        "field": "critical"
+      }
+    }
+  }
+}
+
+# Max metric
+GET covid/_search
+{
+  "size": 0, 
+  "aggs": {
+    "total_deaths": {
+      "max": {
+        "field": "deaths"
+      }
+    }
+  }
+}
+
+#Stats metric
+GET covid/_search
+{
+  "size": 0, 
+  "aggs": {
+    "all_stats": {
+      "stats": {
+        "field": "deaths"
+      }
+    }
+  }
+}
+
+#Extended stats
+GET covid/_search
+{
+  "aggs": {
+    "all_extended_stats": {
+      "extended_stats": {
+        "field": "deaths"
+      }
+    }
+  }
+}
+
+#Bucketing aggreations
+
+## Histogram
+
+GET covid/_search
+{
+  "size": 0,
+  "aggs": {
+    "critical_patients_as_histogram": {
+      "histogram": {
+        "field": "critical",
+        "interval": 2500
+      }
+    }
+  }
+}
+
+#Range
+GET covid/_search
+{
+  "size": 0, 
+  "aggs": {
+    "range_countries": {
+      "range": {
+        "field": "deaths",
+        "ranges": [
+          {"to": 60000},
+          {"from": 60000,"to": 70000},
+          {"from": 70000,"to": 80000},
+          {"from": 80000,"to": 120000}
+        ]
+      }
+    }
+  }
+}

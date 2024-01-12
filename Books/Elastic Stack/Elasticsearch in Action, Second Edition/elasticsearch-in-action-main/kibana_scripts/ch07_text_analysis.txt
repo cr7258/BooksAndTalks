@@ -1,0 +1,1024 @@
+## 
+## A handy scripts file for hands-on exercises on Kibana
+## Copy the whole contents of this file to Kibana's DevTools
+
+## If you wish to follow the running commentary for these scripts, 
+## follow the Ch2 Getting Started wiki page here: https://github.com/madhusudhankonda/elasticsearch-in-action/wiki/Ch-7.-Text Analysis
+##
+## Please let me know if you find any issues with this script
+
+# A standard (implicit) analyzer
+GET _analyze
+{
+  "text": "James Bond 007"
+}
+
+# A simple analyzer
+GET _analyze
+{
+  "text": "James Bond 007",
+  "analyzer": "simple"
+}
+
+# Configuring an analyzer on the fly
+GET _analyze
+{
+  "tokenizer": "path_hierarchy",
+  "filter": ["uppercase"],
+  "text": "/Volumes/FILES/Dev"
+}
+
+
+# Default "standard" analyser
+GET _analyze
+{
+  "text": "Hot cup of ☕ and a 🍿is a Weird Combo :(!!"
+}
+
+# Specifying the standard analyser  
+GET _analyze
+{
+  "analyzer": "standard",
+  "text": "Hot cup of ☕ and a 🍿is a Weird Combo :(!!"
+}
+
+# Specifying the standard analyser with stop fitler
+GET _analyze
+{
+  "tokenizer": "standard",
+  "text": "Hot cup of ☕ and a 🍿is a Weird Combo :(!!",
+  "filter": ["lowercase"]
+}
+
+#Configuring analyzers
+
+PUT my_index_with_stopwords
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "standard_with_stopwords":{
+          "type":"standard",
+          "stopwords":"_english_"
+        }
+      }
+    }
+  }
+}
+
+POST my_index_with_stopwords/_analyze
+{
+  "text": ["Hot cup of ☕ and a 🍿is a Weird Combo :(!!"],
+  "analyzer": "standard_with_stopwords"
+}
+
+DELETE my_index_with_stopwords_hindi
+  
+PUT my_index_with_stopwords_hindi
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "standard_with_stopwords_hindi":{
+          "type":"standard",
+          "stopwords":"_hindi_"
+        }
+      }
+    }
+  }
+}
+
+POST my_index_with_stopwords_hindi/_analyze
+{
+  "text": ["आप कैसे हैं?"],
+  "analyzer": "standard_with_stopwords_hindi"
+}
+
+POST my_index_with_stopwords_hindi/_analyze
+{
+  "text": ["आप क्या कर रहे हो?"],
+  "analyzer": "standard_with_stopwords_hindi"
+}
+
+# Index with custom swear words 
+PUT index_with_swear_stopwords
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "swearwords_analyzer":{
+          "type":"standard",
+          "stopwords_path":"swearwords.txt"
+        }
+      }
+    }
+  }
+}
+
+#Test it
+POST index_with_swear_stopwords/_analyze
+{
+  "text": ["Damn, that sucks!"],
+  "analyzer": "swearwords_analyzer"
+}
+
+
+## Setting token length
+DELETE my_index_with_max_token_length
+PUT my_index_with_max_token_length
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "standard_max_token_length":{
+          "type":"standard",
+          "max_token_length":7
+        }
+      }
+    }
+  }
+}
+
+POST my_index_with_max_token_length/_analyze
+{
+  "text": ["elasticsearch"],
+  "analyzer": "standard_max_token_length"
+}
+
+# Simple analyzer
+
+POST _analyze
+{
+  "text": ["Lukša's K8s in Action"],
+  "analyzer": "simple"
+}
+
+# Whitespace Analyzer
+POST _analyze
+{
+  "text":"Peter_Piper picked a peck of PICKLED-peppers!!",
+  "analyzer": "whitespace"
+}
+
+# Keyword Analyzer
+POST _analyze
+{
+  "text":"Elasticsearch in Action",
+  "analyzer": "keyword"
+}
+
+# Fingerprint analyzer
+POST _analyze
+{
+  "text": "A dosa is a thin pancake or crepe originating from South India. It is made from a fermented batter consisting of lentils and rice.",
+  "analyzer": "fingerprint"
+}
+
+# Pattern
+POST _analyze
+{
+  "text":"Is is true?",
+  "pattern": "[tT]rue|[yY]es",
+  "analyzer": "pattern"
+}
+
+# Additional example - a pattern analyzer
+DELETE index_with_pattern_analyzer
+PUT index_with_pattern_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "pattern_analyzer": {
+          "type":      "pattern",
+          "pattern":   "[a-zA-Z]{3}", 
+          "lowercase": true
+        }
+      }
+    }
+  }
+}
+
+# Dash pattern
+PUT index_with_dash_pattern_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "pattern_analyzer": {
+          "type":      "pattern",
+          "pattern":   "[-]", 
+          "lowercase": true
+        }
+      }
+    }
+  }
+}
+
+POST index_with_dash_pattern_analyzer/_analyze
+{
+  "text": "1234-5678-9000-0000",
+  "analyzer": "pattern_analyzer"
+}
+
+# English Language Analyzer
+POST _analyze
+{
+  "text": "She sells sea shells",
+  "analyzer": "english"
+}
+
+# German Language Analyzer
+POST _analyze
+{
+  "text": "Guten Morgen",
+  "analyzer": "german"
+}
+
+# English Language Analyzer
+POST _analyze
+{
+  "text": "नमस्ते कैसी हो तुम",
+  "analyzer": "hindi"
+}
+
+DELETE index_with_custom_english_analyzer
+
+# Custom Language Analyser with stopwords
+PUT index_with_custom_english_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "index_with_custom_english_analyzer":{
+          "type":"english",
+          "stopwords":["a","an","is","and","for"]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_custom_english_analyzer/_analyze
+{
+  "text":"A dog is for a life",
+  "analyzer":"index_with_custom_english_analyzer"
+}
+
+# Stemming
+POST index_with_custom_english_analyzer/_analyze
+{
+  "text":"Author authors authoring authored authorization authority",
+  "analyzer":"english"
+}
+
+DELETE index_with_stem_exclusion_english_analyzer
+
+# Custom Language Analyser with stem_exception
+PUT index_with_stem_exclusion_english_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "stem_exclusion_english_analyzer":{
+          "type":"english",
+          "stem_exclusion":["authority","authorization"]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_stem_exclusion_english_analyzer/_analyze
+{
+  "text": "No one can challenge my authority without my authorization",
+  "analyzer": "stem_exclusion_english_analyzer"
+}
+
+DELETE index_with_custom_analyzer
+## Custom Analyzer
+PUT index_with_custom_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "custom_analyzer":{
+          "type":"custom",
+          "char_filter":["html_strip"],
+          "tokenizer":"standard",
+          "filter":["uppercase"]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_custom_analyzer/_analyze
+{
+  "text": "<H1>HELLO, WoRLD</H1>",
+  "analyzer": "custom_analyzer"
+  
+}
+
+# Advanced Custom Analyser
+PUT index_with_custom_greek_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "custom_analyzer":{
+          "type":"custom",
+          "char_filter":["greek_symbol_mapper"],
+          "tokenizer":"standard",
+          "filter":["uppercase"]
+        }
+      },
+      "char_filter": {
+        "greek_symbol_mapper":{
+          "type":"mapping",
+          "mappings":[
+            "α => alpha",
+            "β => Beta",
+            "γ => Gamma"
+          ]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_custom_greek_analyzer/_analyze
+{
+  "text": "α and β are roots of a quadratic equation",
+  "analyzer": "custom_analyzer"
+}
+
+DELETE index_with_parse_greek_letters_custom_analyzer
+PUT index_with_parse_greek_letters_custom_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "greek_letter_custom_analyzer":{
+          "type":"custom",
+          "char_filter":["greek_symbol_mapper"],
+          "tokenizer":"standard",
+          "filter":["lowercase", "greek_keep_words"]
+        }
+      },
+      "char_filter": {
+        "greek_symbol_mapper":{
+          "type":"mapping",
+          "mappings":[
+            "α => alpha",
+            "β => Beta",
+            "γ => Gamma"
+          ]
+        }
+      },
+      "filter": {
+        "greek_keep_words":{
+          "type":"keep",
+          "keep_words":["alpha", "beta", "gamma"]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_parse_greek_letters_custom_analyzer/_analyze
+{
+  "text": "α and β are roots of a quadratic equation. γ isn't",
+  "analyzer": "greek_letter_custom_analyzer"
+}
+## Specifying the analysers
+
+# Setting analyzers at field level during index creation
+PUT authors_with_field_level_analyzers
+{
+  "mappings": {
+    "properties": {
+      "name":{
+        "type": "text" 
+      },
+      "about":{
+        "type": "text",
+        "analyzer": "english" 
+      },
+      "description":{
+        "type": "text",
+        "fields": {
+          "my":{
+            "type": "text",
+            "analyzer": "fingerprint" 
+          }
+        }
+      }
+    }
+  }
+}
+# Creating an index with a default analyzer
+PUT authors_with_default_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "default":{ 
+          "type":"keyword"
+        }
+      }
+    }
+  }
+}
+# Test the analyzer
+PUT authors_with_default_analyzer/_analyze
+{
+  "name":"John Doe" 
+}
+
+# Setting the analyzer alongside a search query
+GET authors_index_for_search_analyzer/_search
+{
+  "query": {
+    "match": { 
+      "author_name": {
+        "query": "M Konda",
+        "analyzer": "simple" 
+      }
+    }
+  }
+}
+# Setting a search analyzer at a field level
+PUT authors_index_with_both_analyzers_field_level
+{
+  "mappings": {
+    "properties": {
+      "author_name":{
+        "type": "text",
+        "analyzer": "stop",
+        "search_analyzer": "simple"
+      }
+    }
+  }
+}
+# Setting a search analyzer at a field level
+PUT authors_index_with_both_analyzers_field_level
+{
+  "mappings": {
+    "properties": {
+      "author_name":{
+        "type": "text",
+        "analyzer": "stop",
+        "search_analyzer": "simple"
+      }
+    }
+  }
+}
+# Specifying index and search analyzers during the index creation
+PUT authors_index_with_both_analyzers_field_level
+{
+  "mappings": {
+    "properties": {
+      "author_name":{
+        "type": "text",
+        "analyzer": "standard",
+        "search_analyzer": "simple"
+      }
+    }
+  }
+}
+
+## Character Filters
+
+# HTML Strip Character Filter
+POST _analyze
+{
+  "text":"<h1>Where is my cheese?</h1>",
+  "tokenizer": "standard", 
+  "char_filter": ["html_strip"]
+}
+
+DELETE index_with_html_strip_filter
+PUT index_with_html_strip_filter
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "custom_html_strip_filter_analyzer":{
+          "tokenizer":"keyword",
+          "char_filter":["my_html_strip_filter"]
+        }
+      },
+      "char_filter": {
+        "my_html_strip_filter":{
+          "type":"html_strip",
+          "escaped_tags":["h1"]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_html_strip_filter/_analyze
+{
+  "text": "<h1>Hello,</h1> <h2>World!</h2>",
+  "analyzer": "custom_html_strip_filter_analyzer"
+}
+
+# Mapping Char Filter
+POST _analyze
+{
+  "text": "I am from UK",
+  "char_filter": [
+    {
+      "type": "mapping",
+      "mappings": [
+        "UK => United Kingdom"
+      ]
+    }
+  ]
+}
+
+DELETE index_with_mapping_char_filter
+
+# Custom analyzer wiht a mapping characte filter
+PUT index_with_mapping_char_filter
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_social_abbreviations_analyzer": {
+          "tokenizer": "keyword",
+          "char_filter": [
+            "my_social_abbreviations"
+          ]
+        }
+      },
+      "char_filter": {
+        "my_social_abbreviations": {
+          "type": "mapping",
+          "mappings": [
+            "LOL => laughing out loud",
+            "BRB => be right back",
+            "OMG => oh my god"
+          ]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_mapping_char_filter/_analyze
+{
+  "text": "LOL",
+  "analyzer": "my_social_abbreviations_analyzer"
+}
+
+#Character filter using mappings from a file
+POST _analyze
+{
+  "text": "FBI and CIA are USA's security organizations",
+  "char_filter": [
+    {
+      "type": "mapping",
+      "mappings_path": "secret_organizations.txt"
+    }
+  ]
+}
+
+# Pattern replce charcter filter
+DELETE index_with_pattern_replace_filter
+PUT index_with_pattern_replace_filter
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_pattern_replace_analyzer":{
+          "tokenizer":"keyword",
+          "char_filter":["pattern_replace_filter"]
+        }
+      },
+      "char_filter": {
+        "pattern_replace_filter":{
+          "type":"pattern_replace",
+          "pattern":"_",
+          "replacement":"-"
+        }
+      }
+    }
+  }
+}
+
+POST index_with_pattern_replace_filter/_analyze
+{
+  "text": "Apple_Boy_Cat",
+  "analyzer": "my_pattern_replace_analyzer"
+}
+
+PUT my-index-00001
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_analyzer": {
+          "tokenizer": "standard",
+          "char_filter": [
+            "my_char_filter"
+          ]
+        }
+      },
+      "char_filter": {
+        "my_char_filter": {
+          "type": "pattern_replace",
+          "pattern": "(\\d+)-(?=\\d)",
+          "replacement": "$1_"
+        }
+      }
+    }
+  }
+}
+
+
+POST my-index-00001/_analyze
+{
+  "analyzer": "my_analyzer",
+  "text": "123-456-789"
+}
+
+## Tokenizers
+
+# Standard tokenizer
+POST _analyze
+{
+  "text": "Hello,cruel world!",
+  "tokenizer": "standard"
+}
+
+# Cutom stadard tokenizer
+PUT index_with_custom_standard_tokenizer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "custom_token_length_analyzer": {
+          "tokenizer": "custom_token_length_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "custom_token_length_tokenizer": {
+          "type": "standard",
+          "max_token_length": 2
+        }
+      }
+    }
+  }
+}
+
+POST index_with_custom_standard_tokenizer/_analyze
+{
+  "text": "Bond",
+  "analyzer": "custom_token_length_analyzer"
+}
+
+# URL Tokenizer 
+POST _analyze
+{
+  "text": "My website is https://localhost:9090",
+  "tokenizer": "uax_url_email"
+}
+
+# Email 
+POST _analyze
+{
+  "text": "my email is dimpy@dimpy.com",
+  "tokenizer": "uax_url_email"
+}
+
+# N-Gram Tokenizer
+POST _analyze
+{
+  "text": "Bond",
+  "tokenizer": "ngram"
+}
+
+# Custom n-gram tokenizer
+DELETE index_with_ngram_tokenizer
+PUT index_with_ngram_tokenizer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "ngram_analyzer":{
+          "tokenizer":"ngram_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "ngram_tokenizer":{
+          "type":"ngram",
+          "min_gram":2,
+          "max_gram":3,
+          "token_chars":[
+            "letter"
+          ]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_ngram_tokenizer/_analyze
+{
+  "text": "bond",
+  "analyzer": "ngram_analyzer"
+}
+
+#Edge-ngram
+
+POST _analyze
+{
+  "text":"hello",
+  "tokenizer": "edge_ngram"
+}
+
+DELETE index_with_edge_ngram
+PUT index_with_edge_ngram
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "edge_ngram_analyzer":{
+          "tokenizer":"my_edge_ngram_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "my_edge_ngram_tokenizer":{
+          "type":"edge_ngram",
+          "min_gram":2,
+          "max_gram":6,
+          "token_chars":["letter","digit"]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_edge_ngram/_analyze
+{
+  "text": "bond",
+  "analyzer": "edge_ngram_analyzer"
+}
+
+## Simple Pattern Analyzer
+POST _analyze
+{
+  "text": "hello",
+  "tokenizer": "simple_pattern"
+}
+
+DELETE index_simple_pattern_analyzer
+PUT index_simple_pattern_analyzer 
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_simple_pattern_analyzer":{
+          "tokenizer":"simple_pattern_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "simple_pattern_tokenizer":{
+          "type": "simple_pattern",
+          "pattern":"[a-zA-Z]{2}"
+        }
+      }
+    }
+  }
+}
+
+POST index_simple_pattern_analyzer/_analyze
+{
+  "text": "sugarfree",
+  "analyzer": "my_simple_pattern_analyzer"
+}
+
+DELETE index_with_simple_pattern_split_analyzer
+#Simple pattern split tokenizer
+PUT index_with_simple_pattern_split_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "simple_pattern_split_analyzer":{
+          "tokenizer":"simple_pattern_split_tokenizer"
+        }
+      }
+      ,"tokenizer": {
+         "simple_pattern_split_tokenizer":{
+           "type":"simple_pattern_split",
+           "pattern":">"
+         }
+      }
+    }
+  }
+}
+
+POST index_with_simple_pattern_split_analyzer/_analyze
+{
+  "text": "c>file",
+  "analyzer": "simple_pattern_split_analyzer"
+}
+
+# Path Hierarchy
+POST _analyze
+{
+  "text": "/Volumes/doe/documents",
+  "tokenizer": "path_hierarchy"
+}
+
+## Token Fitlers
+GET _analyze
+{
+  "tokenizer" : "standard",
+  "filter" : ["uppercase","reverse"],
+  "text" : "bond"
+}
+
+PUT index_with_token_filters
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "token_filter_analyser": {
+          "tokenizer": "standard",
+          "filter": [
+            "uppercase",
+            "reverse"
+          ]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_token_filters/_analyze
+{
+  "analyzer": "token_filter_analyser",
+  "text": "bond"
+}
+
+#Stemmer
+
+POST _analyze
+{
+  "tokenizer": "standard",
+  "filter": ["stemmer"],
+  "text": "barking is my life"
+}
+
+#Shingles
+POST _analyze
+{
+  "tokenizer": "standard",
+  "filter": ["shingle"],
+  "text": "java python go"
+}
+
+DELETE index_with_shingle
+PUT index_with_shingle
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "shingles_analyzer":{
+          "tokenizer":"standard",
+          "filter":["shingles_filter"]
+        }
+      },
+      "filter": {
+        "shingles_filter":{
+          "type":"shingle",
+          "min_shingle_size":2,
+          "max_shingle_size":3,
+          "output_unigrams":false
+        }
+      }
+    }
+  }
+}
+
+POST index_with_shingle/_analyze
+{
+  "text": "java python go",
+  "analyzer": "shingles_analyzer"
+}
+
+DELETE index_with_synonyms
+
+# Index with a synonyms filter
+PUT index_with_synonyms
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "synonyms_filter":{
+          "type":"synonym",
+         "synonyms":[ "soccer => football"]
+        }
+      }
+    }
+  }
+}
+
+# Test the index - the output should be "What" "Football"
+POST index_with_synonyms/_analyze
+{
+  "text": "What's soccer?",
+  "tokenizer": "standard", 
+  "filter": ["synonyms_filter"]
+}
+
+# Index with synonyms filter - reading the synonyms from the code itself
+# Thanks to Thomas Hill - he mentioned a mistake in my earlier verion - where the analyzer was set to standard.
+# if you set the type to "standard", then Elasticsearch only looks at the parameters for Standard Analyzer, 
+# such as "stopwords_path". It does NOT look at parameters for a custom analyzer, such as "filter".
+# Thank you @Thomas Hill!
+
+PUT index_with_synonyms_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "synonyms_analyzer":{
+          "type":"custom",
+          "tokenizer":"standard",
+          "filter":["synonyms_filter"]
+        }
+      }
+      ,"filter": {
+        "synonyms_filter":{
+          "type":"synonym",
+          "synonyms":["lol => Laughing out loud"]
+        }
+      }
+    }
+  }
+}
+
+POST index_with_synonyms_analyzer/_analyze
+{
+  "text":"lol",
+  "analyzer": "synonyms_analyzer"
+  
+}
+
+GET index_with_synonyms/_search
+{
+  "query": {
+    "match": {
+      "sport": {
+        "query": "football",
+        "analyzer": "synonyms_analyzer"
+      }
+    }
+  }
+}
+
+# Synonyms from a file.
+# Note I've set the type to be standard and tested with 8.5 version - it seems working. 
+# Should you have any issues, do change it to "custom" as per previous 
+# comments (see line 946) and try it out. 
+PUT index_with_synonyms_from_file_analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "synonyms_analyzer":{
+          "type":"standard",
+          "filter":["synonyms_from_file_filter"]
+        }
+      },
+      "filter": {
+        "synonyms_from_file_filter":{
+          "type":"synonym",
+          "synonyms_path":"synonyms.txt" 
+        }
+      }
+    }
+  }
+}
+
+# Create synonyms.txt file:
+# Make sure a file called "synonyms.txt" is created under 
+# $ELASTICSEARCH_HOME/config with the following contents:
+
+# file: synonyms.txt
+important=>imperative
+beautiful=>gorgeous
+
+# Test the filter - should return imperative
+POST index_with_synonyms_from_file_analyzer/_analyze
+{
+  "text": "important",
+  "tokenizer": "standard", 
+  "filter": ["synonyms_from_file_filter"]
+}

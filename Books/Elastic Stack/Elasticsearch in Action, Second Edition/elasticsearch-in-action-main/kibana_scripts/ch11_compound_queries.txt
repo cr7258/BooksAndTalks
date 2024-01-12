@@ -1,0 +1,1049 @@
+## Compound Queries
+
+# Create products schema is here:
+# https://github.com/madhusudhankonda/elasticsearch-in-action/blob/main/datasets/products_mapping.txt
+
+# Create products schema
+PUT products
+{
+  "mappings": {
+    "properties": {
+      "brand": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "colour": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "energy_rating": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "images": {
+        "type": "text"
+      },
+      "model": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "overview": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "price": {
+        "type": "double"
+      },
+      "product": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "resolution": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "size": {
+        "type": "text"
+      },
+      "type": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "user_ratings": {
+        "type": "double"
+      }
+    }
+  }
+}
+# Index products using bulk API
+# Prodcuts data is here: https://github.com/madhusudhankonda/elasticsearch-in-action/blob/main/datasets/products.txt
+
+# Searching for TVs using bool query
+GET products/_search
+{
+  "query": {
+    "bool": { 
+      "must": [ 
+        {
+          "match": { 
+            "product": "TV"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# TVs in a price range
+GET products/_search
+{
+  "query": {
+    "bool": {
+      "must": [ 
+        {
+          "match": { 
+            "product": "TV"
+          }
+        },
+        {
+          "range": { 
+            "price": {
+              "gte": 700,
+              "lte": 800
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+# TVs in a price range with a particular colour
+GET products/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "product": "TV"
+          }
+        },
+        {
+          "range": {
+            "price": {
+              "gte": 1000,
+              "lte": 2000
+            }
+          }
+        }, 
+        {
+          "terms": {
+            "colour": [
+              "silver",
+              "black"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+# TVs in a 4k resolution range with a particular colour
+GET products/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "product": "TV"
+          }
+        },
+        {
+          "term": {
+            "resolution": "4k"
+          }
+        }, 
+        {
+          "terms": {
+            "colour": [
+              "silver",
+              "black"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+## Searching for all TVs but not of specified brands
+GET products/_search
+{
+ "query": {
+   "bool": {
+     "must_not": [
+       {
+         "terms": {
+           "brand.keyword": [
+             "Samsung",
+             "Philips"
+           ]
+         }
+       }
+     ]
+   }
+ }
+}
+
+# Fetching only TVs for specifying the brand using must_not query clause
+GET products/_search
+{
+ "query": {
+   "bool": {
+     "must_not": [
+       {
+         "terms": {
+           "brand.keyword": [
+             "Philips",
+             "Samsung"
+           ]
+         }
+       }
+     ],
+     "must": [
+       {
+         "match": {
+           "product": "TV"
+         }
+       }
+     ]
+   }
+ }
+}
+
+# Enhancing the must_not queries
+GET products/_search
+{
+ "query": {
+   "bool": {
+     "must_not": [
+       {
+         "terms": {
+           "brand.keyword": [
+             "Philips",
+             "Samsung"
+           ]
+         }
+       },
+       {
+         "range": {
+           "user_ratings": {
+             "lte": 4.0
+           }
+         }
+       },
+       {
+         "match": {
+           "colour": "black"
+         }
+       }
+     ],
+     "must": [
+       {
+         "match": {
+           "product": "TV"
+         }
+       },
+       {
+         "term": {
+           "resolution": {
+             "value": "4k"
+           }
+         }
+       },
+       {
+         "range": {
+           "price": {
+             "gte": 500,
+             "lte": 700
+           }
+         }
+       }
+     ]
+   }
+ }
+}
+
+## Should clause
+
+# This will fetch eihter brand matching "LG" or product "TV"
+GET products/_search
+{
+  "_source": ["product","brand", "overview","price"], 
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "range": {
+            "price": {
+              "gte": 500,
+              "lte": 1000
+            }
+          }
+        },
+        {
+          "match_phrase_prefix": {
+            "overview": "4k ultra hd"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# This will fetch LG TVs using a must query - note the score
+GET products/_search
+{
+  "_source": ["product","brand"], 
+  "query": {
+    "bool": {
+      "must": [#A
+        {
+          "match": {
+            "product": "TV"
+          }
+        },
+        {
+          "match": {
+            "brand": "LG"
+          }
+        }
+
+      ]
+    }
+  }
+}
+
+# Now, let's add the shoud clause - adding should clause boosts the score 
+GET products/_search
+{
+  "_source": ["product","brand","overview", "price"], 
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "product": "TV"
+          }
+        },
+        {
+          "match": {
+            "brand": "LG"
+          }
+        }
+      ], 
+      "should": [
+        {
+          "range": {
+            "price": {
+              "gte": 500,
+              "lte": 1000
+            }
+          }
+        },
+        {
+          "match_phrase_prefix": {
+            "overview": "4k ultra hd"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Adding should clause with minimu_should_match
+GET products/_search
+{ 
+  "_source": ["product","brand","overview", "price","colour"], 
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "product": "TV"
+          }
+        },
+        {
+          "match": {
+            "brand": "LG"
+          }
+        }
+      ], 
+      "should": [
+        {
+          "range": {
+            "price": {
+              "gte": 500,
+              "lte": 1000
+            }
+          }
+        },
+        {
+          "match": {
+            "colour": "silver"
+          }
+        },
+        {
+          "match_phrase_prefix": {
+            "overview": "4kk"
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+
+# Filter clause
+GET products/_search
+{
+  "_source": ["brand","product","colour"], 
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "product.keyword": "TV"
+          }
+        },
+        {
+          "range": {
+            "price": {
+              "gte": 500,
+              "lte": 1000
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Filter clause with must
+GET products/_search
+{
+  "_source": ["brand","product","colour","price"], 
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "brand": "LG"
+          }
+        }
+      ], 
+      "filter": [
+        {
+          "range": {
+            "price": {
+              "gte": 500,
+              "lte": 1000
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+#All clauses combined
+GET products/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "brand": "LG"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "term": {
+            "colour": "silver"
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "energy_rating": "A++"
+          }
+        },
+        {
+          "term": {
+            "type": "Fridge Freezer"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "price": {
+              "gte": 500,
+              "lte": 1000
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+#Named queries for "All clauses combined" query
+GET products/_search
+{
+  "_source": ["product", "brand"], 
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "brand": {
+              "query": "LG",
+              "_name": "must_match_brand_query"
+            }
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "match": {
+            "colour.keyword": {
+              "query":"black",
+              "_name":"must_not_colour_query"
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "term": {
+            "type.keyword": {
+              "value": "Frost Free Fridge Freezer",
+              "_name":"should_term_type_query"
+            }
+          }
+        },
+        {
+          "match": {
+            "energy_rating": {
+              "query": "A++",
+              "_name":"should_match_energy_rating_query"
+            }
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "price": {
+              "gte": 500,
+              "lte": 1000,
+              "_name":"filter_range_price_query"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+#Constant score
+GET products/_search
+{
+  "query": {
+    "constant_score": {
+      "filter": {
+        "range": {
+          "price": {
+            "gte": 1000,
+            "lte": 2000
+          }
+        }
+      },
+      "boost": 5.0
+    }
+  }
+}
+
+# Filter query
+GET products/_search
+{
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "range": {
+            "user_ratings": {
+              "gte": 4,
+              "lte": 5
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Filter query 
+GET products/_search
+{
+  "query": {
+    "constant_score": {
+      "filter": 
+        {
+          "range": {
+            "user_ratings": {
+              "gte": 4,
+              "lte": 5
+            }
+          }
+        },
+      "boost": 5.0
+    }
+  }
+}
+
+# Bool query with a constant score
+GET products/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "product": "TV"
+          }
+        },
+        {
+          "constant_score": {
+            "filter": {
+              "term": {
+                "colour": "black"
+              }
+            },
+            "boost": 3.5
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Bool query with a constant score
+GET products/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "product": "TV"
+          }
+        }
+      ],
+      "should": [
+        {
+          "term": {
+            "brand.keyword": {
+              "value": "Samsung"
+            }
+          }
+        },
+        {
+          "constant_score": {
+            "filter": {
+              "range": {
+                "user_ratings": {
+                  "gte": 4,
+                  "lte": 5
+                }
+              }
+            },
+            "boost": 2.5
+          }
+        }
+      ], "minimum_should_match": 1
+    }
+  }
+}
+
+# Boosting query
+GET products/_search
+{
+  "size": 40, 
+  "_source": ["product", "price","colour"], 
+  "query": {
+    "boosting": {
+      "positive": {
+        "term": {
+          "product":"tv"
+        }
+      },
+      "negative": {
+        "range": {
+          "price": {
+            "gte": 2500
+          }
+        }
+      },
+      "negative_boost": 0.5
+    }
+  }
+}
+
+# Boosting query combined with bool queries
+GET products/_search
+{
+  "size": 40, 
+  "_source": ["product", "price","colour","brand"], 
+  "query": {
+    "boosting": {
+      "positive": {
+        "bool": {
+          "must": [
+            {
+              "match": {
+                "product": "TV"
+              }
+            }
+          ]
+        }
+      },
+      "negative": {
+        "bool": {
+          "must": [
+            {
+              "match": {
+                "brand": "Sony"
+              }
+            }
+          ]
+        }
+      },
+      "negative_boost": 0.5
+    }
+  }
+}
+
+# Multi_match
+GET products/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "smart",
+      "fields": ["type","overview"]
+    }
+  }, "highlight": {
+    "fields": {
+      "type": {},
+      "overview": {}
+    }
+  }
+}
+
+GET products/_search
+{
+  "_source": ["type","overview"], 
+  "query": {
+    "dis_max": {
+      "queries": [{
+        "match": {
+          "type": "smart tv"
+        }
+      },
+      {
+        "match": {
+          "overview": "smart tv"
+        }
+      },
+      {
+        "match": {
+          "product": "smart tv"
+        }
+      }],"tie_breaker": 0.5  
+    }
+  }
+}
+
+# Term search with a bog-standard term query - see the score:1.6376086
+GET products/_search
+{
+  "query": {
+    "term": {
+      "product": {
+        "value": "tv"
+      }
+    }
+  }
+}
+
+#Function score - wraping the term query - score is 1.6376086
+
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      }
+    }
+  }
+}
+
+#Function score - random score
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+       },
+       "random_score": {}
+    }
+  }
+}
+
+
+#Function score - random score boosted by a factor
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      },
+      "random_score": {},
+      "boost": 3
+    }
+  }
+}
+
+#Function score - random score - with seed and field
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+       },
+       "random_score": {
+         "seed": 10,
+         "field":"user_ratings"
+       }
+    }
+  }
+}
+
+#Function score - random score boosted by a factor
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      },
+      "random_score": {},
+      "boost": 3
+    }
+  }
+}
+
+#Function score - scripted score based on user_ratings value
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      },
+      "script_score": {
+        "script": {
+          "source":"_score * doc['user_ratings'].value + params['goodluck_factor']",
+          "params": {
+            "goodluck_factor":10
+          }
+        }
+      }
+    }
+  }
+}
+
+# Using script_score function to define a scoring function
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      },
+      "script_score": {
+        "script": {
+          "source":"_score * doc['user_ratings'].value * params['factor']",
+          "params": {
+            "factor":3
+          }
+        }
+      }
+    }
+  }
+}
+
+#Field value factor
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      },
+      "field_value_factor": {
+        "field": "user_ratings",
+        "factor": 2,
+        "modifier": "square"
+      }
+    }
+  }
+}
+
+# Multiple functions made up of weight and field value factor functions
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      },
+      "functions": [
+        {
+          "filter": {
+            "term": {
+              "brand": "LG"
+            }
+          },
+          "weight": 3
+        },
+        {
+          "filter": {
+            "range": {
+              "user_ratings": {
+                "gte": 4.5,
+                "lte": 5
+              }
+            }
+          }, 
+          "field_value_factor": {
+            "field": "user_ratings", 
+            "factor": 1.2,
+            "modifier": "square"
+          }
+        }
+      ],
+      "score_mode": "avg",
+      "boost_mode": "sum"
+    }
+  }
+}
+# Multiple functions - random score, weight and field value factor
+GET products/_search
+{
+  "query": {
+    "function_score": {
+      "query": {
+        "term": {
+          "product": "tv"
+        }
+      },
+      "functions": [
+        {
+          "filter": {
+            "match": {
+              "brand": "samsung"
+            }
+          },
+          "random_score": {}
+        },
+        {
+          "filter": {
+            "match_phrase": {
+              "overview": "4K ultra hd"
+            }
+          },
+          "weight": 2
+        },
+        {
+          "filter": {
+            "range": {
+              "user_ratings": {
+                "gte": 4.5,
+                "lte": 5
+              }
+            }
+          },
+          "field_value_factor": {
+            "field": "user_ratings",
+            "factor": 2,
+            "modifier": "square"
+          }
+        }
+      ],
+      "score_mode": "avg",
+      "boost_mode": "multiply"
+    }
+  }
+}
