@@ -1,0 +1,965 @@
+1
+00:00:01,980 --> 00:00:02,820
+Hello, everyone.
+大家好
+
+2
+00:00:02,830 --> 00:00:05,850
+I hope you're having a fantastic time at this event. 
+我希望你们在这次大会中度过一段美好的时光
+
+3
+00:00:06,210 --> 00:00:08,320
+I'm very sorry, I can't be there with you,
+我很抱歉 我不能和你们在一起
+
+4
+00:00:08,930 --> 00:00:12,000
+but i'm hoping to join you sometime in the near future. 
+但我希望在不久的将来能加入到你们之中
+
+5
+00:00:12,800 --> 00:00:14,150
+I am rebecca rumble, 
+我是瑞贝卡·朗布尔
+
+6
+00:00:14,160 --> 00:00:19,270
+I am the executive director and ceo of the Rust foundation. 
+Rust 基金会的执行董事兼首席执行官
+
+7
+00:00:20,290 --> 00:00:25,120
+I'd like to talk to you a little bit today about how Rust is for everyone
+今天
+
+8
+00:00:25,130 --> 00:00:27,770
+and how the Rust foundation is looking to
+我想和大家谈谈 Rust 是如何为每个人服务的
+
+9
+00:00:27,780 --> 00:00:33,250
+support maintainers and developers of the language in china and around the world. 
+以及 Rust 基金会是如何支持中国和世界各地的语言维护者和开发者的
+
+10
+00:00:35,980 --> 00:00:37,930
+A little bit about the Rust foundation, 
+关于 Rust 基金会
+
+11
+00:00:38,340 --> 00:00:41,730
+we are an independent non-profit organization, 
+我们是一个独立的非营利组织
+
+12
+00:00:41,740 --> 00:00:46,970
+and our role is to steward the Rust programming language and ecosystem. 
+我们的角色是管理 Rust 编程语言和生态系统
+
+13
+00:00:47,620 --> 00:00:50,570
+What that means is that we want to support, 
+这意味着我们希望支持
+
+14
+00:00:50,580 --> 00:00:53,770
+sustain and grow the Rust programming language. 
+维持和发展 Rust 编程语言
+
+15
+00:00:54,590 --> 00:00:58,500
+We want to do that globally through strategic investment, 
+我们希望在全球范围内通过战略投资
+
+16
+00:00:58,510 --> 00:01:00,500
+in developing the language, 
+通过开发语言
+
+17
+00:01:00,970 --> 00:01:03,480
+through virtual and in person collaboration, 
+通过线上和线下的合作
+
+18
+00:01:03,490 --> 00:01:04,800
+at events like these, 
+在这样的活动中
+
+19
+00:01:05,820 --> 00:01:07,770
+through training and education, 
+通过培训和教育
+
+20
+00:01:07,780 --> 00:01:09,090
+providing courses, 
+提供课程
+
+21
+00:01:09,760 --> 00:01:10,950
+and through promotional, 
+以及通过推广
+
+22
+00:01:10,960 --> 00:01:14,030
+collaborative governance and technical infrastructure, 
+协作治理和技术基础设施
+
+23
+00:01:14,040 --> 00:01:17,950
+we want the Rust language to be as good as it can possibly be, 
+从而使 Rust 语言尽可能好
+
+24
+00:01:18,260 --> 00:01:23,410
+so that the users can have as much fun and work with it as possible. 
+以便用户可以尽可能多地享受乐趣并使用它
+
+25
+00:01:27,790 --> 00:01:30,340
+I'm sure I don't need to tell any of you
+我相信我不需要告诉你们任何关于 Rust 编程语言的事情
+
+26
+00:01:30,350 --> 00:01:33,580
+about the RUST programming language and how amazing it is. 
+以及它有多么神奇
+
+27
+00:01:34,140 --> 00:01:36,130
+Just a kind of little summary. 
+总结来说
+
+28
+00:01:36,750 --> 00:01:38,810
+Rust is really fast. 
+Rust 很快
+
+29
+00:01:39,410 --> 00:01:42,320
+It's a memory safe and memory efficient language. 
+它是一种内存安全和内存高效的语言
+
+30
+00:01:42,990 --> 00:01:47,220
+One of the great features is that it has no run time and no garbage collector, 
+其中一个很棒的特性是 它没有运行时 也没有垃圾回收器
+
+31
+00:01:47,640 --> 00:01:48,770
+and it can power performance, 
+并且它可以为性能
+
+32
+00:01:48,780 --> 00:01:50,090
+critical services. 
+和关键服务提供动力
+
+33
+00:01:50,390 --> 00:01:52,160
+It can run on embedded devices. 
+它可以在嵌入式设备上运行
+
+34
+00:01:52,720 --> 00:01:55,370
+It can easily integrate with other languages. 
+它可以很容易地与其他语言集成
+
+35
+00:01:56,420 --> 00:01:59,260
+Rust also has great documentation. 
+Rust 也有很好的文档
+
+36
+00:01:59,620 --> 00:02:02,570
+It's got a friendly compiler with useful error messages, 
+它有一个友好的编译器，提供实用的错误信息
+
+37
+00:02:02,910 --> 00:02:04,450
+and its got top notch tooling, 
+并且配备了一流的工具链
+
+38
+00:02:04,460 --> 00:02:07,460
+an integrated package manager build tool. 
+一个集成的包管理器构建工具
+
+39
+00:02:08,250 --> 00:02:13,080
+It's got a lot of support type inspections or to format and more. 
+它有很多支持类型检查或格式化等
+
+40
+00:02:13,370 --> 00:02:18,040
+I hope that you will love using the Rust language as much as we do. 
+我希望你能像我们一样喜欢使用 Rust 语言
+
+41
+00:02:22,640 --> 00:02:24,710
+I'd like to say that I am
+我想说的是
+
+42
+00:02:24,720 --> 00:02:30,270
+so delighted at how RUST is being adopted and used in china. 
+我对 Rust 在中国被采用和使用的方式感到非常高兴
+
+43
+00:02:30,840 --> 00:02:33,990
+I love the fact that so many developers are discovering
+我很高兴有这么多开发人员发现了这种奇妙的语言
+
+44
+00:02:34,000 --> 00:02:37,830
+this wonderful language and joining our international community. 
+并加入了我们的国际社区
+
+45
+00:02:38,700 --> 00:02:43,250
+It's great to see Rust increasingly being used by companies in china, 
+很高兴看到中国的公司越来越多地使用 Rust
+
+46
+00:02:43,260 --> 00:02:45,810
+such as Huawei Bytedance and Weibo. 
+比如华为,字节跳动和微博 （还有蚂蚁集团、非凸科技、在线途游等）
+
+47
+00:02:47,450 --> 00:02:53,430
+I really delighted to see that the educational system is also taking notice
+我真的很高兴看到教育系统也注意到了 Rust
+
+48
+00:02:53,440 --> 00:02:55,070
+of Rust and providing
+并为中国学生
+
+49
+00:02:55,550 --> 00:02:58,620
+good educational materials to students in china. 
+提供了良好的教育材料
+
+50
+00:02:59,200 --> 00:03:02,590
+Rust  textbooks are being written specifically for Chinese students, 
+Rust 教科书是专门为中国学生编写的
+
+51
+00:03:02,680 --> 00:03:07,070
+which is great to develop a good curriculum and a good grounding in RUST
+这对于开发一个好的课程和为将来的编程打下一个好的 Rust 基础
+
+52
+00:03:07,200 --> 00:03:08,630
+for programming in the future. 
+是非常好的
+
+53
+00:03:09,390 --> 00:03:15,840
+I'm also really glad to see so many new meet ups for RUST are happening all
+我也很高兴看到这么多新的关于 Rust 的meetups
+
+54
+00:03:15,850 --> 00:03:16,760
+over china. 
+在中国各地举行
+
+55
+00:03:16,770 --> 00:03:20,240
+I'm aware that so many are already happening in Shanghai, 
+我知道在上海 北京和其他地方已经发生了很多这样的事情
+
+56
+00:03:20,250 --> 00:03:24,990
+Beijing and elsewhere and id love to see those meet ups grow. 
+我很乐意看到这些事情的发展
+
+57
+00:03:25,670 --> 00:03:30,870
+And I think its also worth noting that the Chinese RUST community is
+我认为同样值得注意的是
+
+58
+00:03:30,880 --> 00:03:35,190
+the third largest RUST community by country in the world. 
+中国 Rust 社区是世界上第三大 Rust 社区
+
+59
+00:03:35,950 --> 00:03:42,860
+6.09 of RUST users that responded to the annual RUST survey are from china. 
+填写年度 Rust 调查的RUST用户中有6.09%来自中国
+
+60
+00:03:43,490 --> 00:03:46,320
+Thats only behind the USA and Germany. 
+仅次于美国和德国
+
+61
+00:03:46,330 --> 00:03:50,320
+So thats more users than the UK or the Netherlands. 
+所以这比英国或荷兰的用户还多
+
+62
+00:03:50,800 --> 00:03:52,080
+And that's really great. 
+这真的很棒
+
+63
+00:03:52,480 --> 00:03:58,960
+It's so great to see so many developers in china using RUST productively
+很高兴看到中国有这么多开发人员高效地使用 Rust
+
+64
+00:04:03,170 --> 00:04:04,450
+and Rust is growing. 
+Rust 也在增长
+
+65
+00:04:05,430 --> 00:04:06,830
+This is good news. 
+这是个好消息
+
+66
+00:04:07,340 --> 00:04:07,770
+Rust. 
+Rust 的
+
+67
+00:04:07,780 --> 00:04:09,770
+Adoption is growing rapidly. 
+采用率正在迅速增长
+
+68
+00:04:10,360 --> 00:04:15,890
+Global users are troubling in the last 3 years to 2.5 million. 
+在过去的 3 年里 全球用户数量达到了 250万
+
+69
+00:04:15,900 --> 00:04:19,490
+And I should say that some of these figures are a little bit out of date. 
+我要说的是 其中一些数字有点已经过时了
+
+70
+00:04:19,500 --> 00:04:19,730
+Now. 
+现在
+
+71
+00:04:19,740 --> 00:04:25,770
+So I think that 2.5 million is actually more like 3 or 3.5 million at this point. 
+所以我认为 250 万实际上更像是 300 万或 350 万
+
+72
+00:04:27,080 --> 00:04:32,390
+RUST is also the most loved language amongst developers for the past 6 years. 
+在过去的 6 年里 Rust 也是开发人员最喜爱的语言
+
+73
+00:04:33,180 --> 00:04:34,760
+That is incredible. 
+太不可思议了
+
+74
+00:04:35,480 --> 00:04:38,190
+So many developers that come to Rust, 
+如此多的开发人员使用 Rust
+
+75
+00:04:38,200 --> 00:04:40,030
+really grow to love using it. 
+真正成长为喜欢使用它
+
+76
+00:04:41,200 --> 00:04:42,510
+For the first time last year, 
+去年
+
+77
+00:04:42,520 --> 00:04:45,990
+Rust was also voted most wanted language amongst developers. 
+Rust 还首次被选为开发人员最想要的语言
+
+78
+00:04:46,660 --> 00:04:51,530
+That is really significant because it demonstrates that not only do people
+这是非常重要的 因为它表明不仅人们
+
+79
+00:04:51,540 --> 00:04:52,290
+love Rust, 
+喜欢 Rust
+
+80
+00:04:52,300 --> 00:04:57,770
+but companies are desperate to have good proficient RUST programmers
+而且公司也迫切希望拥有优秀 Rust 技术的程序员作为
+
+81
+00:04:57,780 --> 00:05:00,230
+as part of their staff. 
+其员工的一部分
+
+82
+00:05:01,840 --> 00:05:05,750
+The great thing about RUST and its memory safety features is that it's now
+Rust 及其内存安全功能的伟大之处在于
+
+83
+00:05:05,760 --> 00:05:09,270
+being cited as a key security solution. 
+它现在被认为是一种关键的安全解决方案
+
+84
+00:05:09,840 --> 00:05:11,070
+For open source, 
+对于开源来说
+
+85
+00:05:11,200 --> 00:05:16,390
+it's really important as part of supply chain security initiatives, 
+它作为供应链安全计划的一部分非常重要
+
+86
+00:05:16,790 --> 00:05:20,380
+because it avoids a lot of the memory issues that are associated
+因为它避免了许多与 C++ 等语言
+
+87
+00:05:20,390 --> 00:05:22,420
+with languages like c plus. 
+相关的内存问题
+
+88
+00:05:26,280 --> 00:05:29,350
+We have a vision for us at the foundation. 
+我们在基金会有一个愿景
+
+89
+00:05:29,360 --> 00:05:32,390
+It's our job to make sure that us continues to grow, 
+我们的工作是确保我们继续成长
+
+90
+00:05:32,400 --> 00:05:35,670
+continues to be useful and continues to be productive. 
+继续有用 继续富有成效
+
+91
+00:05:36,500 --> 00:05:39,690
+We want us to be considered a universally safe, 
+我们希望我们被认为是一种普遍安全
+
+92
+00:05:39,700 --> 00:05:41,850
+secure and sustainable language. 
+可靠和可持续的语言
+
+93
+00:05:42,000 --> 00:05:45,150
+We want it to be tRUSTed by individual developers, 
+我们希望它能得到个人开发者
+
+94
+00:05:45,160 --> 00:05:47,550
+by organizations and by governments. 
+组织和政府的信任
+
+95
+00:05:48,940 --> 00:05:53,310
+We want to make sure that RUST is maintained by a resource, 
+我们希望确保 Rust 由资源支持
+
+96
+00:05:53,800 --> 00:05:57,630
+supported, inclusive and diverse global community.
+包容和多样化的全球社区维持
+
+97
+00:05:57,930 --> 00:06:02,120
+We don't just want RUST developers from the us or from europe. 
+我们不只是想要来自美国或欧洲的 Rust 开发人员
+
+98
+00:06:02,130 --> 00:06:06,500
+We want to embrace people all over the world to use RUST. 
+我们希望拥抱世界各地的人们使用 Rust
+
+99
+00:06:06,510 --> 00:06:08,800
+As i've said, 
+正如我所说的
+
+100
+00:06:08,810 --> 00:06:10,800
+Rust adoption continues to grow, 
+Rust 的采用率继续增长
+
+101
+00:06:10,810 --> 00:06:13,400
+and we want to see that trajectory continue. 
+我们希望看到这一轨迹继续下去
+
+102
+00:06:13,700 --> 00:06:18,650
+We want it to become the go to language for its security and memory safety features. 
+我们希望它因其安全性和内存安全功能而成为热门语言
+
+103
+00:06:19,750 --> 00:06:22,980
+We want to know that the companies that benefit most from RUST, 
+我们想知道的是 从 Rust 中受益最大的公司
+
+104
+00:06:23,340 --> 00:06:27,810
+become and continue to be active investors and stakeholders in its future growth. 
+将成为并继续成为其未来增长的积极投资者和利益相关者
+
+105
+00:06:27,820 --> 00:06:32,820
+We want those companies to join the foundation to help govern how we
+我们希望这些公司加入基金会
+
+106
+00:06:32,830 --> 00:06:34,460
+develop the language. 
+帮助管理我们开发语言的方式
+
+107
+00:06:35,410 --> 00:06:38,660
+And we want to invest in Rust education, 
+我们希望投资于 Rust 教育
+
+108
+00:06:38,670 --> 00:06:42,180
+we want to develop training and we want to increase opportunities
+我们希望发展培训以及
+
+109
+00:06:42,190 --> 00:06:44,450
+and growth in use and adoption. 
+增加使用和接纳的机会
+
+110
+00:06:49,790 --> 00:06:56,130
+Some of the ways we're investing in Rust through a security initiative, 
+我们通过安全计划对 Rust 进行投资的一些方式
+
+111
+00:06:56,140 --> 00:06:58,850
+which is helping to secure the RUST ecosystem. 
+有助于保护 Rust 生态系统
+
+112
+00:06:59,350 --> 00:07:02,710
+That means were ensuring that your software is secure, 
+这意味着我们确保您的软件是安全的
+
+113
+00:07:03,160 --> 00:07:07,950
+were trying to automate tooling and features in the RUST ecosystem, 
+我们尝试在 Rust 生态系统中自动化工具和功能
+
+114
+00:07:08,350 --> 00:07:11,020
+so that you are not victims of typo squatting, 
+这样您就不会被打字错误所困扰
+
+115
+00:07:11,310 --> 00:07:13,810
+that the crates are not vulnerable to attack, 
+代码库不容易受到攻击
+
+116
+00:07:14,120 --> 00:07:17,920
+and that your software can be used all around the world. 
+并且您的软件可以在世界各地使用
+
+117
+00:07:19,790 --> 00:07:25,650
+We have a RUST to c plus inter operation initiative that
+我们有一个 Rust 到 C++ 的交互操作计划
+
+118
+00:07:25,660 --> 00:07:29,290
+is working to help bridge the gap between RUST and C++, 
+该计划正在帮助弥合 Rust 和 C++ 之间的差距
+
+119
+00:07:29,300 --> 00:07:32,210
+because we want to ensure that companies that have a lot
+因为我们希望确保拥有大量 C++
+
+120
+00:07:32,220 --> 00:07:37,460
+of legacy C++ code can still use Rust to make that code safer. 
+代码的公司仍然可以使用 Rust 来使代码更安全
+
+121
+00:07:38,000 --> 00:07:39,550
+We want to make sure that, look,
+我们想要确保
+
+122
+00:07:39,560 --> 00:07:42,550
+those companies that would like to move to Rust, 
+那些想要转移到 Rust
+
+123
+00:07:42,560 --> 00:07:44,390
+but can't rewrite everything, 
+但不能重写一切的公司
+
+124
+00:07:44,960 --> 00:07:47,350
+can still use the memory safety features. 
+仍然可以使用内存安全功能
+
+125
+00:07:49,020 --> 00:07:52,370
+We have developed this year a safety critical consortium, 
+我们今年成立了一个安全关键联盟
+
+126
+00:07:52,720 --> 00:07:56,710
+which is working to bring together the safety critical industry to ensure
+致力于将安全关键行业聚集在一起
+
+127
+00:07:56,720 --> 00:07:58,470
+that Rust is fit for purpose. 
+以确保 Rust 符合目的
+
+128
+00:07:59,000 --> 00:08:02,550
+If any of you are working in a safety critical industry
+如果你们中的任何人在安全关键行业工作
+
+129
+00:08:02,560 --> 00:08:04,670
+and would like to join that consortium, 
+并希望加入该联盟
+
+130
+00:08:04,830 --> 00:08:06,470
+please look at our website. 
+请查看我们的网站
+
+131
+00:08:06,480 --> 00:08:10,880
+We'd be delighted to have you join that consortium and share your views
+我们很高兴您能加入该联盟
+
+132
+00:08:10,890 --> 00:08:14,070
+with us were also working on a Rust
+并与我们分享您的观点
+
+133
+00:08:14,080 --> 00:08:22,060
+specification to provide basic and universal RUST back to enable people to program
+我们还在制定 Rust 规范 以提供基本和通用的 Rust
+
+134
+00:08:22,550 --> 00:08:23,900
+the same all over the world. 
+使人们能够在世界各地进行相同的编程
+
+135
+00:08:25,050 --> 00:08:27,070
+We have a community grants program, 
+我们有一个社区资助计划
+
+136
+00:08:27,610 --> 00:08:30,440
+which helps maintainers work on the projects that they love. 
+帮助维护人员在他们喜欢的项目上工作
+
+137
+00:08:30,830 --> 00:08:33,860
+The community grants program provides grants for events, 
+社区补助金计划为一年中持续
+
+138
+00:08:34,670 --> 00:08:39,380
+for travel and for fellowships that last between 6 months in a year, 
+6个月的活动
+
+139
+00:08:39,730 --> 00:08:45,160
+a lot of those grants make sure that individuals can work on areas
+旅行和奖学金提供补助金 其中很多补助金确保个人可以在他们真正
+
+140
+00:08:45,170 --> 00:08:47,480
+of the RUST project that they really love, 
+喜欢和感兴趣的 Rust
+
+141
+00:08:47,490 --> 00:08:49,200
+and they're really interested in. 
+项目领域工作
+
+142
+00:08:49,510 --> 00:08:52,510
+And that will help the Rust community overall. 
+这将有助于整个 Rust 社区
+
+143
+00:08:52,520 --> 00:08:58,030
+And we have a Rust education initiative where we are developing
+我们有一个 Rust 教育计划 我们正在为想要学习 Rust
+
+144
+00:08:58,040 --> 00:09:00,710
+official RUST courses online for developers, 
+或想要学习嵌入式等特定内容的
+
+145
+00:09:00,720 --> 00:09:04,910
+wanting to learn RUST or wanting to learn specific things like embedded. 
+开发人员开发正式的在线 Rust 课程
+
+146
+00:09:05,230 --> 00:09:06,010
+Or I think. 
+或者我认为
+
+147
+00:09:11,100 --> 00:09:12,550
+So looking to the future, 
+从未来的角度考虑
+
+148
+00:09:14,120 --> 00:09:16,320
+Rust numbers are growing all the time. 
+Rust 的数量一直在增长
+
+149
+00:09:16,330 --> 00:09:19,600
+There's billions of crates that I have downloads every year. 
+我每年都会下载数十亿个库
+
+150
+00:09:20,190 --> 00:09:20,660
+As I said, 
+正如我所说 我们正在调查
+
+151
+00:09:20,670 --> 00:09:24,660
+we're investigating but investigating new initiatives to support and grow
+新的倡议
+
+152
+00:09:24,670 --> 00:09:26,420
+the Rust community all the time. 
+以支持和发展 Rust 社区
+
+153
+00:09:26,760 --> 00:09:30,470
+If any of you have ideas about what you think the Rust foundation
+如果你们中的任何人对 Rust 基金会应该如何发展
+
+154
+00:09:30,480 --> 00:09:32,750
+should be doing to develop Rust, 
+Rust 有任何想法
+
+155
+00:09:32,760 --> 00:09:34,070
+please get in touch with us. 
+请与我们联系
+
+156
+00:09:34,730 --> 00:09:38,200
+We're also working with governments around the world to promote RUSTs, 
+我们还与世界各地的政府合作 促进 Rust
+
+157
+00:09:38,210 --> 00:09:39,920
+features and memory safety. 
+特性和内存安全
+
+158
+00:09:40,370 --> 00:09:41,760
+This is really important. 
+这真的很重要
+
+159
+00:09:41,770 --> 00:09:45,920
+Governments have a lot of sway over what kind of code should be used
+政府对应该使用哪种代码来确保供应链安全
+
+160
+00:09:45,930 --> 00:09:47,680
+to secure the supply chain. 
+有很大的影响力
+
+161
+00:09:48,220 --> 00:09:51,490
+We're working closely with those governments to ensure they understand what
+我们正在与这些政府密切合作
+
+162
+00:09:51,500 --> 00:09:52,810
+RUST can provide. 
+以确保他们了解 Rust 可以提供什么
+
+163
+00:09:53,740 --> 00:09:57,570
+We're also hoping to work with more and more companies in china and asia
+我们也希望与中国和亚洲地区越来越多的公司
+
+164
+00:09:57,580 --> 00:09:58,330
+area. 
+合作
+
+165
+00:09:58,690 --> 00:10:01,760
+We want to understand what your needs are for adoption. 
+我们希望了解您对融入 Rust 的需求
+
+166
+00:10:01,770 --> 00:10:06,730
+We want to understand how we can help make adoption easier and more smooth
+我们希望了解如何帮助您更轻松
+
+167
+00:10:06,740 --> 00:10:07,450
+for you. 
+更顺利地采用
+
+168
+00:10:08,360 --> 00:10:13,790
+We hope to partner with chinese organizations in 2025 to contribute to events, 
+我们希望在2025年与中国组织合作
+
+169
+00:10:14,030 --> 00:10:17,300
+because we would love to come and see you all and meet you all. 
+为活动做出贡献 因为我们很乐意与你们见面
+
+170
+00:10:20,460 --> 00:10:24,040
+So please, my main message here is get involved.
+所以我的想法是请大家参与进来
+
+171
+00:10:24,050 --> 00:10:25,200
+First is growing. 
+首先是成长
+
+172
+00:10:25,210 --> 00:10:27,120
+It's really exciting faith, 
+这是非常令人兴奋的信仰
+
+173
+00:10:27,130 --> 00:10:31,330
+and we would love to have you join us in one or another way. 
+我们希望你能以某种方式加入我们
+
+174
+00:10:32,220 --> 00:10:35,610
+We definitely need more maintainers on the Rust project. 
+Rust 项目确实需要更多的维护人员
+
+175
+00:10:36,210 --> 00:10:37,970
+There is a Rust zulip chat, 
+有一个 Rust zulip Chat
+
+176
+00:10:37,980 --> 00:10:44,460
+which can enable you to talk directly with the leadership and perhaps join
+它可以让你直接与领导层交谈
+
+177
+00:10:44,470 --> 00:10:46,060
+some of the project teams. 
+也许还可以加入一些项目团队
+
+178
+00:10:46,370 --> 00:10:49,810
+We would love you to contribute to the leadership of the Rust project. 
+我们希望您能为 Rust 项目的领导做出贡献
+
+179
+00:10:51,330 --> 00:10:53,080
+Sign up to this weekend Rust. 
+报名参加这个周末的 Rust
+
+180
+00:10:53,090 --> 00:10:57,360
+That is a great mailing list that tells you what's going on in RUST all
+这是一个很棒的邮件列表
+
+181
+00:10:57,370 --> 00:10:58,280
+over the world. 
+它告诉您世界各地的 Rust 正在发生什么
+
+182
+00:10:58,650 --> 00:11:02,880
+It provides information on the latest rfcs and provides opportunities
+它提供了有关最新 RFC 的信息
+
+183
+00:11:02,890 --> 00:11:04,480
+for developers to get involved. 
+并为开发人员提供了参与机会
+
+184
+00:11:05,320 --> 00:11:10,190
+We would love to have more chinese companies join the Rust foundation as members. 
+我们希望有更多的中国公司加入 Rust 基金会
+
+185
+00:11:10,930 --> 00:11:15,240
+Our members shape our strategy and our investment approach and they
+我们的成员塑造我们的战略和投资方法
+
+186
+00:11:15,250 --> 00:11:17,040
+influence how we do things. 
+他们影响我们做事的方式
+
+187
+00:11:17,430 --> 00:11:22,260
+Having more chinese members as part of the foundation will enable asia
+让更多的中国成员成为基金会的一部分
+
+188
+00:11:22,270 --> 00:11:26,370
+to have a much more prominent voice in the work we do and how we
+将使亚洲在我们所做的工作和我们的治理方式中拥有更突出的
+
+189
+00:11:26,380 --> 00:11:27,170
+are governed. 
+发言权
+
+190
+00:11:29,340 --> 00:11:31,930
+So thank you all for listening. 
+谢谢大家的聆听
+
+191
+00:11:31,940 --> 00:11:34,250
+I hope you all have a fantastic event, 
+我希望你们都有一个精彩的大会
+
+192
+00:11:34,260 --> 00:11:38,070
+and I hope to be there next year to meet you all in person. 
+我希望明年能亲自去那里与你们见面
+
+193
+00:11:38,760 --> 00:11:40,350
+Thank you very much. 
+非常感谢
+
