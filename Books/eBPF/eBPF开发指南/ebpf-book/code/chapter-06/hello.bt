@@ -1,0 +1,3 @@
+#!/usr/local/bin/bpftrace
+BEGIN { printf("Hello, World!\n"); }
+
