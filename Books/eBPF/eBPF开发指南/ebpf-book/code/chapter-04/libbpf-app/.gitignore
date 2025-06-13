@@ -1,0 +1,14 @@
+/.output
+/bootstrap
+/minimal
+/minimal_legacy
+/uprobe
+/kprobe
+/fentry
+/profile
+/usdt
+/sockfilter
+/tc
+.DS_Store
+build/
+

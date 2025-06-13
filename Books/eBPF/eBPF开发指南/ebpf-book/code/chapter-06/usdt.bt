@@ -1,0 +1,14 @@
+usdt:./usdt_demo:test:loop_start
+{
+    printf("Loop started\n");
+}
+
+usdt:./usdt_demo:test:loop_end
+{
+    printf("Loop ended\n");
+}
+
+usdt:./usdt_demo:test:add
+{
+    printf("Add: %d = %d + %d\n", arg2, arg1, arg0);
+}
