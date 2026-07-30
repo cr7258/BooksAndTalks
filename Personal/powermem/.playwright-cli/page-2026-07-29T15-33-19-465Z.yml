@@ -1,0 +1,48 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e8]:
+        - list "演讲目录" [ref=e12]:
+          - listitem [ref=e13]:
+            - generic [ref=e14]: "01"
+            - strong [ref=e16]:
+              - text: 为什么需要
+              - emphasis [ref=e17]: Memory
+          - listitem [ref=e18]:
+            - generic [ref=e19]: "02"
+            - strong [ref=e21]:
+              - emphasis [ref=e22]: OpenClaw
+              - text: 默认 Memory 机制
+          - listitem [ref=e23]:
+            - generic [ref=e24]: "03"
+            - strong [ref=e26]:
+              - emphasis [ref=e27]: PowerMem
+              - text: 的记忆生命周期
+          - listitem [ref=e28]:
+            - generic [ref=e29]: "04"
+            - strong [ref=e31]:
+              - emphasis [ref=e32]: PowerMem
+              - text: 实践
+        - generic [ref=e33]: 02 / 20
+      - text: › › › ‹ › › ‹
+    - navigation [ref=e36]:
+      - generic [ref=e37]:
+        - button "Enter fullscreen" [ref=e38] [cursor=pointer]
+        - button "Go to previous slide" [ref=e41] [cursor=pointer]
+        - button "Go to next slide" [ref=e44] [cursor=pointer]
+        - button "Show slide overview" [ref=e47] [cursor=pointer]
+        - button "Toggle camera view" [ref=e51] [cursor=pointer]
+        - button "Record video" [ref=e54] [cursor=pointer]
+        - button [ref=e58] [cursor=pointer]:
+          - button "Select recording device" [ref=e59]
+        - button "Show drawing toolbar" [ref=e63] [cursor=pointer]
+        - button "Presenter Mode" [ref=e67] [cursor=pointer]
+        - button "Show editor" [ref=e70] [cursor=pointer]
+        - link "Browser Exporter" [ref=e73] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e78] [cursor=pointer]:
+          - button "Change sync settings" [ref=e79]
+        - button [ref=e84] [cursor=pointer]:
+          - button "More Options" [ref=e85]
+        - generic [ref=e89]: 2 / 20
+  - textbox "Goto..." [disabled] [ref=e92]

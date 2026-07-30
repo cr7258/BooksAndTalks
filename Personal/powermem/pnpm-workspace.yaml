@@ -1,0 +1,4 @@
+allowBuilds:
+  playwright-chromium: true
+  sharp: true
+

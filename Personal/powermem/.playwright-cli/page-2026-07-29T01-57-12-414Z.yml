@@ -1,0 +1,28 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "seekdb：一体化混合检索" [level=2] [ref=e10]
+      - figure [ref=e14]:
+        - img "OceanBase seekdb Hybrid Search Architecture" [ref=e15]
+      - generic [ref=e16]: 17 / 19
+    - navigation [ref=e19]:
+      - generic [ref=e20]:
+        - button "Enter fullscreen" [ref=e21] [cursor=pointer]
+        - button "Go to previous slide" [ref=e24] [cursor=pointer]
+        - button "Go to next slide" [ref=e27] [cursor=pointer]
+        - button "Show slide overview" [ref=e30] [cursor=pointer]
+        - button "Toggle camera view" [ref=e34] [cursor=pointer]
+        - button "Record video" [ref=e37] [cursor=pointer]
+        - button [ref=e41] [cursor=pointer]:
+          - button "Select recording device" [ref=e42]
+        - button "Show drawing toolbar" [ref=e46] [cursor=pointer]
+        - button "Presenter Mode" [ref=e50] [cursor=pointer]
+        - button "Show editor" [ref=e53] [cursor=pointer]
+        - link "Browser Exporter" [ref=e56] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e61] [cursor=pointer]:
+          - button "Change sync settings" [ref=e62]
+        - button [ref=e67] [cursor=pointer]:
+          - button "More Options" [ref=e68]
+        - generic [ref=e72]: 17 / 19
+  - textbox "Goto..." [disabled] [ref=e75]

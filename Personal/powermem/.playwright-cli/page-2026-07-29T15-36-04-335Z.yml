@@ -1,0 +1,77 @@
+- generic [ref=e6]:
+  - text: › › › ‹ › › ‹
+  - generic [ref=e8]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: 衰减公式：
+        - strong [ref=e14]:
+          - text: decay = e
+          - superscript [ref=e15]: −t/S
+      - generic [ref=e16]:
+        - img "相同初始保留率 0.72 且无访问强化时，working、short_term 和 long_term 三个层级的实际保留率衰减曲线" [ref=e18]:
+          - generic [ref=e25]: 实际保留率
+          - generic [ref=e26]: 统一 R₀ = 0.72 · 无访问强化
+          - generic [ref=e27]: "0.72"
+          - generic [ref=e28]: "0.30"
+          - generic [ref=e29]: "0"
+          - generic [ref=e30]:
+            - generic [ref=e31]: "0"
+            - generic [ref=e32]: "2"
+            - generic [ref=e33]: "4"
+            - generic [ref=e34]: "6"
+            - generic [ref=e35]: "8"
+            - generic [ref=e36]: "10"
+            - generic [ref=e37]: "12"
+            - generic [ref=e38]: "14"
+          - generic [ref=e39]: 时间（天）
+          - generic [ref=e40]: ③ 温和遗忘 · long_term · S = 90d
+          - generic [ref=e41]: ② 平衡（会议消息）· short_term
+          - generic [ref=e42]: rate = 10.5 · S = 10.5d
+          - generic [ref=e43]: ① 激进遗忘 · working · S = 1.5d
+          - generic [ref=e44]: 跌破遗忘阈值 0.3
+          - generic [ref=e45]: 9.2d
+          - generic [ref=e46]: t = S
+          - generic [ref=e47]: 10.5d
+        - complementary [ref=e48]:
+          - generic [ref=e49]: S 参数含义
+          - paragraph [ref=e50]:
+            - text: t = S 时
+            - generic [ref=e51]:
+              - text: decay = e
+              - superscript [ref=e52]: −1
+          - strong [ref=e53]: ≈ 36.8%
+          - generic [ref=e54]:
+            - text: 实际保留率
+            - generic [ref=e55]:
+              - text: R
+              - subscript [ref=e56]: current
+              - text: = R₀ × decay
+            - text: 会议消息 ≈ 0.265
+      - generic [ref=e57]:
+        - article [ref=e58]:
+          - generic [ref=e59]:
+            - strong [ref=e60]: ① 激进遗忘
+            - generic [ref=e61]: working
+          - code [ref=e62]: rate = 1.5
+          - code [ref=e63]: S = 36h
+          - paragraph [ref=e64]: 1 天后保留 ≈ 37.0%
+        - article [ref=e65]:
+          - generic [ref=e66]:
+            - strong [ref=e67]: ② 平衡
+            - generic [ref=e68]: short_term
+          - code [ref=e69]: rate = 10.5
+          - code [ref=e70]: S = 10.5d
+          - paragraph [ref=e71]: 1 天后保留 ≈ 65.5%
+        - article [ref=e72]:
+          - generic [ref=e73]:
+            - strong [ref=e74]: ③ 温和遗忘
+            - generic [ref=e75]: long_term
+          - code [ref=e76]: rate = 90
+          - code [ref=e77]: S = 90d
+          - paragraph [ref=e78]: 1 天后保留 ≈ 71.2%
+        - generic [ref=e79]:
+          - generic [ref=e80]: 结论：
+          - strong [ref=e81]: S 越大
+          - generic [ref=e82]: 遗忘越慢
+          - generic [ref=e83]: 统一 R₀ = 0.72无访问或复习强化
+    - generic [ref=e84]: 12 / 20

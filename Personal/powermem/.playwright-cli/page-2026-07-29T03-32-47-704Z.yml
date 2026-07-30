@@ -1,0 +1,84 @@
+- generic [active] [ref=f1e1]:
+  - link "跳到实验台" [ref=f1e2] [cursor=pointer]:
+    - /url: "#workspace"
+  - banner [ref=f1e3]:
+    - strong [ref=f1e10]: PowerMem Memory Lab
+    - button "重置沙箱" [ref=f1e14] [cursor=pointer]
+  - main [ref=f1e19]:
+    - generic [ref=f1e20]:
+      - generic [ref=f1e21]:
+        - generic [ref=f1e22]:
+          - heading "搜索结果会被记忆状态改变吗？" [level=1] [ref=f1e23]
+          - paragraph [ref=f1e24]: 亲手写入记忆、回拨访问时间并执行查询。所有操作都发生在独立的 PowerMem collection 中。
+        - generic [ref=f1e25]:
+          - generic [ref=f1e26]: COLLECTION
+          - strong [ref=f1e27]: 正在读取…
+      - region "实验操作" [ref=f1e28]:
+        - generic [ref=f1e29]:
+          - generic [ref=f1e30]:
+            - generic [ref=f1e31]: 旧记忆未访问时间
+            - generic [ref=f1e32]: 后台将真实更新 last_reviewed
+          - generic [ref=f1e33]:
+            - spinbutton "旧记忆未访问时间" [ref=f1e34]: "24"
+            - generic [ref=f1e35]: 小时
+          - button "应用时间" [ref=f1e36] [cursor=pointer]
+        - generic [ref=f1e37]:
+          - generic [ref=f1e38]: 搜索问题
+          - searchbox "搜索问题" [ref=f1e42]: Atlas 项目支付重试采用什么防重方案？
+          - button "执行搜索" [ref=f1e43] [cursor=pointer]
+      - region [ref=f1e44]:
+        - generic [ref=f1e45]:
+          - generic [ref=f1e46]:
+            - heading "记忆沙箱" [level=2] [ref=f1e47]
+            - paragraph [ref=f1e48]: 直接读取 SeekDB 中的 intelligence metadata
+          - generic [ref=f1e49]: 0 条记忆
+        - generic [ref=f1e50]: 点击“重置沙箱”，由 PowerMem 写入两条真实记忆。
+      - region [ref=f1e52]:
+        - generic [ref=f1e53]:
+          - generic [ref=f1e54]:
+            - heading "同一次搜索，两种排序视角" [level=2] [ref=f1e55]
+            - paragraph [ref=f1e56]: 执行搜索后显示实际返回值
+          - generic [ref=f1e57]:
+            - generic [ref=f1e58]: 原始相关性
+            - generic [ref=f1e60]: 记忆感知
+        - generic [ref=f1e62]:
+          - generic [ref=f1e63]:
+            - generic [ref=f1e64]:
+              - generic [ref=f1e65]:
+                - heading "仅看检索相关性" [level=3] [ref=f1e66]
+                - paragraph [ref=f1e67]: 按 Hybrid RRF original_score 排序
+              - code [ref=f1e68]: original_score
+            - generic [ref=f1e70]:
+              - strong [ref=f1e71]: 还没有搜索结果
+              - generic [ref=f1e72]: 先重置沙箱，再点击“执行搜索”。
+          - generic [ref=f1e73]: × retention
+          - generic [ref=f1e77]:
+            - generic [ref=f1e78]:
+              - generic [ref=f1e79]:
+                - heading "加入记忆状态" [level=3] [ref=f1e80]
+                - paragraph [ref=f1e81]: 按 PowerMem final_score 排序
+              - code [ref=f1e82]: final_score
+            - generic [ref=f1e84]:
+              - strong [ref=f1e85]: 等待 PowerMem 响应
+              - generic [ref=f1e86]: 排名变化将在这里直接对比。
+      - generic [ref=f1e90]:
+        - generic [ref=f1e91]: 下一步
+        - strong [ref=f1e92]: 点击“重置沙箱”，真实写入两条记忆。
+    - complementary [ref=f1e93]:
+      - generic [ref=f1e94]:
+        - generic [ref=f1e95]:
+          - heading "实时事件" [level=2] [ref=f1e96]
+          - paragraph [ref=f1e97]: 每个用户操作及其后端结果
+        - button "清空事件日志" [ref=f1e98] [cursor=pointer]
+      - list [ref=f1e101]:
+        - listitem [ref=f1e102]:
+          - generic [ref=f1e103]: —
+          - generic [ref=f1e104]:
+            - strong [ref=f1e105]: 实验台已加载
+            - paragraph [ref=f1e106]: 等待用户操作。页面不会自动播放预设状态。
+      - generic [ref=f1e107]:
+        - generic [ref=f1e108]: PowerMem 源码公式
+        - code [ref=f1e109]: final = original × retention
+        - code [ref=f1e110]:
+          - text: R(t) = R₀ · e
+          - superscript [ref=f1e111]: −t / 24S

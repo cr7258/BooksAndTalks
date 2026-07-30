@@ -1,0 +1,53 @@
+- generic [ref=f4e2]:
+  - generic [ref=f4e4]:
+    - generic [ref=f4e8]:
+      - heading "艾宾浩斯遗忘曲线" [level=2] [ref=f4e10]
+      - generic [ref=f4e15]:
+        - generic [ref=f4e16]:
+          - generic [ref=f4e17]: 现代常用的指数衰减表达
+          - strong [ref=f4e18]:
+            - text: R(t) = e
+            - superscript [ref=f4e19]: −λt
+          - generic [ref=f4e20]: λ：衰减率
+        - img "记忆形成后，代理保留率从一点零下降到二十分钟约百分之五十八、一小时约百分之四十四和一天约百分之三十四" [ref=f4e21]:
+          - generic [ref=f4e22]: 记忆保留率 R(t)
+          - generic [ref=f4e31]:
+            - generic [ref=f4e32]: 记忆形成
+            - generic [ref=f4e33]: 20 分钟 · 约 58%
+            - generic [ref=f4e34]: 1 小时 · 约 44%
+            - generic [ref=f4e35]: 1 天 · 约 34%
+          - generic [ref=f4e36]: "1.0"
+          - generic [ref=f4e37]: "0.5"
+          - generic [ref=f4e38]: "0"
+          - generic [ref=f4e39]:
+            - generic [ref=f4e40]: "0"
+            - generic [ref=f4e41]: 20m
+            - generic [ref=f4e42]: 1h
+            - generic [ref=f4e43]: 1d
+          - generic [ref=f4e44]: 快速遗忘期
+          - generic [ref=f4e45]: 时间间隔 t
+        - generic:
+          - img "艾宾浩斯雕版肖像"
+          - strong: 艾宾浩斯
+      - generic [ref=f4e46]: 10 / 15
+    - navigation [ref=f4e49]:
+      - generic [ref=f4e50]:
+        - button "Enter fullscreen" [ref=f4e51] [cursor=pointer]
+        - button "Go to previous slide" [ref=f4e54] [cursor=pointer]
+        - button "Go to next slide" [ref=f4e57] [cursor=pointer]
+        - button "Show slide overview" [ref=f4e60] [cursor=pointer]
+        - button "Toggle camera view" [ref=f4e64] [cursor=pointer]
+        - button "Record video" [ref=f4e67] [cursor=pointer]
+        - button [ref=f4e71] [cursor=pointer]:
+          - button "Select recording device" [ref=f4e72]
+        - button "Show drawing toolbar" [ref=f4e76] [cursor=pointer]
+        - button "Presenter Mode" [ref=f4e80] [cursor=pointer]
+        - button "Show editor" [ref=f4e83] [cursor=pointer]
+        - link "Browser Exporter" [ref=f4e86] [cursor=pointer]:
+          - /url: /export
+        - button [ref=f4e91] [cursor=pointer]:
+          - button "Change sync settings" [ref=f4e92]
+        - button [ref=f4e97] [cursor=pointer]:
+          - button "More Options" [ref=f4e98]
+        - generic [ref=f4e102]: 10 / 15
+  - textbox "Goto..." [disabled] [ref=f4e105]

@@ -1,0 +1,16 @@
+{
+  "name": "powermem-human-like-memory-slides",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export --per-slide --wait-until none --wait 1600 --timeout 30000 --output dist/powermem-sharing.pdf",
+    "lint": "tahta-lint slides.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "52.18.0",
+    "playwright-chromium": "^1.55.0",
+    "slidev-theme-tahta": "0.13.2"
+  }
+}

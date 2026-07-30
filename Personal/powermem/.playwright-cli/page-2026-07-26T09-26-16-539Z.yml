@@ -1,0 +1,83 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹ → → → → ↓ ← ← → → →
+      - generic [ref=e8]:
+        - heading "一条信息的一生" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - strong [ref=e17]: “下周五 15:00 评审 Q2 需求文档”
+            - generic [ref=e18]: 启用 intelligent_memory 后 · 0.72 为讲解示意值
+          - generic [ref=e19]:
+            - generic [ref=e20]:
+              - article [ref=e21]:
+                - generic [ref=e22]: "01"
+                - strong [ref=e23]: 重要性评估
+                - code [ref=e24]: importance = 0.72
+                - generic [ref=e25]: 先给信息一个价值分数
+              - generic [ref=e26]: →
+              - article [ref=e27]:
+                - generic [ref=e28]: "02"
+                - strong [ref=e29]: 记忆分层
+                - code [ref=e30]: short_term
+                - generic [ref=e31]: 应该进入哪一层？
+              - generic [ref=e32]: →
+              - article [ref=e33]:
+                - generic [ref=e34]: "03"
+                - strong [ref=e35]: 参数建档
+                - code [ref=e36]: R₀=.72 · S=252h
+                - generic [ref=e37]: 衰减与复习计划已生成
+              - generic [ref=e38]: →
+              - article [ref=e39]:
+                - generic [ref=e40]: "04"
+                - strong [ref=e41]: 时间衰减
+                - code [ref=e42]: R(t)=.72e⁻ᵗ⁄²⁵²
+                - generic [ref=e43]: 访问时按经过时间实时计算
+            - generic [ref=e44]:
+              - generic [ref=e45]: 持续演进
+              - generic [ref=e46]: ↓
+            - generic [ref=e47]:
+              - article [ref=e48]:
+                - generic [ref=e49]: "07"
+                - strong [ref=e50]: 全局优化
+                - code [ref=e51]: exact ✓
+                - generic [ref=e52]: 语义 / 压缩：主链路待接通
+              - generic [ref=e53]: ←
+              - article [ref=e54]:
+                - generic [ref=e55]: "06"
+                - strong [ref=e56]: 搜索重排
+                - code [ref=e57]: base × retention × forgotten
+                - generic [ref=e58]: 此刻应该排在第几？
+              - generic [ref=e59]: ←
+              - article [ref=e60]:
+                - generic [ref=e61]: "05"
+                - strong [ref=e62]: 访问触发
+                - code [ref=e63]: short_term → long_term
+                - generic [ref=e64]: 强化、晋升或标记遗忘
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - strong [ref=e67]: 遗忘不是一次“要不要删”的决定
+              - generic [ref=e68]: 保留率持续下降；访问、强化与治理共同改变记忆的去向。
+            - emphasis [ref=e69]: 有限资源 → 价值优先 → 更高检索信噪比
+        - generic [ref=e70]: 14 / 14
+    - navigation [ref=e73]:
+      - generic [ref=e74]:
+        - button "Enter fullscreen" [ref=e75] [cursor=pointer]
+        - button "Go to previous slide" [ref=e78] [cursor=pointer]
+        - button "Go to next slide"
+        - button "Show slide overview" [ref=e81] [cursor=pointer]
+        - button "Toggle camera view" [ref=e85] [cursor=pointer]
+        - button "Record video" [ref=e88] [cursor=pointer]
+        - button [ref=e92] [cursor=pointer]:
+          - button "Select recording device" [ref=e93]
+        - button "Show drawing toolbar" [ref=e97] [cursor=pointer]
+        - button "Presenter Mode" [ref=e101] [cursor=pointer]
+        - button "Show editor" [ref=e104] [cursor=pointer]
+        - link "Browser Exporter" [ref=e107] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e112] [cursor=pointer]:
+          - button "Change sync settings" [ref=e113]
+        - button [ref=e118] [cursor=pointer]:
+          - button "More Options" [ref=e119]
+        - generic [ref=e123]: 14 / 14
+  - textbox "Goto..." [disabled] [ref=e126]

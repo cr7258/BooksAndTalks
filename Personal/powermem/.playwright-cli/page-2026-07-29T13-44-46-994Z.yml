@@ -1,0 +1,102 @@
+- generic [active] [ref=e1]:
+  - link "跳到实验台" [ref=e2] [cursor=pointer]:
+    - /url: "#workspace"
+  - banner [ref=e3]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: PowerMem Memory Lab
+      - generic [ref=e11]: 真实写入 · 实时时间状态 · 真实搜索
+    - generic [ref=e12]:
+      - generic [ref=e13]: 正在连接
+      - button "重置沙箱" [ref=e16] [cursor=pointer]
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - tablist "选择实验" [ref=e23]:
+        - tab "检索中的衰减 旧方案与新方案竞争" [selected] [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: 检索中的衰减
+          - generic [ref=e26]: 旧方案与新方案竞争
+        - tab "访问驱动的晋升 工作 → 短期 → 长期" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: 访问驱动的晋升
+          - generic [ref=e29]: 工作 → 短期 → 长期
+      - tabpanel [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - heading "搜索结果会被记忆状态改变吗？" [level=1] [ref=e33]
+            - paragraph [ref=e34]: 亲手写入记忆、回拨访问时间并执行查询。所有操作都发生在独立的 PowerMem collection 中。
+          - generic [ref=e35]:
+            - generic [ref=e36]: COLLECTION
+            - strong [ref=e37]: 正在读取…
+        - region "实验操作" [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e41]: 旧记忆未访问时间
+              - generic [ref=e42]: 后台将真实更新 last_reviewed
+            - generic [ref=e43]:
+              - spinbutton "旧记忆未访问时间" [ref=e44]: "24"
+              - generic [ref=e45]: 小时
+            - button "应用时间" [ref=e46] [cursor=pointer]
+          - generic [ref=e47]:
+            - generic [ref=e48]: 搜索问题
+            - searchbox "搜索问题" [ref=e52]: Atlas 项目支付重试采用什么防重方案？
+            - button "执行搜索" [ref=e53] [cursor=pointer]
+        - region [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - heading "记忆沙箱" [level=2] [ref=e57]
+              - paragraph [ref=e58]: 直接读取 SeekDB 中的 intelligence metadata
+            - generic [ref=e59]: 0 条记忆
+          - generic [ref=e60]:
+            - generic [ref=e61]: 记忆内容
+            - generic [ref=e62]: 上次复习
+            - generic [ref=e63]: 实时保留率
+            - generic [ref=e64]: 复习次数
+          - generic [ref=e65]: 点击“重置沙箱”，由 PowerMem 写入两条真实记忆。
+        - region [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - heading "同一次搜索，两种排序视角" [level=2] [ref=e70]
+              - paragraph [ref=e71]: 执行搜索后显示实际返回值
+            - generic [ref=e72]:
+              - generic [ref=e73]: 原始相关性
+              - generic [ref=e75]: 记忆感知
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - generic [ref=e79]:
+                - generic [ref=e80]:
+                  - heading "仅看检索相关性" [level=3] [ref=e81]
+                  - paragraph [ref=e82]: 按 Hybrid RRF original_score 排序
+                - code [ref=e83]: original_score
+              - generic [ref=e85]:
+                - strong [ref=e86]: 还没有搜索结果
+                - generic [ref=e87]: 先重置沙箱，再点击“执行搜索”。
+            - generic [ref=e88]: × retention
+            - generic [ref=e92]:
+              - generic [ref=e93]:
+                - generic [ref=e94]:
+                  - heading "加入记忆状态" [level=3] [ref=e95]
+                  - paragraph [ref=e96]: 按 PowerMem final_score 排序
+                - code [ref=e97]: final_score
+              - generic [ref=e99]:
+                - strong [ref=e100]: 等待 PowerMem 响应
+                - generic [ref=e101]: 排名变化将在这里直接对比。
+        - generic [ref=e105]:
+          - generic [ref=e106]: 下一步
+          - strong [ref=e107]: 点击“重置沙箱”，真实写入两条记忆。
+      - text: 晋升阈值
+    - complementary [ref=e108]:
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - heading "实时事件" [level=2] [ref=e111]
+          - paragraph [ref=e112]: 每个用户操作及其后端结果
+        - button "清空事件日志" [ref=e113] [cursor=pointer]
+      - list [ref=e116]:
+        - listitem [ref=e117]:
+          - generic [ref=e118]: —
+          - generic [ref=e119]:
+            - strong [ref=e120]: 实验台已加载
+            - paragraph [ref=e121]: 等待用户操作。页面不会自动播放预设状态。
+      - generic [ref=e122]:
+        - generic [ref=e123]: PowerMem 源码公式
+        - code [ref=e124]: final = original × retention
+        - code [ref=e125]:
+          - text: R(t) = R₀ · e
+          - superscript [ref=e126]: −t / 24S

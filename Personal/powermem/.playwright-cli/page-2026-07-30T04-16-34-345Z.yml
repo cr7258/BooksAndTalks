@@ -1,0 +1,233 @@
+- generic [active] [ref=e1]:
+  - link "跳到实验台" [ref=e2] [cursor=pointer]:
+    - /url: "#workspace"
+  - banner [ref=e3]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: PowerMem Memory Lab
+      - generic [ref=e11]: 真实数据 · 真实搜索 · 真实状态变化
+    - generic [ref=e12]:
+      - generic [ref=e13]: PowerMem 已连接
+      - button "重新开始实验" [ref=e16] [cursor=pointer]:
+        - generic [ref=e20]: 重新开始
+  - main [ref=e21]:
+    - region [ref=e22]:
+      - generic [ref=e24]:
+        - generic [ref=e25]: LIVE MEMORY LIFECYCLE
+        - heading "一条记忆，如何被遗忘又被记住？" [level=1] [ref=e26]
+        - paragraph [ref=e27]: 从写入、衰减到访问强化与层级晋升，每一步都调用真实 PowerMem API。
+      - list "记忆生命周期进度" [ref=e28]:
+        - listitem [ref=e29]:
+          - generic [ref=e30]: "01"
+          - generic [ref=e31]:
+            - strong [ref=e32]: 写入
+            - generic [ref=e33]: 工作记忆
+          - text: 已完成
+        - listitem [ref=e34]:
+          - generic [ref=e35]: "02"
+          - generic [ref=e36]:
+            - strong [ref=e37]: 衰减
+            - generic [ref=e38]: 24h 未访问
+          - text: 已完成
+        - listitem [ref=e39]:
+          - generic [ref=e40]: "03"
+          - generic [ref=e41]:
+            - strong [ref=e42]: 强化
+            - generic [ref=e43]: 再次被检索
+          - text: 当前
+        - listitem [ref=e44]:
+          - generic [ref=e45]: "04"
+          - generic [ref=e46]:
+            - strong [ref=e47]: 晋升
+            - generic [ref=e48]: 持续访问
+        - listitem [ref=e49]:
+          - generic [ref=e50]: "05"
+          - generic [ref=e51]:
+            - strong [ref=e52]: 验证
+            - generic [ref=e53]: 长期记忆
+      - region [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: 当前实验记忆
+            - heading "Atlas 项目的支付请求必须携带幂等键；重复请求直接返回首次处理结果。" [level=2] [ref=e58]
+            - code [ref=e59]: Memory ID 737886155856412672
+          - generic [ref=e60]: 工作记忆
+        - generic [ref=e61]:
+          - article [ref=e62]:
+            - generic [ref=e63]:
+              - generic [ref=e64]: 记忆保留率
+              - generic [ref=e65]: 工作记忆经过 24 小时
+            - generic [ref=e66]:
+              - strong [ref=e67]: "25.7"
+              - generic [ref=e68]: "%"
+            - progressbar "记忆保留率" [ref=e69]
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - term [ref=e72]: 访问次数
+              - definition [ref=e73]: "0"
+              - generic [ref=e74]: access_count
+            - generic [ref=e75]:
+              - term [ref=e76]: 强化次数
+              - definition [ref=e77]: "0"
+              - generic [ref=e78]: review_count
+            - generic [ref=e79]:
+              - term [ref=e80]: 距上次强化
+              - definition [ref=e81]: 24 小时
+              - generic [ref=e82]: last_reviewed
+            - generic "下次强化：条件已满足，等待下一次访问触发" [ref=e241]:
+              - term [ref=e84]: 下次强化
+              - definition [ref=e85]: 待访问触发
+              - generic [ref=e86]:
+                - code [ref=e87]: next_review
+                - time [ref=e88]: 条件已满足
+        - paragraph [ref=e89]: 时间尺度越长，记忆衰减越慢。
+        - generic "三层记忆状态；衰减时间尺度越长，记忆衰减越慢" [ref=e90]:
+          - article [ref=e91]:
+            - generic [ref=e92]: L1
+            - generic [ref=e93]:
+              - strong [ref=e94]: 工作记忆
+              - code [ref=e95]: working
+            - generic [ref=e96]: 衰减时间尺度 1.5 天
+          - article [ref=e99]:
+            - generic [ref=e100]: L2
+            - generic [ref=e101]:
+              - strong [ref=e102]: 短期记忆
+              - code [ref=e103]: short_term
+            - generic [ref=e104]: 衰减时间尺度 10.5 天
+          - article [ref=e107]:
+            - generic [ref=e108]: L3
+            - generic [ref=e109]:
+              - strong [ref=e110]: 长期记忆
+              - code [ref=e111]: long_term
+            - generic [ref=e112]: 衰减时间尺度 90 天
+      - generic [ref=e113]:
+        - region [ref=e114]:
+          - generic [ref=e115]:
+            - generic [ref=e116]:
+              - generic [ref=e117]: 用户操作
+              - heading "操作这条记忆" [level=2] [ref=e118]
+            - generic [ref=e119]: 第 3 步 / 5
+          - form [ref=e132]:
+            - generic [ref=e137]:
+              - strong [ref=e138]: 模拟时间流逝
+              - generic [ref=e139]: 让记忆模拟经过 24 小时，观察自然衰减。
+            - strong [ref=e140]: +24h
+            - button "模拟经过 24 小时" [disabled] [ref=e141]
+          - generic [ref=e143]:
+            - generic [ref=e144]: 向 Agent 提出问题
+            - generic [ref=e145]:
+              - searchbox "向 Agent 提出问题" [ref=e149]: Atlas 如何避免支付重试造成重复扣款？
+              - button "提出问题" [ref=e150] [cursor=pointer]
+            - paragraph [ref=e154]: PowerMem 会自动检索记忆，并将命中作为访问反馈；无需手动选择记忆。
+        - region [ref=e155]:
+          - generic [ref=e156]:
+            - generic [ref=e157]:
+              - generic [ref=e158]: 本次检索反馈
+              - heading "记忆状态如何影响检索" [level=2] [ref=e159]
+            - generic [ref=e160]: 尚未提问
+          - paragraph [ref=e164]: 第一次提问后，这里会显示检索前后的真实记忆状态。
+      - generic [ref=e169]:
+        - generic [ref=e170]: 下一步
+        - strong [ref=e171]: 提出问题；本次搜索会使用衰减后的保留率，并在命中后自动强化。
+    - complementary [ref=e172]:
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - generic [ref=e175]: LIVE TRACE
+          - heading "实时事件" [level=2] [ref=e176]
+          - paragraph [ref=e177]: 用户动作与 PowerMem 自动反馈
+        - button "清空事件日志" [ref=e178] [cursor=pointer]
+      - list [ref=e181]:
+        - listitem [ref=e182]:
+          - generic [ref=e183]: —
+          - generic [ref=e184]:
+            - strong [ref=e185]: 实验台已加载
+            - paragraph [ref=e186]: 页面不会自动写入预设数据，请先写入这条记忆。
+        - listitem [ref=e195]:
+          - generic [ref=e196]: "01"
+          - generic [ref=e197]:
+            - generic [ref=e198]:
+              - strong [ref=e199]: 写入 Atlas 支付规则
+              - time [ref=e200]: 12:16:08
+            - paragraph [ref=e201]: Memory.add 创建 Memory ID 737886155856412672。
+            - generic [ref=e202]:
+              - generic [ref=e203]: POST
+              - code [ref=e204]: Memory.add
+              - generic [ref=e205]: 201 · 1517 ms
+        - listitem [ref=e206]:
+          - generic [ref=e207]: "02"
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - strong [ref=e210]: 建立可重复的初始状态
+              - time [ref=e211]: 12:16:08
+            - paragraph [ref=e212]: importance_score=0.500 → initial_retention=0.500；初始状态为 working、access_count=0。
+            - generic [ref=e213]:
+              - generic [ref=e214]: 初始保留率计算
+              - code [ref=e215]: initial_retention = max(1.000 × 0.500, 0.300) = 0.5000
+              - generic [ref=e216]:
+                - generic [ref=e217]:
+                  - term [ref=e218]:
+                    - code [ref=e219]: max_retention = 1.000
+                  - definition [ref=e220]: initial_retention 配置经 0–1 限幅后的最大值
+                - generic [ref=e221]:
+                  - term [ref=e222]:
+                    - code [ref=e223]: importance_score = 0.500
+                  - definition [ref=e224]: 这条记忆的重要性评分
+                - generic [ref=e225]:
+                  - term [ref=e226]:
+                    - code [ref=e227]: retention_floor = 0.300
+                  - definition [ref=e228]: 由 working_threshold 限幅得到的保留率下限
+                - generic [ref=e229]:
+                  - term [ref=e230]:
+                    - code [ref=e231]: initial_retention = 0.5000
+                  - definition [ref=e232]: 创建时写入的初始保留率快照
+              - generic [ref=e233]: importance_score 0.500 → 初始保留率 50.0%
+              - generic [ref=e234]: 写入时同时建立 initial_retention 与 current_retention 快照。
+            - generic [ref=e235]:
+              - generic [ref=e236]: PATCH
+              - code [ref=e237]: Ebbinghaus.process_memory_metadata → storage.update_memory
+        - listitem [ref=e242]:
+          - generic [ref=e243]: "03"
+          - generic [ref=e244]:
+            - generic [ref=e245]:
+              - strong [ref=e246]: 模拟经过 24 小时
+              - time [ref=e247]: 12:16:33
+            - paragraph [ref=e248]: 工作记忆的未强化时间增加 24 小时；记忆保留率 0.500 → 0.257。current_retention 快照、计数与层级均保持不变。
+            - generic [ref=e249]:
+              - generic [ref=e250]: 时间衰减计算
+              - code [ref=e251]: effective_retention ≈ 0.5000 × exp(−24.00 / (24 × 1.500)) = 0.2567
+              - generic [ref=e252]:
+                - generic [ref=e253]:
+                  - term [ref=e254]:
+                    - code [ref=e255]: current_retention = 0.5000
+                  - definition [ref=e256]: last_reviewed 时持久化的保留率快照
+                - generic [ref=e257]:
+                  - term [ref=e258]:
+                    - code [ref=e259]: hours_elapsed = 24.00h
+                  - definition [ref=e260]: 从 last_reviewed 到当前的总小时数
+                - generic [ref=e261]:
+                  - term [ref=e262]:
+                    - code [ref=e263]: decay_rate = 1.500 天
+                  - definition [ref=e264]: 解析后的有效衰减强度；数值越大衰减越慢
+                - generic [ref=e265]:
+                  - term [ref=e266]:
+                    - code [ref=e267]: "24"
+                  - definition [ref=e268]: 源码中把按天的 decay_rate 换算为小时的常量
+                - generic [ref=e269]:
+                  - term [ref=e270]:
+                    - code [ref=e271]: decay_factor = 0.5134
+                  - definition [ref=e272]: calculate_decay() 根据时间与 decay_rate 算出的比例
+                - generic [ref=e273]:
+                  - term [ref=e274]:
+                    - code [ref=e275]: effective_retention = 0.2567
+                  - definition [ref=e276]: 用于展示与检索排序的实时保留率
+              - generic [ref=e277]: 记忆保留率 50.0% → 25.7%
+              - generic [ref=e278]: current_retention 快照保持 0.5000；next_review 条件已满足（2026-07-30 12:16）。
+            - generic [ref=e279]:
+              - generic [ref=e280]: PATCH
+              - code [ref=e281]: storage.update_memory
+      - generic [ref=e187]:
+        - generic [ref=e188]: PowerMem 源码行为
+        - code [ref=e189]: search hit → on_get → access_count + 1
+        - code [ref=e190]:
+          - text: R(t) = R₀ · e
+          - superscript [ref=e191]: −t / 24S
+  - status [ref=e282]: 已模拟经过 24 小时，记忆状态已重新计算。

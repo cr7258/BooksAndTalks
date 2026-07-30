@@ -1,0 +1,109 @@
+- generic [ref=f1e2]:
+  - generic [ref=f1e4]:
+    - generic [ref=f1e6]:
+      - text: → →
+      - generic [ref=f1e8]:
+        - heading "记忆分层" [level=2] [ref=f1e10]
+        - generic [ref=f1e13]:
+          - generic [ref=f1e14]:
+            - generic [ref=f1e15]:
+              - generic [ref=f1e16]:
+                - generic [ref=f1e17]: L3
+                - generic [ref=f1e18]:
+                  - heading [level=3] [ref=f1e19]:
+                    - text: 长期记忆
+                    - code [ref=f1e20]: long_term
+                  - paragraph [ref=f1e21]: importance ≥ 0.8
+                - generic [ref=f1e22]:
+                  - generic [ref=f1e23]:
+                    - generic [ref=f1e24]: 层级倍率
+                    - strong [ref=f1e25]: × 60
+                  - generic [ref=f1e26]:
+                    - generic [ref=f1e27]: 强度参数
+                    - strong [ref=f1e28]: 1.5 × 60 = 90
+                  - generic [ref=f1e29]:
+                    - generic [ref=f1e30]:
+                      - text: e
+                      - superscript [ref=f1e31]: −1
+                      - text: 时间尺度
+                    - strong [ref=f1e32]: 90 天
+              - generic [ref=f1e33]:
+                - generic [ref=f1e34]: L2
+                - generic [ref=f1e35]:
+                  - heading [level=3] [ref=f1e36]:
+                    - text: 短期记忆
+                    - code [ref=f1e37]: short_term
+                  - paragraph [ref=f1e38]: 0.6 ≤ importance < 0.8
+                - generic [ref=f1e39]:
+                  - generic [ref=f1e40]:
+                    - generic [ref=f1e41]: 层级倍率
+                    - strong [ref=f1e42]: × 7
+                  - generic [ref=f1e43]:
+                    - generic [ref=f1e44]: 强度参数
+                    - strong [ref=f1e45]: 1.5 × 7 = 10.5
+                  - generic [ref=f1e46]:
+                    - generic [ref=f1e47]:
+                      - text: e
+                      - superscript [ref=f1e48]: −1
+                      - text: 时间尺度
+                    - strong [ref=f1e49]: 10.5 天
+              - generic [ref=f1e50]:
+                - generic [ref=f1e51]: L1
+                - generic [ref=f1e52]:
+                  - heading [level=3] [ref=f1e53]:
+                    - text: 工作记忆
+                    - code [ref=f1e54]: working
+                  - paragraph [ref=f1e55]: importance < 0.6
+                - generic [ref=f1e56]:
+                  - generic [ref=f1e57]:
+                    - generic [ref=f1e58]: 层级倍率
+                    - strong [ref=f1e59]: × 1
+                  - generic [ref=f1e60]:
+                    - generic [ref=f1e61]: 强度参数
+                    - strong [ref=f1e62]: 1.5 × 1 = 1.5
+                  - generic [ref=f1e63]:
+                    - generic [ref=f1e64]:
+                      - text: e
+                      - superscript [ref=f1e65]: −1
+                      - text: 时间尺度
+                    - strong [ref=f1e66]: 36 小时
+            - generic [ref=f1e67]:
+              - generic [ref=f1e68]:
+                - generic [ref=f1e69]: FORGETTING CURVE
+                - code [ref=f1e70]:
+                  - text: R(t) = R₀ · e
+                  - superscript [ref=f1e71]: −t / S
+                - generic [ref=f1e72]: S = 24h × 强度参数
+                - emphasis [ref=f1e73]: 当 t = S，剩余约 37%
+              - generic [ref=f1e74]:
+                - generic [ref=f1e75]: 首次写入示例
+                - strong [ref=f1e76]: importance = 0.72
+                - generic [ref=f1e77]: ↓
+                - generic [ref=f1e78]: short_term
+                - generic [ref=f1e79]: R₀ = 0.72 · S = 252h
+              - generic [ref=f1e80]:
+                - strong [ref=f1e81]: 0.3 不是分层线
+                - generic [ref=f1e82]: 它是 current_retention 的默认遗忘阈值。
+          - generic [ref=f1e83]: 层级越高，强度参数 S 越大，指数衰减越慢；访问强化还会继续拉长 S。
+        - generic [ref=f1e84]: 08 / 14
+    - navigation [ref=f1e87]:
+      - generic [ref=f1e88]:
+        - button "Enter fullscreen" [ref=f1e89] [cursor=pointer]
+        - button "Go to previous slide" [ref=f1e92] [cursor=pointer]
+        - button "Go to next slide" [ref=f1e95] [cursor=pointer]
+        - button "Show slide overview" [ref=f1e98] [cursor=pointer]
+        - button "Toggle camera view" [ref=f1e102] [cursor=pointer]
+        - button "Record video" [ref=f1e105] [cursor=pointer]
+        - button [ref=f1e109] [cursor=pointer]:
+          - button "Select recording device" [ref=f1e110]
+        - button "Show drawing toolbar" [ref=f1e114] [cursor=pointer]
+        - button "Presenter Mode" [ref=f1e118] [cursor=pointer]
+        - button "Show editor" [ref=f1e121] [cursor=pointer]
+        - link "Browser Exporter" [ref=f1e124] [cursor=pointer]:
+          - /url: /export
+        - button [ref=f1e129] [cursor=pointer]:
+          - button "Change sync settings" [ref=f1e130]
+        - button [ref=f1e135] [cursor=pointer]:
+          - button "More Options" [ref=f1e136]
+        - generic [ref=f1e140]: 8 / 14
+  - textbox "Goto..." [disabled] [ref=f1e143]

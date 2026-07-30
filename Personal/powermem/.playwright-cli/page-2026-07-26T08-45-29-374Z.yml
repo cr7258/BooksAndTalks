@@ -1,0 +1,89 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹ → →
+      - generic [ref=e8]:
+        - heading "衰减计算" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - generic [ref=e16]: 艾宾浩斯遗忘曲线 · 常见指数表达
+              - strong [ref=e17]:
+                - text: R(t) = e
+                - superscript [ref=e18]: −λt
+            - generic [ref=e19]:
+              - generic [ref=e20]: λ = 1 / S
+              - generic [ref=e21]: →
+              - generic [ref=e22]: S = 24 × rate
+            - generic [ref=e23]:
+              - generic [ref=e24]: PowerMem
+              - strong [ref=e25]:
+                - text: D(t) = e
+                - superscript [ref=e26]: −t/S
+              - code [ref=e27]: current_retention = R₀ × D(t)
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e30]:
+                - generic [ref=e31]:
+                  - strong [ref=e32]: 会议记忆 · short_term
+                  - generic [ref=e33]: 未访问、未强化时的保留率基线
+                - code [ref=e34]:
+                  - text: R
+                  - subscript [ref=e35]: current
+                  - text: (t) = 0.72e
+                  - superscript [ref=e36]: −t/252
+              - img "short_term 记忆从初始保留率 0.72 随时间指数衰减，并在约 9.2 天时降到 0.3" [ref=e37]:
+                - generic [ref=e44]: "0.72"
+                - generic [ref=e45]: "0.30"
+                - generic [ref=e46]: T₀
+                - generic [ref=e47]: 7d
+                - generic [ref=e48]: ≈ 9.2d
+                - generic [ref=e49]: 10.5d = S
+                - generic [ref=e50]: 21d
+                - generic [ref=e51]: 初始 0.72
+                - generic [ref=e52]: "0.370"
+                - generic [ref=e53]: 跌破阈值
+                - generic [ref=e54]: "0.265"
+            - generic [ref=e55]:
+              - generic [ref=e56]:
+                - generic [ref=e57]: 有效强度参数
+                - code [ref=e58]: rate = 1.5 × 7
+                - strong [ref=e59]: "10.5"
+              - generic [ref=e60]:
+                - generic [ref=e61]: 特征衰减时间
+                - code [ref=e62]: S = 24 × 10.5
+                - strong [ref=e63]:
+                  - text: 252h
+                  - emphasis [ref=e64]: · 10.5d
+              - generic [ref=e65]:
+                - generic [ref=e66]: 当 t = S
+                - strong [ref=e67]:
+                  - text: D(t) = e
+                  - superscript [ref=e68]: −1
+                  - text: ≈ 36.8%
+                - paragraph [ref=e69]: 这是相对初值的剩余比例；本例当前保留率为 0.72 × 36.8% = 0.265。
+          - generic [ref=e70]:
+            - strong [ref=e71]: 这是一条没有访问与复习强化的理论基线。
+            - text: 实际访问会先检查到期强化与晋升，再决定是否遗忘。
+        - generic [ref=e72]: 10 / 11
+    - navigation [ref=e75]:
+      - generic [ref=e76]:
+        - button "Enter fullscreen" [ref=e77] [cursor=pointer]
+        - button "Go to previous slide" [ref=e80] [cursor=pointer]
+        - button "Go to next slide" [ref=e83] [cursor=pointer]
+        - button "Show slide overview" [ref=e86] [cursor=pointer]
+        - button "Toggle camera view" [ref=e90] [cursor=pointer]
+        - button "Record video" [ref=e93] [cursor=pointer]
+        - button [ref=e97] [cursor=pointer]:
+          - button "Select recording device" [ref=e98]
+        - button "Show drawing toolbar" [ref=e102] [cursor=pointer]
+        - button "Presenter Mode" [ref=e106] [cursor=pointer]
+        - button "Show editor" [ref=e109] [cursor=pointer]
+        - link "Browser Exporter" [ref=e112] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e117] [cursor=pointer]:
+          - button "Change sync settings" [ref=e118]
+        - button [ref=e123] [cursor=pointer]:
+          - button "More Options" [ref=e124]
+        - generic [ref=e128]: 10 / 11
+  - textbox "Goto..." [disabled] [ref=e131]

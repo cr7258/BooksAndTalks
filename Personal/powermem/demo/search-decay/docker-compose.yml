@@ -1,0 +1,43 @@
+services:
+  powermem-search-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: powermem-search-demo:local
+    container_name: powermem-search-demo
+    ports:
+      - "80:8080"
+    env_file:
+      - /root/powermem/docker/.env
+    environment:
+      DATABASE_PROVIDER: oceanbase
+      OCEANBASE_HOST: seekdb
+      OCEANBASE_PORT: "2881"
+      OCEANBASE_USER: root@sys
+      OCEANBASE_DATABASE: powermem
+      OCEANBASE_COLLECTION: memories_decay_demo
+      OCEANBASE_EMBEDDING_MODEL_DIMS: "1536"
+    restart: unless-stopped
+    networks:
+      - powermem-network
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen("http://127.0.0.1:8080/healthz", timeout=3)
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+networks:
+  powermem-network:
+    external: true

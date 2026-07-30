@@ -1,0 +1,71 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "PowerMem 整体架构" [level=2] [ref=e10]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - strong [ref=e17]: Agent
+            - generic [ref=e18]: 客户端层
+          - generic [ref=e19]:
+            - article [ref=e20]:
+              - img "Claude logo" [ref=e21]
+              - strong [ref=e22]: Claude Code
+            - article [ref=e23]:
+              - img "OpenClaw logo" [ref=e24]
+              - strong [ref=e25]: OpenClaw
+            - article [ref=e26]:
+              - img "OpenAI logo" [ref=e27]
+              - strong [ref=e28]: Codex
+        - generic [ref=e29]:
+          - generic [ref=e30]: MCP • HTTP API
+          - generic [ref=e34]: Plugin • CLI
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - strong [ref=e37]: PowerMem
+            - generic [ref=e38]: 记忆层
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - strong [ref=e51]: PowerMem 记忆引擎
+              - generic [ref=e52]:
+                - article [ref=e53]:
+                  - strong [ref=e58]: 记忆捕获
+                - article [ref=e62]:
+                  - strong [ref=e67]: 混合检索
+                - article [ref=e71]:
+                  - strong [ref=e77]: 生命周期与自进化
+            - article [ref=e81]:
+              - strong [ref=e92]: Dashboard
+        - generic [ref=e97]:
+          - strong [ref=e99]: 基础服务层
+          - generic [ref=e100]:
+            - article [ref=e101]:
+              - strong [ref=e108]: LLM 大模型
+            - article [ref=e109]:
+              - strong [ref=e117]: Embedding / Rerank
+            - article [ref=e118]:
+              - generic [ref=e124]:
+                - strong [ref=e125]: 数据库
+                - generic [ref=e126]: SQLite · OceanBase · SeekDB
+      - generic [ref=e127]: 17 / 17
+    - navigation [ref=e130]:
+      - generic [ref=e131]:
+        - button "Enter fullscreen" [ref=e132] [cursor=pointer]
+        - button "Go to previous slide" [ref=e135] [cursor=pointer]
+        - button "Go to next slide"
+        - button "Show slide overview" [ref=e138] [cursor=pointer]
+        - button "Toggle camera view" [ref=e142] [cursor=pointer]
+        - button "Record video" [ref=e145] [cursor=pointer]
+        - button [ref=e149] [cursor=pointer]:
+          - button "Select recording device" [ref=e150]
+        - button "Show drawing toolbar" [ref=e154] [cursor=pointer]
+        - button "Presenter Mode" [ref=e158] [cursor=pointer]
+        - button "Show editor" [ref=e161] [cursor=pointer]
+        - link "Browser Exporter" [ref=e164] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e169] [cursor=pointer]:
+          - button "Change sync settings" [ref=e170]
+        - button [ref=e175] [cursor=pointer]:
+          - button "More Options" [ref=e176]
+        - generic [ref=e180]: 17 / 17
+  - textbox "Goto..." [disabled] [ref=e183]

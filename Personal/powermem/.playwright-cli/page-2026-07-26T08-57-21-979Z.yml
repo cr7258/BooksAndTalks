@@ -1,0 +1,111 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹ → → → → ↓ ← ←
+      - generic [ref=e8]:
+        - heading "搜索加权" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - generic [ref=e16]: 检索原始分
+              - strong [ref=e17]: base_score
+              - generic [ref=e18]: 向量 / 全文 / 混合检索
+            - generic [ref=e19]: ×
+            - generic [ref=e20]:
+              - generic [ref=e21]: 当前有效保留率
+              - strong [ref=e22]: effective_retention
+              - generic [ref=e23]: 初始值、层级、衰减与强化
+            - generic [ref=e24]: ×
+            - generic [ref=e25]:
+              - generic [ref=e26]: 遗忘标记系数
+              - strong [ref=e27]: forgotten_multiplier
+              - generic [ref=e28]: 已标记：0.1 其他：1.0
+            - generic [ref=e29]: =
+            - generic [ref=e30]:
+              - generic [ref=e31]: 最终排序分
+              - strong [ref=e32]: final_score
+              - generic [ref=e33]: 按结果重新降序排列
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e36]:
+                - generic [ref=e37]:
+                  - strong [ref=e38]: 同一个查询：Q2 评审
+                  - generic [ref=e39]: 示意数值 · 原始匹配度最高，不一定排第一
+                - code [ref=e40]: score × retention × marker
+              - generic [ref=e41]:
+                - generic [ref=e42]: "#1"
+                - generic [ref=e43]:
+                  - strong [ref=e44]: 昨天 · 评审改到周五
+                  - generic [ref=e45]: 最新的时间变更
+                - generic [ref=e46]:
+                  - code [ref=e47]: 0.76 × 0.83 × 1.0
+                  - strong [ref=e48]: "0.631"
+              - generic [ref=e50]:
+                - generic [ref=e51]: "#2"
+                - generic [ref=e52]:
+                  - strong [ref=e53]: 3 个月前 · 旧评审纪要
+                  - generic [ref=e54]: 匹配更高，但当前保留率较低
+                - generic [ref=e55]:
+                  - code [ref=e56]: 0.98 × 0.30 × 1.0
+                  - strong [ref=e57]: "0.294"
+              - generic [ref=e59]:
+                - generic [ref=e60]: "#3"
+                - generic [ref=e61]:
+                  - strong [ref=e62]: 已标记遗忘 · 废弃日程
+                  - generic [ref=e63]: 在当前保留率之外再降权
+                - generic [ref=e64]:
+                  - code [ref=e65]: 0.95 × 0.28 × 0.1
+                  - strong [ref=e66]: "0.027"
+            - complementary [ref=e68]:
+              - strong [ref=e74]: 排序之后，再更新生命周期
+              - list [ref=e75]:
+                - listitem [ref=e76]:
+                  - generic [ref=e77]: "1"
+                  - generic [ref=e78]:
+                    - strong [ref=e79]: storage.search()
+                    - generic [ref=e80]: 先返回候选及其原始 score
+                - listitem [ref=e81]:
+                  - generic [ref=e82]: "2"
+                  - generic [ref=e83]:
+                    - strong [ref=e84]: process_search_results()
+                    - generic [ref=e85]: 计算实时保留率、乘权并排序
+                - listitem [ref=e86]:
+                  - generic [ref=e87]: "3"
+                  - generic [ref=e88]:
+                    - strong [ref=e89]: plugin.on_search()
+                    - generic [ref=e90]: 逐条调用插件内部的 on_get()
+                - listitem [ref=e91]:
+                  - generic [ref=e92]: "4"
+                  - generic [ref=e93]:
+                    - strong [ref=e94]: 写回生命周期更新
+                    - generic [ref=e95]: 访问计数、强化、晋升与重处理
+              - generic [ref=e96]:
+                - strong [ref=e97]: 不是调用公开的 Memory.get()
+                - generic [ref=e98]: 当前搜索还会忽略 on_get() 返回的删除标志。
+          - generic [ref=e99]:
+            - strong [ref=e100]: 匹配度决定“像不像”
+            - text: ；
+            - strong [ref=e101]: 有效保留率决定“现在是否值得优先想起”
+        - generic [ref=e102]: 12 / 13
+      - text: "[ ]"
+    - navigation [ref=e105]:
+      - generic [ref=e106]:
+        - button "Enter fullscreen" [ref=e107] [cursor=pointer]
+        - button "Go to previous slide" [ref=e110] [cursor=pointer]
+        - button "Go to next slide" [ref=e113] [cursor=pointer]
+        - button "Show slide overview" [ref=e116] [cursor=pointer]
+        - button "Toggle camera view" [ref=e120] [cursor=pointer]
+        - button "Record video" [ref=e123] [cursor=pointer]
+        - button [ref=e127] [cursor=pointer]:
+          - button "Select recording device" [ref=e128]
+        - button "Show drawing toolbar" [ref=e132] [cursor=pointer]
+        - button "Presenter Mode" [ref=e136] [cursor=pointer]
+        - button "Show editor" [ref=e139] [cursor=pointer]
+        - link "Browser Exporter" [ref=e142] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e147] [cursor=pointer]:
+          - button "Change sync settings" [ref=e148]
+        - button [ref=e153] [cursor=pointer]:
+          - button "More Options" [ref=e154]
+        - generic [ref=e158]: 12 / 13
+  - textbox "Goto..." [disabled] [ref=e161]

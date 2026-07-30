@@ -1,0 +1,105 @@
+- generic [ref=e1]:
+  - link "跳到实验台" [ref=e2] [cursor=pointer]:
+    - /url: "#workspace"
+  - banner [ref=e3]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: PowerMem Memory Lab
+      - generic [ref=e11]: 真实写入 · 实时时间状态 · 真实搜索
+    - generic [ref=e12]:
+      - generic [ref=e13]: PowerMem 已连接
+      - button "重置晋升实验" [ref=e169] [cursor=pointer]
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - tablist "选择实验" [ref=e23]:
+        - tab "检索中的衰减 旧方案与新方案竞争" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: 检索中的衰减
+          - generic [ref=e26]: 旧方案与新方案竞争
+        - tab "访问驱动的晋升 工作 → 短期 → 长期" [active] [selected] [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: 访问驱动的晋升
+          - generic [ref=e29]: 工作 → 短期 → 长期
+      - tabpanel [ref=e170]:
+        - generic [ref=e171]:
+          - generic [ref=e172]:
+            - heading "一条规则，怎样变成长期记忆？" [level=1] [ref=e173]
+            - paragraph [ref=e174]: 每次点击都会真实调用 Memory.get。观察访问次数如何推动同一条 记忆逐层晋升。
+          - generic [ref=e175]:
+            - generic [ref=e176]: RUN SCOPE
+            - strong [ref=e177]: memories_decay_demo
+        - region [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - generic [ref=e181]: 当前实验记忆
+              - heading "Atlas 项目发布前先走灰度环境。" [level=2] [ref=e182]
+              - code [ref=e183]: Memory ID 737665664709296128
+            - generic [ref=e184]:
+              - generic [ref=e185]:
+                - term [ref=e186]: importance
+                - definition [ref=e187]: "0.50"
+              - generic [ref=e188]:
+                - term [ref=e189]: access_count
+                - definition [ref=e190]: "5"
+              - generic [ref=e191]:
+                - term [ref=e192]: 当前层级
+                - definition [ref=e193]: 长期记忆
+          - button "已进入长期记忆" [disabled] [ref=e194]
+        - region [ref=e198]:
+          - generic [ref=e199]:
+            - generic [ref=e200]:
+              - heading "三层记忆状态" [level=2] [ref=e201]
+              - paragraph [ref=e202]: 记忆卡只会出现在当前真实 memory_type 对应的层级
+            - generic [ref=e203]: 晋升阈值 access_count ≥ 3
+          - generic [ref=e204]:
+            - article [ref=e205]:
+              - generic [ref=e206]:
+                - generic [ref=e207]:
+                  - generic [ref=e208]: L1
+                  - heading "工作记忆" [level=3] [ref=e209]
+                  - code [ref=e210]: working
+                - strong [ref=e211]: S = 1.5
+              - generic [ref=e212]: 已完成晋升
+              - paragraph [ref=e214]: 临时使用，衰减最快
+            - article [ref=e218]:
+              - generic [ref=e219]:
+                - generic [ref=e220]:
+                  - generic [ref=e221]: L2
+                  - heading "短期记忆" [level=3] [ref=e222]
+                  - code [ref=e223]: short_term
+                - strong [ref=e224]: S = 10.5
+              - generic [ref=e225]: 已完成晋升
+              - paragraph [ref=e227]: 被持续使用，衰减变慢
+            - article [ref=e231]:
+              - generic [ref=e232]:
+                - generic [ref=e233]:
+                  - generic [ref=e234]: L3
+                  - heading "长期记忆" [level=3] [ref=e235]
+                  - code [ref=e236]: long_term
+                - strong [ref=e237]: S = 90
+              - article [ref=e239]:
+                - generic [ref=e240]: 长期记忆
+                - strong [ref=e241]: Atlas 项目发布前先走灰度环境。
+                - code [ref=e242]: access 5 · retention 0.500
+              - paragraph [ref=e243]: 反复验证，衰减最慢
+        - region [ref=e244]:
+          - generic [ref=e245]:
+            - heading "访问进度" [level=2] [ref=e246]
+            - paragraph [ref=e247]: PowerMem 先读取旧 access_count 判断晋升，再将本次访问计数加一。
+          - generic "访问次数" [ref=e248]: 阈值满足
+        - generic [ref=e257]:
+          - generic [ref=e258]: 下一步
+          - strong [ref=e259]: 实验完成：同一条记忆经过真实访问，从工作记忆晋升为长期记忆。
+    - complementary [ref=e108]:
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - heading "实时事件" [level=2] [ref=e111]
+          - paragraph [ref=e112]: 每次引用及真实 memory_type 变化
+        - button "清空事件日志" [ref=e113] [cursor=pointer]
+      - list [ref=e116]:
+        - listitem [ref=e117]:
+          - generic [ref=e118]: —
+          - generic [ref=e119]:
+            - strong [ref=e120]: 实验台已加载
+            - paragraph [ref=e121]: 等待用户操作。页面不会自动播放预设状态。
+      - generic [ref=e122]:
+        - generic [ref=e123]: PowerMem 晋升规则
+        - code [ref=e124]: access_count ≥ 3
+        - code [ref=e125]: working → short_term → long_term

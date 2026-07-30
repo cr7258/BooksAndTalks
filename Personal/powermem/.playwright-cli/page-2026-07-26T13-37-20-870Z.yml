@@ -1,0 +1,51 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "三层记忆模型" [level=2] [ref=e10]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]:
+            - generic [ref=e16]:
+              - generic [ref=e17]: L3
+              - generic [ref=e18]:
+                - generic [ref=e19]:
+                  - heading "长期记忆" [level=3] [ref=e20]
+                  - code [ref=e21]: long_term
+                - paragraph [ref=e22]: 认知类比 · 长期皮层表征
+              - generic [ref=e23]:
+                - strong [ref=e24]: importance ≥ 0.8
+                - generic [ref=e25]: 默认衰减尺度 90 天
+            - code [ref=e27]: <section class="memory-model-layer memory-model-short"> <div class="memory-model-level">L2</div> <div class="memory-model-copy"> <div class="memory-model-name"> <h3>短期记忆</h3> <code>short_term</code> </div> <p>认知类比 · 海马体编码与巩固</p> </div> <div class="memory-model-rule"> <strong>0.6 ≤ importance &lt; 0.8</strong> <span>默认衰减尺度 <b>10.5 天</b></span> </div> </section> <section class="memory-model-layer memory-model-working"> <div class="memory-model-level">L1</div> <div class="memory-model-copy"> <div class="memory-model-name"> <h3>工作记忆</h3> <code>working</code> </div> <p>认知类比 · 维持当前任务信息</p> </div> <div class="memory-model-rule"> <strong>importance &lt; 0.6</strong> <span>默认衰减尺度 <b>36 小时</b></span> </div> </section>
+          - complementary [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e30]: ↑
+              - generic [ref=e31]: 层级越高，默认衰减越慢
+            - generic [ref=e32]:
+              - text: ←
+              - generic [ref=e33]: 会议纪要
+              - strong [ref=e34]: importance = 0.72
+              - generic [ref=e35]: ↓
+              - generic [ref=e36]: short_term
+        - generic [ref=e37]: 层级越高，默认衰减越慢，信息保留越久。
+      - generic [ref=e38]: 09 / 15
+    - navigation [ref=e41]:
+      - generic [ref=e42]:
+        - button "Enter fullscreen" [ref=e43] [cursor=pointer]
+        - button "Go to previous slide" [ref=e46] [cursor=pointer]
+        - button "Go to next slide" [ref=e49] [cursor=pointer]
+        - button "Show slide overview" [ref=e52] [cursor=pointer]
+        - button "Toggle camera view" [ref=e56] [cursor=pointer]
+        - button "Record video" [ref=e59] [cursor=pointer]
+        - button [ref=e63] [cursor=pointer]:
+          - button "Select recording device" [ref=e64]
+        - button "Show drawing toolbar" [ref=e68] [cursor=pointer]
+        - button "Presenter Mode" [ref=e72] [cursor=pointer]
+        - button "Show editor" [ref=e75] [cursor=pointer]
+        - link "Browser Exporter" [ref=e78] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e83] [cursor=pointer]:
+          - button "Change sync settings" [ref=e84]
+        - button [ref=e89] [cursor=pointer]:
+          - button "More Options" [ref=e90]
+        - generic [ref=e94]: 9 / 15
+  - textbox "Goto..." [disabled] [ref=e97]

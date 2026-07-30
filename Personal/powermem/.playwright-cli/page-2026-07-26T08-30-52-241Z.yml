@@ -1,0 +1,114 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹ → →
+      - generic [ref=e8]:
+        - heading "遗忘参数初始化" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - generic [ref=e16]: importance = 0.72
+              - generic [ref=e17]: →
+              - strong [ref=e18]: short_term
+            - generic [ref=e19]:
+              - generic [ref=e20]:
+                - generic [ref=e21]: 01 · 初始保留率
+                - code [ref=e22]: R₀ = max(1.0 × 0.72, 0.3)
+                - strong [ref=e23]: = 0.72
+              - generic [ref=e24]:
+                - generic [ref=e25]: 02 · 层级强度
+                - code [ref=e26]: decay_rate = 1.5 × 7
+                - strong [ref=e27]: = 10.5
+              - generic [ref=e28]:
+                - generic [ref=e29]: 03 · 复习压缩
+                - code [ref=e30]: 1 − 0.72 × 0.3
+                - strong [ref=e31]: = 0.784
+            - generic [ref=e32]:
+              - generic [ref=e33]:
+                - generic [ref=e37]:
+                  - strong [ref=e38]: metadata.intelligence
+                  - generic [ref=e39]: 连续变化的数值档案
+                - generic [ref=e40]:
+                  - generic [ref=e41]:
+                    - generic [ref=e42]: initial_retention
+                    - strong [ref=e43]: "0.72"
+                  - generic [ref=e44]:
+                    - generic [ref=e45]: current_retention
+                    - strong [ref=e46]: "0.72"
+                  - generic [ref=e47]:
+                    - generic [ref=e48]: decay_rate
+                    - strong [ref=e49]: "10.5"
+                  - generic [ref=e50]:
+                    - generic [ref=e51]: review_count
+                    - strong [ref=e52]: "0"
+                - generic [ref=e53]:
+                  - generic [ref=e54]: review_schedule
+                  - emphasis [ref=e55]: 基准 [1, 6, 24, 72, 168]h × 0.784
+                - generic [ref=e56]:
+                  - generic [ref=e57]:
+                    - strong [ref=e59]: +47m
+                    - generic [ref=e60]: next_review
+                  - generic [ref=e61]:
+                    - strong [ref=e63]: +4.7h
+                    - generic [ref=e64]: 第 2 次
+                  - generic [ref=e65]:
+                    - strong [ref=e67]: +18.8h
+                    - generic [ref=e68]: 第 3 次
+                  - generic [ref=e69]:
+                    - strong [ref=e71]: +2.35d
+                    - generic [ref=e72]: 第 4 次
+                  - generic [ref=e73]:
+                    - strong [ref=e75]: +5.49d
+                    - generic [ref=e76]: 第 5 次
+                - generic [ref=e77]:
+                  - generic [ref=e78]: last_reviewed = T₀
+                  - generic [ref=e79]: reinforcement_factor = 0.3
+                  - generic [ref=e80]: access_count = 0
+              - generic [ref=e81]:
+                - generic [ref=e88]:
+                  - strong [ref=e89]: metadata.memory_management
+                  - generic [ref=e90]: 创建时的状态快照
+                - generic [ref=e91]:
+                  - generic [ref=e92]:
+                    - generic [ref=e93]: should_promote
+                    - generic [ref=e94]: "false"
+                  - generic [ref=e95]:
+                    - generic [ref=e96]: should_forget
+                    - generic [ref=e97]: "false"
+                  - generic [ref=e98]:
+                    - generic [ref=e99]: should_archive
+                    - generic [ref=e100]: "false"
+                  - generic [ref=e101]:
+                    - generic [ref=e102]: is_active
+                    - generic [ref=e103]: "true"
+          - generic [ref=e104]:
+            - strong [ref=e105]: 不是后台定时器
+            - text: 记忆在
+            - code [ref=e106]: get / search
+            - text: 时若已到
+            - code [ref=e107]: next_review
+            - text: ，才执行强化：
+            - code [ref=e108]: R′ = min(1, R + 0.3 × (1 − R))
+            - text: ，随后推进复习计数与下一时间点。
+        - generic [ref=e109]: 09 / 11
+    - navigation [ref=e112]:
+      - generic [ref=e113]:
+        - button "Enter fullscreen" [ref=e114] [cursor=pointer]
+        - button "Go to previous slide" [ref=e117] [cursor=pointer]
+        - button "Go to next slide" [ref=e120] [cursor=pointer]
+        - button "Show slide overview" [ref=e123] [cursor=pointer]
+        - button "Toggle camera view" [ref=e127] [cursor=pointer]
+        - button "Record video" [ref=e130] [cursor=pointer]
+        - button [ref=e134] [cursor=pointer]:
+          - button "Select recording device" [ref=e135]
+        - button "Show drawing toolbar" [ref=e139] [cursor=pointer]
+        - button "Presenter Mode" [ref=e143] [cursor=pointer]
+        - button "Show editor" [ref=e146] [cursor=pointer]
+        - link "Browser Exporter" [ref=e149] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e154] [cursor=pointer]:
+          - button "Change sync settings" [ref=e155]
+        - button [ref=e160] [cursor=pointer]:
+          - button "More Options" [ref=e161]
+        - generic [ref=e165]: 9 / 11
+  - textbox "Goto..." [disabled] [ref=e168]

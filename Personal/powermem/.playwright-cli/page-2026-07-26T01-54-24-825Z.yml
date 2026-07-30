@@ -1,0 +1,49 @@
+- generic [ref=f4e2]:
+  - generic [ref=f4e4]:
+    - generic [ref=f4e6]:
+      - text: "[ ] [ ] [ ] [ ]"
+      - generic [ref=f4e8]:
+        - generic [ref=f4e9]:
+          - generic [ref=f4e10]: "[ MORE ≠ BETTER ]"
+          - heading "不是存得越多越好" [level=2] [ref=f4e11]
+        - generic [ref=f4e15]:
+          - generic [ref=f4e16]:
+            - generic [ref=f4e17]: 全部保存
+            - list [ref=f4e18]:
+              - listitem [ref=f4e19]: 重复信息不断累积
+              - listitem [ref=f4e20]: 过期内容继续参与检索
+              - listitem [ref=f4e21]: 有效信息逐渐被淹没
+              - listitem [ref=f4e22]: 存储与上下文成本上升
+          - generic [ref=f4e23]: →
+          - generic [ref=f4e24]:
+            - generic [ref=f4e25]: 有选择地记
+            - list [ref=f4e26]:
+              - listitem [ref=f4e27]: 重要信息保持可用
+              - listitem [ref=f4e28]: 使用反馈改变记忆状态
+              - listitem [ref=f4e29]: 低价值内容逐渐淡出
+              - listitem [ref=f4e30]: 检索池维持较高质量
+        - generic [ref=f4e31]:
+          - generic [ref=f4e32]: 让 Agent 像人一样记忆
+          - generic [ref=f4e33]: 05 / 06
+      - text: "[ ]"
+    - navigation [ref=f4e35]:
+      - generic [ref=f4e36]:
+        - button "Enter fullscreen" [ref=f4e37] [cursor=pointer]
+        - button "Go to previous slide" [ref=f4e40] [cursor=pointer]
+        - button "Go to next slide" [ref=f4e43] [cursor=pointer]
+        - button "Show slide overview" [ref=f4e46] [cursor=pointer]
+        - button "Toggle camera view" [ref=f4e50] [cursor=pointer]
+        - button "Record video" [ref=f4e53] [cursor=pointer]
+        - button [ref=f4e57] [cursor=pointer]:
+          - button "Select recording device" [ref=f4e58]
+        - button "Show drawing toolbar" [ref=f4e62] [cursor=pointer]
+        - button "Presenter Mode" [ref=f4e66] [cursor=pointer]
+        - button "Show editor" [ref=f4e69] [cursor=pointer]
+        - link "Browser Exporter" [ref=f4e72] [cursor=pointer]:
+          - /url: /export
+        - button [ref=f4e77] [cursor=pointer]:
+          - button "Change sync settings" [ref=f4e78]
+        - button [ref=f4e83] [cursor=pointer]:
+          - button "More Options" [ref=f4e84]
+        - generic [ref=f4e88]: 5 / 6
+  - textbox "Goto..." [disabled] [ref=f4e91]

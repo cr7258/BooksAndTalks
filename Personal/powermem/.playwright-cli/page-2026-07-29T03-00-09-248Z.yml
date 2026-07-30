@@ -1,0 +1,108 @@
+- generic [ref=f1e1]:
+  - link "跳到演示内容" [ref=f1e2] [cursor=pointer]:
+    - /url: "#demo"
+  - main [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - generic [ref=f1e10]:
+        - paragraph [ref=f1e11]: PowerMem Lab
+        - paragraph [ref=f1e12]: Search × Memory Decay
+      - generic "原始检索分数来自 testmind-dev 上的 PowerMem" [ref=f1e13]: LIVE POWERMEM SAMPLE
+    - region [ref=f1e16]:
+      - generic [ref=f1e17]:
+        - paragraph [ref=f1e18]: INTERACTIVE DEMO
+        - heading "时间与访问，如何改变搜索结果？" [level=1] [ref=f1e19]
+        - paragraph [ref=f1e20]: 相同的查询、相同的原始相关性。只改变记忆状态，观察排名如何反转。
+      - generic "搜索查询" [ref=f1e21]:
+        - generic [ref=f1e25]:
+          - generic [ref=f1e26]: 固定查询
+          - strong [ref=f1e27]: Atlas 项目支付重试采用什么防重方案？
+        - generic [ref=f1e28]: HYBRID · RRF
+    - navigation "演示阶段" [ref=f1e29]:
+      - button "01 刚写入" [ref=f1e30] [cursor=pointer]:
+        - generic [ref=f1e31]: "01"
+        - strong [ref=f1e32]: 刚写入
+      - button "02 24h 未访问" [active] [pressed] [ref=f1e33] [cursor=pointer]:
+        - generic [ref=f1e34]: "02"
+        - strong [ref=f1e35]: 24h 未访问
+      - button "03 检索强化" [ref=f1e36] [cursor=pointer]:
+        - generic [ref=f1e37]: "03"
+        - strong [ref=f1e38]: 检索强化
+    - generic [ref=f1e41]:
+      - generic [ref=f1e42]:
+        - generic [ref=f1e43]:
+          - generic [ref=f1e44]:
+            - paragraph [ref=f1e45]: 02 · DECAY
+            - heading "24h 未访问：旧记忆降权" [level=2] [ref=f1e126]
+          - generic [ref=f1e47]: 2 条候选记忆
+        - paragraph [ref=f1e48]: 只回拨旧记忆的 last_reviewed。原始检索分数不变，但实时保留率下降，排名发生反转。
+        - generic [ref=f1e49]:
+          - article [ref=f1e127]:
+            - generic [ref=f1e128]:
+              - generic [ref=f1e129]: RANK
+              - strong [ref=f1e130]: "#1"
+              - generic [ref=f1e131]: ↑ 2 → 1
+            - generic [ref=f1e132]:
+              - generic [ref=f1e133]:
+                - generic [ref=f1e134]:
+                  - generic [ref=f1e135]: 当前记忆
+                  - generic [ref=f1e136]: WORKING MEMORY
+                - generic [ref=f1e137]: ID 737504234999644160
+              - paragraph [ref=f1e138]: Atlas 项目支付重试防重方案：幂等键。
+              - generic [ref=f1e141]:
+                - generic [ref=f1e142]:
+                  - generic [ref=f1e143]: 原始检索分数
+                  - strong [ref=f1e144]: "0.016129"
+                - generic [ref=f1e145]:
+                  - generic [ref=f1e146]: 实时保留率
+                  - strong [ref=f1e147]: "0.300"
+                - generic [ref=f1e148]:
+                  - generic [ref=f1e149]: 最终分数
+                  - strong [ref=f1e150]: "0.004839"
+              - code [ref=f1e151]: 0.016129 × 0.300 = 0.004839
+          - article [ref=f1e152]:
+            - generic [ref=f1e153]:
+              - generic [ref=f1e154]: RANK
+              - strong [ref=f1e155]: "#2"
+              - generic [ref=f1e156]: ↓ 1 → 2
+            - generic [ref=f1e157]:
+              - generic [ref=f1e158]:
+                - generic [ref=f1e159]:
+                  - generic [ref=f1e160]: 旧记忆
+                  - generic [ref=f1e161]: WORKING MEMORY
+                - generic [ref=f1e162]: ID 737504232084602880
+              - paragraph [ref=f1e163]: Atlas 项目支付重试防重方案：数据库锁。
+              - generic [ref=f1e166]:
+                - generic [ref=f1e167]:
+                  - generic [ref=f1e168]: 原始检索分数
+                  - strong [ref=f1e169]: "0.016393"
+                - generic [ref=f1e170]:
+                  - generic [ref=f1e171]: 实时保留率
+                  - strong [ref=f1e172]: "0.154"
+                - generic [ref=f1e173]:
+                  - generic [ref=f1e174]: 最终分数
+                  - strong [ref=f1e175]: "0.002525"
+              - code [ref=f1e176]: 0.016393 × 0.154 = 0.002525
+      - complementary [ref=f1e98]:
+        - generic [ref=f1e99]:
+          - paragraph [ref=f1e100]: SOURCE FORMULA
+          - heading "排序是怎样算出来的？" [level=2] [ref=f1e101]
+        - generic [ref=f1e102]:
+          - generic [ref=f1e103]: 最终分数
+          - strong [ref=f1e104]: original × retention
+        - generic [ref=f1e105]: R_old(24h) = 0.300 × e^(-24 / (24 × 1.5))
+        - generic [ref=f1e106]:
+          - generic [ref=f1e107]:
+            - term [ref=f1e108]: 初始保留率 R₀
+            - definition [ref=f1e109]: "0.300"
+          - generic [ref=f1e110]:
+            - term [ref=f1e111]: 记忆强度 S
+            - definition [ref=f1e112]: 1.5 天
+          - generic [ref=f1e113]:
+            - term [ref=f1e114]: 强化系数
+            - definition [ref=f1e115]: "0.3"
+        - paragraph [ref=f1e120]: "旧记忆从 #1 降至 #2；当前记忆成为首选结果。"
+    - generic [ref=f1e121]:
+      - generic [ref=f1e122]:
+        - generic [ref=f1e123]: 核心结论
+        - strong [ref=f1e124]: 搜索决定“是否相关”，记忆状态决定“现在有多可信”。
+      - paragraph [ref=f1e125]: PowerMem · testmind-dev · Hybrid · RRF · sampled 2026/7/29 10:58:32

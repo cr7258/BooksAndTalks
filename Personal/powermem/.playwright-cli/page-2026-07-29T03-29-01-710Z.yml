@@ -1,0 +1,123 @@
+- generic [active] [ref=e1]:
+  - link "跳到实验台" [ref=e2] [cursor=pointer]:
+    - /url: "#workspace"
+  - banner [ref=e3]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: PowerMem Memory Lab
+      - generic [ref=e11]: 真实写入 · 实时时间状态 · 真实搜索
+    - generic [ref=e12]:
+      - generic [ref=e13]: PowerMem 已连接
+      - button "重置沙箱" [ref=e16] [cursor=pointer]
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - heading "搜索结果会被记忆状态改变吗？" [level=1] [ref=e25]
+          - paragraph [ref=e26]: 亲手写入记忆、回拨访问时间并执行查询。所有操作都发生在独立的 PowerMem collection 中。
+        - generic [ref=e27]:
+          - generic [ref=e28]: COLLECTION
+          - strong [ref=e29]: memories_decay_demo
+      - region "实验操作" [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]: 旧记忆未访问时间
+            - generic [ref=e34]: 后台将真实更新 last_reviewed
+          - generic [ref=e35]:
+            - spinbutton "旧记忆未访问时间" [ref=e36]: "24"
+            - generic [ref=e37]: 小时
+          - button "应用时间" [ref=e38] [cursor=pointer]
+        - generic [ref=e39]:
+          - generic [ref=e40]: 搜索问题
+          - searchbox "搜索问题" [ref=e44]: Atlas 项目支付重试采用什么防重方案？
+          - button "执行搜索" [ref=e45] [cursor=pointer]
+      - region [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - heading "记忆沙箱" [level=2] [ref=e49]
+            - paragraph [ref=e50]: 直接读取 SeekDB 中的 intelligence metadata
+          - generic [ref=e51]: 2 条记忆
+        - generic [ref=e52]:
+          - generic [ref=e53]: 记忆内容
+          - generic [ref=e54]: 上次复习
+          - generic [ref=e55]: 实时保留率
+          - generic [ref=e56]: 复习次数
+        - generic [ref=e57]:
+          - article [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]: 旧记忆
+              - generic [ref=e61]:
+                - strong [ref=e62]: Atlas 项目支付重试防重方案：数据库锁。
+                - code [ref=e63]: Memory ID 737511624767700992
+            - generic [ref=e64]:
+              - strong [ref=e65]: 刚刚
+              - generic [ref=e66]: last_reviewed 11:27:54
+            - generic [ref=e68]:
+              - strong [ref=e69]: "0.408"
+              - generic [ref=e70]: stored 0.408
+            - generic [ref=e73]:
+              - strong [ref=e74]: "1"
+              - generic [ref=e75]: 次强化
+          - article [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: 当前记忆
+              - generic [ref=e79]:
+                - strong [ref=e80]: Atlas 项目支付重试防重方案：幂等键。
+                - code [ref=e81]: Memory ID 737511626126655488
+            - generic [ref=e82]:
+              - strong [ref=e83]: 刚刚
+              - generic [ref=e84]: last_reviewed 11:27:53
+            - generic [ref=e86]:
+              - strong [ref=e87]: "0.300"
+              - generic [ref=e88]: stored 0.300
+            - generic [ref=e91]:
+              - strong [ref=e92]: "0"
+              - generic [ref=e93]: 次强化
+      - region [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - heading "同一次搜索，两种排序视角" [level=2] [ref=e97]
+            - paragraph [ref=e98]: 执行搜索后显示实际返回值
+          - generic [ref=e99]:
+            - generic [ref=e100]: 原始相关性
+            - generic [ref=e102]: 记忆感知
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - generic [ref=e107]:
+                - heading "仅看检索相关性" [level=3] [ref=e108]
+                - paragraph [ref=e109]: 按 Hybrid RRF original_score 排序
+              - code [ref=e110]: original_score
+            - generic [ref=e112]:
+              - strong [ref=e113]: 还没有搜索结果
+              - generic [ref=e114]: 输入问题并点击“执行搜索”。
+          - generic [ref=e115]: × retention
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - generic [ref=e121]:
+                - heading "加入记忆状态" [level=3] [ref=e122]
+                - paragraph [ref=e123]: 按 PowerMem final_score 排序
+              - code [ref=e124]: final_score
+            - generic [ref=e126]:
+              - strong [ref=e127]: 等待 PowerMem 响应
+              - generic [ref=e128]: 排名变化将在这里直接对比。
+      - generic [ref=e132]:
+        - generic [ref=e133]: 下一步
+        - strong [ref=e134]: 把旧记忆设为 24 小时未访问，观察保留率下降。
+    - complementary [ref=e135]:
+      - generic [ref=e136]:
+        - generic [ref=e137]:
+          - heading "实时事件" [level=2] [ref=e138]
+          - paragraph [ref=e139]: 每个用户操作及其后端结果
+        - button "清空事件日志" [ref=e140] [cursor=pointer]
+      - list [ref=e143]:
+        - listitem [ref=e144]:
+          - generic [ref=e145]: —
+          - generic [ref=e146]:
+            - strong [ref=e147]: 实验台已加载
+            - paragraph [ref=e148]: 等待用户操作。页面不会自动播放预设状态。
+      - generic [ref=e149]:
+        - generic [ref=e150]: PowerMem 源码公式
+        - code [ref=e151]: final = original × retention
+        - code [ref=e152]:
+          - text: R(t) = R₀ · e
+          - superscript [ref=e153]: −t / 24S
