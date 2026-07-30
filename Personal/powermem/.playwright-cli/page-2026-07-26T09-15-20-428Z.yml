@@ -1,0 +1,76 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹ → → → → ↓ ← ←
+      - generic [ref=e8]:
+        - heading "全局优化" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - strong [ref=e16]: 单条生命周期
+              - generic [ref=e17]: 决定“一条记忆怎么活”
+            - generic [ref=e20]:
+              - strong [ref=e21]: 全局优化
+              - generic [ref=e22]: 决定“整个记忆库留下什么”
+          - generic [ref=e23]:
+            - complementary [ref=e24]:
+              - generic [ref=e31]:
+                - strong [ref=e32]: Memory Pool
+                - generic [ref=e33]: 重复 · 近义 · 碎片
+              - generic [ref=e34]:
+                - generic [ref=e35]:
+                  - generic [ref=e36]: 完全重复
+                  - generic [ref=e37]: Q2 评审改到周三
+                  - generic [ref=e38]: Q2 评审改到周三
+                - generic [ref=e39]:
+                  - generic [ref=e40]: 不同措辞
+                  - generic [ref=e41]: Q2 review 推迟到周三
+                - generic [ref=e42]:
+                  - generic [ref=e43]: 相关碎片
+                  - generic [ref=e44]: 议程 · 决策 · 行动项
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - text: →
+                - generic [ref=e50]:
+                  - strong [ref=e51]: 精确去重
+                  - generic [ref=e52]: 已接通
+                - generic [ref=e53]:
+                  - code [ref=e54]: content hash
+                  - strong [ref=e55]: 完全相同 → 保留最早，删除其余
+                  - generic [ref=e56]: 不做大小写或空白归一化
+                - generic [ref=e57]:
+                  - strong [ref=e58]: 10,000
+                  - generic [ref=e59]: 单次读取上限
+              - code [ref=e61]: <div class="governance-row governance-row-semantic"> <div class="governance-name"><Icon name="lucide:scan-search" /><div><strong>语义去重</strong><span class="governance-status governance-status-code">算法已实现</span></div></div> <div class="governance-rule"><code>cosine ≥ 0.95</code><strong>不同措辞同一事实 → 删除较新</strong><span class="governance-gap">当前主链路缺少 embedding 输入</span></div> <div class="governance-limit"><strong>1,000</strong><span>最坏 O(N²)</span></div> </div> <div class="governance-row governance-row-compress"> <div class="governance-name"><Icon name="lucide:combine" /><div><strong>记忆压缩</strong><span class="governance-status governance-status-code">算法已实现</span></div></div> <div class="governance-rule"><code>cluster ≥ 0.85* + LLM</code><strong>相关碎片 → 新摘要，再删除原簇</strong><span class="governance-gap">当前主链路缺少 embedding 输入</span></div> <div class="governance-limit"><strong>1,000</strong><span>需要可用 LLM</span></div> </div>
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - strong [ref=e64]: SDK
+              - generic [ref=e65]: 三种策略均有入口
+            - generic [ref=e66]:
+              - strong [ref=e67]: CLI
+              - generic [ref=e68]: 精确去重 / 压缩；语义去重未暴露
+            - generic [ref=e69]:
+              - strong [ref=e70]: 显式批处理
+              - generic [ref=e71]: 当前没有内置定时调度 · * 0.85 为 SDK 默认
+        - generic [ref=e72]: 13 / 14
+    - navigation [ref=e75]:
+      - generic [ref=e76]:
+        - button "Enter fullscreen" [ref=e77] [cursor=pointer]
+        - button "Go to previous slide" [ref=e80] [cursor=pointer]
+        - button "Go to next slide" [ref=e83] [cursor=pointer]
+        - button "Show slide overview" [ref=e86] [cursor=pointer]
+        - button "Toggle camera view" [ref=e90] [cursor=pointer]
+        - button "Record video" [ref=e93] [cursor=pointer]
+        - button [ref=e97] [cursor=pointer]:
+          - button "Select recording device" [ref=e98]
+        - button "Show drawing toolbar" [ref=e102] [cursor=pointer]
+        - button "Presenter Mode" [ref=e106] [cursor=pointer]
+        - button "Show editor" [ref=e109] [cursor=pointer]
+        - link "Browser Exporter" [ref=e112] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e117] [cursor=pointer]:
+          - button "Change sync settings" [ref=e118]
+        - button [ref=e123] [cursor=pointer]:
+          - button "More Options" [ref=e124]
+        - generic [ref=e128]: 13 / 14
+  - textbox "Goto..." [disabled] [ref=e131]

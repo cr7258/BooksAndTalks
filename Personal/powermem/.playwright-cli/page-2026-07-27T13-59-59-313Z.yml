@@ -1,0 +1,78 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "搜索加权" [level=2] [ref=e10]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - code [ref=e15]: final_score
+          - generic [ref=e16]: =
+          - code [ref=e17]: relevance_score
+          - generic [ref=e18]: ×
+          - code [ref=e19]: decay_factor
+        - generic [ref=e20]:
+          - article [ref=e21]:
+            - generic [ref=e22]: "排名 #1"
+            - heading "1 分钟前的闲聊" [level=3] [ref=e23]
+            - generic [ref=e24]:
+              - generic [ref=e25]:
+                - generic [ref=e26]: 语义匹配度
+                - strong [ref=e27]: "0.45"
+              - generic [ref=e28]: ×
+              - generic [ref=e29]:
+                - generic [ref=e30]: 衰减因子
+                - strong [ref=e31]: "0.99"
+              - generic [ref=e32]: =
+              - generic [ref=e33]:
+                - generic [ref=e34]: 最终得分
+                - strong [ref=e35]: "0.45"
+            - paragraph [ref=e36]: 新鲜度碾压
+          - article [ref=e37]:
+            - generic [ref=e38]: "排名 #2"
+            - heading "3 小时前的会议记录" [level=3] [ref=e39]
+            - generic [ref=e40]:
+              - generic [ref=e41]:
+                - generic [ref=e42]: 语义匹配度
+                - strong [ref=e43]: "0.92"
+              - generic [ref=e44]: ×
+              - generic [ref=e45]:
+                - generic [ref=e46]: 衰减因子
+                - strong [ref=e47]: "0.29"
+              - generic [ref=e48]: =
+              - generic [ref=e49]:
+                - generic [ref=e50]: 最终得分
+                - strong [ref=e51]: "0.27"
+            - paragraph [ref=e52]: 高度匹配但仍被反超
+          - article [ref=e53]:
+            - generic [ref=e54]: 末尾
+            - heading "10 天前的会议记录" [level=3] [ref=e55]
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - generic [ref=e58]: 语义匹配度
+                - strong [ref=e59]: "0.98"
+              - generic [ref=e60]: ×
+              - generic [ref=e61]:
+                - generic [ref=e62]: 衰减因子
+                - strong [ref=e63]: ≈0
+              - generic [ref=e64]: =
+              - generic [ref=e65]:
+                - generic [ref=e66]: 最终得分
+                - strong [ref=e67]: ≈0
+            - paragraph [ref=e68]: 完美匹配但时间太久
+        - generic [ref=e69]:
+          - strong [ref=e70]: 新鲜度
+          - text: 在搜索排序中有一票否决权
+      - generic [ref=e71]: 13 / 15
+    - navigation [ref=e74]:
+      - generic [ref=e75]:
+        - button "Enter fullscreen" [ref=e76] [cursor=pointer]
+        - button "Go to previous slide" [ref=e79] [cursor=pointer]
+        - button "Go to next slide" [ref=e82] [cursor=pointer]
+        - button "Show slide overview" [ref=e85] [cursor=pointer]
+        - button "Show drawing toolbar" [ref=e89] [cursor=pointer]
+        - button "Presenter Mode" [ref=e93] [cursor=pointer]
+        - button [ref=e98] [cursor=pointer]:
+          - button "Change sync settings" [ref=e99]
+        - button [ref=e104] [cursor=pointer]:
+          - button "More Options" [ref=e105]
+        - generic [ref=e109]: 13 / 15
+  - textbox "Goto..." [disabled] [ref=e112]

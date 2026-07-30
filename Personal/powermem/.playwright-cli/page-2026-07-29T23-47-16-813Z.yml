@@ -1,0 +1,63 @@
+- generic [ref=e6]:
+  - text: › › › ‹ › › ‹
+  - generic [ref=e8]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: 衰减公式：
+        - strong [ref=e14]:
+          - text: decay = e
+          - superscript [ref=e15]: −t/S
+      - generic [ref=e16]:
+        - img "从 1.0 开始的 working、short_term 和 long_term 三个层级记忆保留率衰减曲线" [ref=e18]:
+          - generic [ref=e23]: 记忆保留率
+          - generic [ref=e24]: "1.0"
+          - generic [ref=e25]: "0"
+          - generic [ref=e26]:
+            - generic [ref=e27]: "0"
+            - generic [ref=e28]: "2"
+            - generic [ref=e29]: "4"
+            - generic [ref=e30]: "6"
+            - generic [ref=e31]: "8"
+            - generic [ref=e32]: "10"
+            - generic [ref=e33]: "12"
+            - generic [ref=e34]: "14"
+          - generic [ref=e35]: 时间（天）
+          - generic [ref=e36]: ③ 温和遗忘 · long_term · S = 90d
+          - generic [ref=e37]: ② 平衡 · short_term
+          - generic [ref=e38]: rate = 10.5 · S = 10.5d
+          - generic [ref=e39]: ① 激进遗忘 · working · S = 1.5d
+        - complementary [ref=e40]:
+          - generic [ref=e41]: S 参数含义
+          - paragraph [ref=e42]:
+            - text: t = S 时
+            - generic [ref=e43]:
+              - text: decay = e
+              - superscript [ref=e44]: −1
+          - strong [ref=e45]: ≈ 36.8%
+      - generic [ref=e46]:
+        - article [ref=e47]:
+          - generic [ref=e48]:
+            - strong [ref=e49]: ① 激进遗忘
+            - generic [ref=e50]: working
+          - code [ref=e51]: rate = 1.5
+          - code [ref=e52]: S = 36h
+          - paragraph [ref=e53]: 1 天后 decay ≈ 51.3%
+        - article [ref=e54]:
+          - generic [ref=e55]:
+            - strong [ref=e56]: ② 平衡
+            - generic [ref=e57]: short_term
+          - code [ref=e58]: rate = 10.5
+          - code [ref=e59]: S = 10.5d
+          - paragraph [ref=e60]: 1 天后 decay ≈ 90.9%
+        - article [ref=e61]:
+          - generic [ref=e62]:
+            - strong [ref=e63]: ③ 温和遗忘
+            - generic [ref=e64]: long_term
+          - code [ref=e65]: rate = 90
+          - code [ref=e66]: S = 90d
+          - paragraph [ref=e67]: 1 天后 decay ≈ 98.9%
+        - generic [ref=e68]:
+          - generic [ref=e69]: 结论：
+          - strong [ref=e70]: S 越大
+          - generic [ref=e71]: 遗忘越慢
+    - generic [ref=e72]: 15 / 24

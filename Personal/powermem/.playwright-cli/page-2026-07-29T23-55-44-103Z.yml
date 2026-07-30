@@ -1,0 +1,12 @@
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - generic [ref=e8]:
+      - heading "让 Agent 像人一样记忆： PowerMem 原理与实现" [level=1] [ref=e12]: 让 Agent 像人一样记忆：PowerMem 原理与实现
+      - generic [ref=e13]:
+        - generic [ref=e14]: 程治玮 · OceanBase 社区布道师
+        - generic [ref=e15]: 01 / 24
+    - text: › › › ‹ › › ‹
+  - generic "OceanBase、Red Hat 和 Dify":
+    - img "OceanBase"
+    - img "Red Hat"
+    - img "Dify"

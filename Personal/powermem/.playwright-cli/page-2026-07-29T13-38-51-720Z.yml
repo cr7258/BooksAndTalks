@@ -1,0 +1,74 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "重要性评估：LLM 与规则引擎" [level=2] [ref=e10]
+      - generic [ref=e14]:
+        - generic [ref=e15]: 输入：待评估消息
+        - generic [ref=e19]:
+          - img "重要性六维评估模型" [ref=e20]
+          - generic [ref=e38]:
+            - text: 关联度
+            - generic [ref=e39]: "0.30"
+          - generic [ref=e40]:
+            - text: 新颖度
+            - generic [ref=e41]: "0.20"
+          - generic [ref=e42]:
+            - text: 情感强度
+            - generic [ref=e43]: "0.15"
+          - generic [ref=e44]:
+            - text: 可操作性
+            - generic [ref=e45]: "0.15"
+          - generic [ref=e46]:
+            - text: 事实性
+            - generic [ref=e47]: "0.10"
+          - generic [ref=e48]:
+            - text: 个人相关性
+            - generic [ref=e49]: "0.10"
+          - generic [ref=e50]: 六维评估模型
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - text: →
+            - strong [ref=e59]: LLM深度评估
+            - generic [ref=e60]: →
+            - strong [ref=e66]: 返回结构化JSON
+            - generic [ref=e67]: →
+            - generic [ref=e68]:
+              - strong [ref=e69]: 三级回退解析
+              - generic [ref=e70]: ① JSON② 正则③ 默认值 0.5
+          - generic [ref=e71]:
+            - text: →
+            - strong [ref=e78]: 规则引擎
+            - generic [ref=e79]: →
+            - generic [ref=e80]:
+              - strong [ref=e81]: 信号累加
+              - generic [ref=e82]: ▣ 内容长度⌕ 关键词❕ 标点⚑ 优先级
+            - generic [ref=e83]: →
+            - strong [ref=e87]: 分数封顶1.0
+        - generic [ref=e88]:
+          - text: →
+          - generic [ref=e89]: importance_score
+          - strong [ref=e90]: = 0.72
+          - emphasis [ref=e91]: （会议信息示例）
+          - text: →
+      - generic [ref=e92]: 07 / 19
+    - navigation [ref=e95]:
+      - generic [ref=e96]:
+        - button "Enter fullscreen" [ref=e97] [cursor=pointer]
+        - button "Go to previous slide" [ref=e100] [cursor=pointer]
+        - button "Go to next slide" [ref=e103] [cursor=pointer]
+        - button "Show slide overview" [ref=e106] [cursor=pointer]
+        - button "Toggle camera view" [ref=e110] [cursor=pointer]
+        - button "Record video" [ref=e113] [cursor=pointer]
+        - button [ref=e117] [cursor=pointer]:
+          - button "Select recording device" [ref=e118]
+        - button "Show drawing toolbar" [ref=e122] [cursor=pointer]
+        - button "Presenter Mode" [ref=e126] [cursor=pointer]
+        - button "Show editor" [ref=e129] [cursor=pointer]
+        - link "Browser Exporter" [ref=e132] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e137] [cursor=pointer]:
+          - button "Change sync settings" [ref=e138]
+        - button [ref=e143] [cursor=pointer]:
+          - button "More Options" [ref=e144]
+        - generic [ref=e148]: 7 / 19
+  - textbox "Goto..." [disabled] [ref=e151]

@@ -1,0 +1,64 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "三层记忆模型" [level=2] [ref=e10]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: importance ↑
+          - strong [ref=e16]: 默认衰减尺度
+        - img "PowerMem 的三层记忆剖面：三个层级等高；importance 低于 0.6 为工作记忆，0.6 到 0.8 为短期记忆，0.8 以上为长期记忆；importance 0.72 的会议纪要落入短期记忆" [ref=e17]:
+          - generic [ref=e18]:
+            - complementary [ref=e19]:
+              - generic [ref=e20]: "0.8"
+              - generic [ref=e21]: "0.6"
+            - generic [ref=e22]:
+              - generic [ref=e23]:
+                - generic [ref=e24]: L3
+                - generic [ref=e25]:
+                  - heading "长期记忆" [level=3] [ref=e26]
+                  - code [ref=e27]: long_term
+                - generic [ref=e28]:
+                  - strong [ref=e29]: "90"
+                  - generic [ref=e30]: 天
+              - generic [ref=e31]:
+                - generic [ref=e32]: L2
+                - generic [ref=e33]:
+                  - heading "短期记忆" [level=3] [ref=e34]
+                  - code [ref=e35]: short_term
+                - generic [ref=e36]:
+                  - strong [ref=e37]: "10.5"
+                  - generic [ref=e38]: 天
+              - generic [ref=e39]:
+                - generic [ref=e40]: L1
+                - generic [ref=e41]:
+                  - heading "工作记忆" [level=3] [ref=e42]
+                  - code [ref=e43]: working
+                - generic [ref=e44]:
+                  - strong [ref=e45]: "36"
+                  - generic [ref=e46]: 小时
+          - complementary [ref=e47]:
+            - generic [ref=e48]:
+              - generic [ref=e49]: 分层阈值 ①
+              - strong [ref=e50]: importance ≥ 0.8
+            - generic [ref=e56]:
+              - generic [ref=e57]: 会议纪要
+              - code [ref=e58]: importance = 0.72
+              - strong [ref=e59]: → short_term
+            - generic [ref=e60]:
+              - generic [ref=e61]: 分层阈值 ②
+              - strong [ref=e62]: importance ≥ 0.6
+      - generic [ref=e63]: 09 / 15
+    - navigation [ref=e66]:
+      - generic [ref=e67]:
+        - button "Enter fullscreen" [ref=e68] [cursor=pointer]
+        - button "Go to previous slide" [ref=e71] [cursor=pointer]
+        - button "Go to next slide" [ref=e74] [cursor=pointer]
+        - button "Show slide overview" [ref=e77] [cursor=pointer]
+        - button "Show drawing toolbar" [ref=e81] [cursor=pointer]
+        - button "Presenter Mode" [ref=e85] [cursor=pointer]
+        - button [ref=e90] [cursor=pointer]:
+          - button "Change sync settings" [ref=e91]
+        - button [ref=e96] [cursor=pointer]:
+          - button "More Options" [ref=e97]
+        - generic [ref=e101]: 9 / 15
+  - textbox "Goto..." [disabled] [ref=e104]

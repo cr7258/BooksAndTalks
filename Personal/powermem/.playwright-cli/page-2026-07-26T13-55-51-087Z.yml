@@ -1,0 +1,64 @@
+- generic [ref=f5e2]:
+  - generic [ref=f5e4]:
+    - generic [ref=f5e8]:
+      - heading "三层记忆模型" [level=2] [ref=f5e10]
+      - generic [ref=f5e13]:
+        - generic [ref=f5e14]:
+          - generic [ref=f5e15]: importance ↑
+          - strong [ref=f5e16]: 默认衰减尺度
+        - img "PowerMem 的三层记忆剖面：importance 低于 0.6 为工作记忆，0.6 到 0.8 为短期记忆，0.8 以上为长期记忆；importance 0.72 的会议纪要落入短期记忆" [ref=f5e17]:
+          - complementary [ref=f5e18]:
+            - generic [ref=f5e19]: "0.8"
+            - generic [ref=f5e20]: "0.72"
+            - generic [ref=f5e21]: "0.6"
+          - generic [ref=f5e22]:
+            - generic [ref=f5e23]:
+              - generic [ref=f5e24]: L3
+              - generic [ref=f5e25]:
+                - heading "长期记忆" [level=3] [ref=f5e26]
+                - code [ref=f5e27]: long_term
+              - generic [ref=f5e28]:
+                - strong [ref=f5e29]: "90"
+                - generic [ref=f5e30]: 天
+            - generic [ref=f5e31]:
+              - generic [ref=f5e32]: L2
+              - generic [ref=f5e33]:
+                - heading "短期记忆" [level=3] [ref=f5e34]
+                - code [ref=f5e35]: short_term
+              - generic [ref=f5e36]:
+                - strong [ref=f5e37]: "10.5"
+                - generic [ref=f5e38]: 天
+              - generic [ref=f5e39]:
+                - generic [ref=f5e40]: ● ─────
+                - generic [ref=f5e41]: 会议纪要
+                - generic [ref=f5e42]: → short_term
+            - generic [ref=f5e43]:
+              - generic [ref=f5e44]: L1
+              - generic [ref=f5e45]:
+                - heading "工作记忆" [level=3] [ref=f5e46]
+                - code [ref=f5e47]: working
+              - generic [ref=f5e48]:
+                - strong [ref=f5e49]: "36"
+                - generic [ref=f5e50]: 小时
+      - generic [ref=f5e51]: 09 / 15
+    - navigation [ref=f5e54]:
+      - generic [ref=f5e55]:
+        - button "Enter fullscreen" [ref=f5e56] [cursor=pointer]
+        - button "Go to previous slide" [ref=f5e59] [cursor=pointer]
+        - button "Go to next slide" [ref=f5e62] [cursor=pointer]
+        - button "Show slide overview" [ref=f5e65] [cursor=pointer]
+        - button "Toggle camera view" [ref=f5e69] [cursor=pointer]
+        - button "Record video" [ref=f5e72] [cursor=pointer]
+        - button [ref=f5e76] [cursor=pointer]:
+          - button "Select recording device" [ref=f5e77]
+        - button "Show drawing toolbar" [ref=f5e81] [cursor=pointer]
+        - button "Presenter Mode" [ref=f5e85] [cursor=pointer]
+        - button "Show editor" [ref=f5e88] [cursor=pointer]
+        - link "Browser Exporter" [ref=f5e91] [cursor=pointer]:
+          - /url: /export
+        - button [ref=f5e96] [cursor=pointer]:
+          - button "Change sync settings" [ref=f5e97]
+        - button [ref=f5e102] [cursor=pointer]:
+          - button "More Options" [ref=f5e103]
+        - generic [ref=f5e107]: 9 / 15
+  - textbox "Goto..." [disabled] [ref=f5e110]

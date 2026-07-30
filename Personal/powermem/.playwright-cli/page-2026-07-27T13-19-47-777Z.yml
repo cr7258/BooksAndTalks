@@ -1,0 +1,103 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: ↓ ↓ ↓
+      - generic [ref=e8]:
+        - heading "搜索加权" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - code [ref=e15]: final_score
+            - generic [ref=e16]: =
+            - code [ref=e17]: base_score
+            - generic [ref=e18]: ×
+            - code [ref=e19]: effective_retention
+            - generic [ref=e20]: ×
+            - code [ref=e21]: forgotten_score_multiplier
+          - generic [ref=e22]:
+            - text: 同一个查询：
+            - strong [ref=e23]: Q2 评审
+          - generic [ref=e24]:
+            - article [ref=e25]:
+              - generic [ref=e26]: "排名 #1"
+              - heading "近期更新的评审安排" [level=3] [ref=e27]
+              - generic [ref=e28]:
+                - generic [ref=e29]:
+                  - generic [ref=e30]: 原始检索分
+                  - strong [ref=e31]: "0.70"
+                - generic [ref=e32]: ×
+                - generic [ref=e33]:
+                  - generic [ref=e34]: 有效保留率
+                  - strong [ref=e35]: "0.95"
+                - generic [ref=e36]: ×
+                - generic [ref=e37]:
+                  - generic [ref=e38]: 遗忘降权
+                  - strong [ref=e39]: "1.0"
+              - generic [ref=e40]:
+                - generic [ref=e41]: 最终分
+                - strong [ref=e42]: "0.67"
+              - paragraph [ref=e43]: 匹配略低，但记忆仍然强
+            - article [ref=e44]:
+              - generic [ref=e45]: "排名 #2"
+              - heading "已经衰减的评审纪要" [level=3] [ref=e46]
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - generic [ref=e49]: 原始检索分
+                  - strong [ref=e50]: "0.95"
+                - generic [ref=e51]: ×
+                - generic [ref=e52]:
+                  - generic [ref=e53]: 有效保留率
+                  - strong [ref=e54]: "0.40"
+                - generic [ref=e55]: ×
+                - generic [ref=e56]:
+                  - generic [ref=e57]: 遗忘降权
+                  - strong [ref=e58]: "1.0"
+              - generic [ref=e59]:
+                - generic [ref=e60]: 最终分
+                - strong [ref=e61]: "0.38"
+              - paragraph [ref=e62]: 更匹配，但记忆已经变弱
+            - article [ref=e63]:
+              - generic [ref=e64]: "排名 #3"
+              - heading "已标记遗忘的旧日程" [level=3] [ref=e65]
+              - generic [ref=e66]:
+                - generic [ref=e67]:
+                  - generic [ref=e68]: 原始检索分
+                  - strong [ref=e69]: "0.98"
+                - generic [ref=e70]: ×
+                - generic [ref=e71]:
+                  - generic [ref=e72]: 有效保留率
+                  - strong [ref=e73]: "0.30"
+                - generic [ref=e74]: ×
+                - generic [ref=e75]:
+                  - generic [ref=e76]: 遗忘降权
+                  - strong [ref=e77]: "0.1"
+              - generic [ref=e78]:
+                - generic [ref=e79]: 最终分
+                - strong [ref=e80]: "0.03"
+              - paragraph [ref=e81]: 已标记遗忘，再额外降权
+          - generic [ref=e82]:
+            - text: 搜索排序不只看
+            - strong [ref=e83]: “像不像”
+            - text: ，还看
+            - strong [ref=e84]: “现在值不值得想起”
+        - generic [ref=e85]: 13 / 15
+    - navigation [ref=e88]:
+      - generic [ref=e89]:
+        - button "Enter fullscreen" [ref=e90] [cursor=pointer]
+        - button "Go to previous slide" [ref=e93] [cursor=pointer]
+        - button "Go to next slide" [ref=e96] [cursor=pointer]
+        - button "Show slide overview" [ref=e99] [cursor=pointer]
+        - button "Toggle camera view" [ref=e103] [cursor=pointer]
+        - button "Record video" [ref=e106] [cursor=pointer]
+        - button [ref=e110] [cursor=pointer]:
+          - button "Select recording device" [ref=e111]
+        - button "Show drawing toolbar" [ref=e115] [cursor=pointer]
+        - button "Presenter Mode" [ref=e119] [cursor=pointer]
+        - button "Show editor" [ref=e122] [cursor=pointer]
+        - link "Browser Exporter" [ref=e125] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e130] [cursor=pointer]:
+          - button "Change sync settings" [ref=e131]
+        - button [ref=e136] [cursor=pointer]:
+          - button "More Options" [ref=e137]
+        - generic [ref=e141]: 13 / 15
+  - textbox "Goto..." [disabled] [ref=e144]

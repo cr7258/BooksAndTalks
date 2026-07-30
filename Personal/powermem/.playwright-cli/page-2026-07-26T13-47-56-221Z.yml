@@ -1,0 +1,34 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: → →
+      - generic [ref=e8]:
+        - heading "记忆如何从当下走向长期" [level=2] [ref=e10]
+        - generic [ref=e14]:
+          - img "人脑侧视图：以前额叶皮层、海马体和新皮层三种颜色突出记忆相关区域" [ref=e15]
+          - generic [ref=e17]:
+            - generic [ref=e18]:
+              - strong [ref=e19]: 前额叶皮层
+              - generic [ref=e20]: 把此刻需要的信息暂时留在脑中
+            - generic [ref=e21]:
+              - strong [ref=e22]: 海马体
+              - generic [ref=e23]: 把刚发生的经历组织成以后能提取的记忆
+            - generic [ref=e24]:
+              - strong [ref=e25]: 新皮层
+              - generic [ref=e26]: 让反复巩固的信息逐渐变成长期知识
+        - generic [ref=e27]: 08 / 15
+      - text: ←
+    - navigation [ref=e30]:
+      - generic [ref=e31]:
+        - button "Enter fullscreen" [ref=e32] [cursor=pointer]
+        - button "Go to previous slide" [ref=e35] [cursor=pointer]
+        - button "Go to next slide" [ref=e38] [cursor=pointer]
+        - button "Show slide overview" [ref=e41] [cursor=pointer]
+        - button "Show drawing toolbar" [ref=e45] [cursor=pointer]
+        - button "Presenter Mode" [ref=e49] [cursor=pointer]
+        - button [ref=e54] [cursor=pointer]:
+          - button "Change sync settings" [ref=e55]
+        - button [ref=e60] [cursor=pointer]:
+          - button "More Options" [ref=e61]
+        - generic [ref=e65]: 8 / 15
+  - textbox "Goto..." [disabled] [ref=e68]

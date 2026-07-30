@@ -1,0 +1,65 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - text: › › › ‹ › › ‹
+        - generic [ref=e8]:
+          - heading "三层记忆模型" [level=2] [ref=e10]
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - generic [ref=e15]: importance ↑
+              - strong [ref=e16]: 衰减倍率
+            - img "PowerMem 的三层记忆模型：长期、短期、工作记忆的衰减倍率依次为 60、7、1；importance 低于 0.6 为工作记忆，0.6 到 0.8 为短期记忆，0.8 以上为长期记忆；importance 0.72 的会议纪要落入短期记忆" [ref=e17]:
+              - generic [ref=e19]:
+                - generic [ref=e20]:
+                  - generic [ref=e21]: L3
+                  - generic [ref=e23]:
+                    - heading "长期记忆" [level=3] [ref=e24]
+                    - code [ref=e25]: long_term
+                  - code [ref=e27]: importance ≥ 0.8
+                  - strong [ref=e29]: ×60
+                - generic [ref=e30]:
+                  - generic [ref=e31]: L2
+                  - generic [ref=e32]:
+                    - generic [ref=e33]:
+                      - heading "短期记忆" [level=3] [ref=e34]
+                      - code [ref=e35]: short_term
+                    - generic [ref=e36]:
+                      - generic [ref=e38]: 会议纪要
+                      - code [ref=e39]: importance = 0.72 → short_term
+                  - code [ref=e41]: 0.6 ≤ importance < 0.8
+                  - strong [ref=e43]: ×7
+                - generic [ref=e44]:
+                  - generic [ref=e45]: L1
+                  - generic [ref=e47]:
+                    - heading "工作记忆" [level=3] [ref=e48]
+                    - code [ref=e49]: working
+                  - code [ref=e51]: importance < 0.6
+                  - strong [ref=e53]: ×1
+            - paragraph [ref=e54]: 层级越高，衰减越慢，信息活得越久
+          - generic [ref=e55]: 13 / 24
+      - generic "OceanBase、Red Hat 和 Dify":
+        - img "OceanBase"
+        - img "Red Hat"
+        - img "Dify"
+    - navigation [ref=e58]:
+      - generic [ref=e59]:
+        - button "Enter fullscreen" [ref=e60] [cursor=pointer]
+        - button "Go to previous slide" [ref=e63] [cursor=pointer]
+        - button "Go to next slide" [ref=e66] [cursor=pointer]
+        - button "Show slide overview" [ref=e69] [cursor=pointer]
+        - button "Toggle camera view" [ref=e73] [cursor=pointer]
+        - button "Record video" [ref=e76] [cursor=pointer]
+        - button [ref=e80] [cursor=pointer]:
+          - button "Select recording device" [ref=e81]
+        - button "Show drawing toolbar" [ref=e85] [cursor=pointer]
+        - button "Presenter Mode" [ref=e89] [cursor=pointer]
+        - button "Show editor" [ref=e92] [cursor=pointer]
+        - link "Browser Exporter" [ref=e95] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e100] [cursor=pointer]:
+          - button "Change sync settings" [ref=e101]
+        - button [ref=e106] [cursor=pointer]:
+          - button "More Options" [ref=e107]
+        - generic [ref=e111]: 13 / 24
+  - textbox "Goto..." [disabled] [ref=e114]

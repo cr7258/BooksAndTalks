@@ -1,0 +1,52 @@
+- generic [ref=f3e2]:
+  - generic [ref=f3e4]:
+    - generic [ref=f3e6]:
+      - text: "[ ] [ ] [ ]"
+      - generic [ref=f3e8]:
+        - generic [ref=f3e9]:
+          - generic [ref=f3e10]: "[ DIFFERENT JOBS ]"
+          - heading "Memory ≠ RAG" [level=2] [ref=f3e11]
+        - generic [ref=f3e15]:
+          - generic [ref=f3e16]:
+            - generic [ref=f3e18]: Context
+            - list [ref=f3e20]:
+              - listitem [ref=f3e21]: 当前调用正在使用的信息
+              - listitem [ref=f3e22]: 快速、直接，但容量有限
+              - listitem [ref=f3e23]: 新会话不会天然继承
+          - generic [ref=f3e24]:
+            - generic [ref=f3e26]: RAG
+            - list [ref=f3e28]:
+              - listitem [ref=f3e29]: 从外部知识源查找材料
+              - listitem [ref=f3e30]: 回答“哪里有相关内容”
+              - listitem [ref=f3e31]: 通常面向已有知识集合
+          - generic [ref=f3e32]:
+            - generic [ref=f3e34]: Memory
+            - list [ref=f3e36]:
+              - listitem [ref=f3e37]: 从交互中沉淀长期状态
+              - listitem [ref=f3e38]: 回答“什么值得留下”
+              - listitem [ref=f3e39]: 还要更新、强化与退出
+        - generic [ref=f3e40]:
+          - generic [ref=f3e41]: 让 Agent 像人一样记忆
+          - generic [ref=f3e42]: 04 / 06
+      - text: "[ ] [ ]"
+    - navigation [ref=f3e44]:
+      - generic [ref=f3e45]:
+        - button "Enter fullscreen" [ref=f3e46] [cursor=pointer]
+        - button "Go to previous slide" [ref=f3e49] [cursor=pointer]
+        - button "Go to next slide" [ref=f3e52] [cursor=pointer]
+        - button "Show slide overview" [ref=f3e55] [cursor=pointer]
+        - button "Toggle camera view" [ref=f3e59] [cursor=pointer]
+        - button "Record video" [ref=f3e62] [cursor=pointer]
+        - button [ref=f3e66] [cursor=pointer]:
+          - button "Select recording device" [ref=f3e67]
+        - button "Show drawing toolbar" [ref=f3e71] [cursor=pointer]
+        - button "Presenter Mode" [ref=f3e75] [cursor=pointer]
+        - button "Show editor" [ref=f3e78] [cursor=pointer]
+        - link "Browser Exporter" [ref=f3e81] [cursor=pointer]:
+          - /url: /export
+        - button [ref=f3e86] [cursor=pointer]:
+          - button "Change sync settings" [ref=f3e87]
+        - button [ref=f3e92] [cursor=pointer]:
+          - button "More Options" [ref=f3e93]
+        - generic [ref=f3e97]: 4 / 6
+  - textbox "Goto..." [disabled] [ref=f3e100]

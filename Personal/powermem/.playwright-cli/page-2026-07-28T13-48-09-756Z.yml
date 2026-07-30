@@ -1,0 +1,56 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "部署 PowerMem Server" [level=2] [ref=e10]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - heading "获取源码" [level=3] [ref=e16]
+          - generic [ref=e17]:
+            - generic [ref=e18]: git clone https://github.com/oceanbase/powermem.git
+            - generic [ref=e19]: cd powermem
+            - generic [ref=e20]: cp .env.example docker/.env
+        - generic [ref=e21]:
+          - heading [level=3] [ref=e22]:
+            - text: 编辑
+            - code [ref=e23]: docker/.env
+          - generic [ref=e24]:
+            - generic [ref=e25]: "# LLM"
+            - generic [ref=e26]: LLM_PROVIDER=openai
+            - generic [ref=e27]: LLM_API_KEY=sk-or-***
+            - generic [ref=e28]: LLM_MODEL=qwen/qwen3.7-plus
+            - generic [ref=e29]: OPENAI_LLM_BASE_URL=https://openrouter.ai/api/v1
+            - emphasis [ref=e30]
+            - generic [ref=e31]: "# Embedding"
+            - generic [ref=e32]: EMBEDDING_PROVIDER=openai
+            - generic [ref=e33]: EMBEDDING_API_KEY=sk-or-***
+            - generic [ref=e34]: EMBEDDING_MODEL=qwen/qwen3-embedding-8b
+            - generic [ref=e35]: EMBEDDING_DIMS=1536
+            - generic [ref=e36]: OPENAI_EMBEDDING_BASE_URL=https://openrouter.ai/api/v1
+            - emphasis [ref=e37]
+            - generic [ref=e38]: "# seekdb 密码"
+            - generic [ref=e39]: SEEKDB_ROOT_PASSWORD=your_password
+        - generic [ref=e40]:
+          - heading "启动" [level=3] [ref=e41]
+          - generic [ref=e42]: docker compose -f docker/docker-compose.yml up -d --build
+      - generic [ref=e44]: 17 / 17
+    - navigation [ref=e47]:
+      - generic [ref=e48]:
+        - button "Enter fullscreen" [ref=e49] [cursor=pointer]
+        - button "Go to previous slide" [ref=e52] [cursor=pointer]
+        - button "Go to next slide"
+        - button "Show slide overview" [ref=e55] [cursor=pointer]
+        - button "Toggle camera view" [ref=e59] [cursor=pointer]
+        - button "Record video" [ref=e62] [cursor=pointer]
+        - button [ref=e66] [cursor=pointer]:
+          - button "Select recording device" [ref=e67]
+        - button "Show drawing toolbar" [ref=e71] [cursor=pointer]
+        - button "Presenter Mode" [ref=e75] [cursor=pointer]
+        - button "Show editor" [ref=e78] [cursor=pointer]
+        - link "Browser Exporter" [ref=e81] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e86] [cursor=pointer]:
+          - button "Change sync settings" [ref=e87]
+        - button [ref=e92] [cursor=pointer]:
+          - button "More Options" [ref=e93]
+        - generic [ref=e97]: 17 / 17
+  - textbox "Goto..." [disabled] [ref=e100]

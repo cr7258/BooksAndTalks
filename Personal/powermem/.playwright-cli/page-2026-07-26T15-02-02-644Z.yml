@@ -1,0 +1,41 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e6]:
+        - text: › › › ‹ › › ‹ → →
+        - generic [ref=e7]: An error occurred on this slide. Check the terminal for more information.
+        - text: → → ↓ ← ← → → →
+      - navigation [ref=e10]:
+        - generic [ref=e11]:
+          - button "Enter fullscreen" [ref=e12] [cursor=pointer]
+          - button "Go to previous slide" [ref=e15] [cursor=pointer]
+          - button "Go to next slide" [ref=e18] [cursor=pointer]
+          - button "Show slide overview" [ref=e21] [cursor=pointer]
+          - button "Toggle camera view" [ref=e25] [cursor=pointer]
+          - button "Record video" [ref=e28] [cursor=pointer]
+          - button [ref=e32] [cursor=pointer]:
+            - button "Select recording device" [ref=e33]
+          - button "Show drawing toolbar" [ref=e37] [cursor=pointer]
+          - button "Presenter Mode" [ref=e41] [cursor=pointer]
+          - button "Show editor" [ref=e44] [cursor=pointer]
+          - link "Browser Exporter" [ref=e47] [cursor=pointer]:
+            - /url: /export
+          - button [ref=e52] [cursor=pointer]:
+            - button "Change sync settings" [ref=e53]
+          - button [ref=e58] [cursor=pointer]:
+            - button "More Options" [ref=e59]
+          - generic [ref=e63]: 11 / 15
+    - textbox "Goto..." [disabled] [ref=e66]
+  - generic [ref=e69]:
+    - generic [ref=e70]: "[plugin:vite:vue] Element is missing end tag."
+    - generic [ref=e71]: /Users/sevenc/code/BooksAndTalks/Personal/powermem/slides.md__slidev_11.md:9:5
+    - generic [ref=e72]: 7 | <div class="decay-ref-main"> 8 | <section class="decay-ref-plot"> 9 | <svg viewBox="0 0 980 390" role="img" aria-label="相同初始保留率 0.72 下，working、short_term 和 long_term 三个层级的保留率衰减曲线"> | ^ 10 | <line class="decay-ref-threshold" x1="70" y1="217.5" x2="950" y2="217.5" /> 11 | <line class="decay-ref-axis" x1="70" y1="30" x2="70" y2="330" />
+    - generic [ref=e73]: at createCompilerError (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-core@3.5.40/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:1378:17) at emitError (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-core@3.5.40/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:3035:5) at Object.onclosetag (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-core@3.5.40/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:2402:13) at Tokenizer.stateInClosingTagName (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-core@3.5.40/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:799:16) at Tokenizer.parse (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-core@3.5.40/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:1157:16) at Object.baseParse (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-core@3.5.40/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js:3074:13) at Object.parse (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-dom@3.5.40/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.js:910:23) at Object.parse$1 [as parse] (/Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vue+compiler-sfc@3.5.40/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:1824:24) at createDescriptor (file:///Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vitejs+plugin-vue@6.0.8_vite@8.1.5_@types+node@22.20.1_jiti@2.7.0_yaml@2.9.0__vue@3.5.40_typescript@6.0.3_/node_modules/@vitejs/plugin-vue/dist/index.mjs:50:42) at transformMain (file:///Users/sevenc/code/BooksAndTalks/Personal/powermem/node_modules/.pnpm/@vitejs+plugin-vue@6.0.8_vite@8.1.5_@types+node@22.20.1_jiti@2.7.0_yaml@2.9.0__vue@3.5.40_typescript@6.0.3_/node_modules/@vitejs/plugin-vue/dist/index.mjs:1352:33)
+    - generic [ref=e74]:
+      - text: Click outside, press Esc key, or fix the code to dismiss.You can also disable this overlay by setting
+      - code [ref=e75]: server.hmr.overlay
+      - text: to
+      - code [ref=e76]: "false"
+      - text: in
+      - code [ref=e77]: vite.config.js
+      - text: .

@@ -1,0 +1,32 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹
+      - generic [ref=e8]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: "03"
+          - heading [level=1] [ref=e16]:
+            - emphasis [ref=e17]: PowerMem
+            - text: 的记忆生命周期
+        - generic [ref=e18]: 10 / 24
+    - navigation [ref=e21]:
+      - generic [ref=e22]:
+        - button "Enter fullscreen" [ref=e23] [cursor=pointer]
+        - button "Go to previous slide" [ref=e26] [cursor=pointer]
+        - button "Go to next slide" [ref=e29] [cursor=pointer]
+        - button "Show slide overview" [ref=e32] [cursor=pointer]
+        - button "Toggle camera view" [ref=e36] [cursor=pointer]
+        - button "Record video" [ref=e39] [cursor=pointer]
+        - button [ref=e43] [cursor=pointer]:
+          - button "Select recording device" [ref=e44]
+        - button "Show drawing toolbar" [ref=e48] [cursor=pointer]
+        - button "Presenter Mode" [ref=e52] [cursor=pointer]
+        - button "Show editor" [ref=e55] [cursor=pointer]
+        - link "Browser Exporter" [ref=e58] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e63] [cursor=pointer]:
+          - button "Change sync settings" [ref=e64]
+        - button [ref=e69] [cursor=pointer]:
+          - button "More Options" [ref=e70]
+        - generic [ref=e74]: 10 / 24
+  - textbox "Goto..." [disabled] [ref=e77]

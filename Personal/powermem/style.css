@@ -1,0 +1,4723 @@
+/* OceanBase-blue adaptation of Tahta's Brutalist variant. */
+:root[data-variant='brutalist'] {
+  --ink: #01040d;
+  --ink-2: #080c19;
+  --line: #17375d;
+  --fg: #f7f9ff;
+  --fg-dim: #8ca8c8;
+
+  --accent-base: #217eff;
+  --accent-l-lo: 0.62;
+  --accent-l-hi: 0.74;
+  --accent-c-hi: 0.23;
+  --on-accent: #ffffff;
+
+  --cat-1: #217eff;
+  --cat-2: #42e8e0;
+  --cat-3: #816eff;
+  --cat-4: #3cafed;
+  --cat-5: #b8d8ff;
+
+  --good: #42e8e0;
+  --info: #3cafed;
+  --warn: #ffd166;
+  --bad: #ff6b6b;
+  --code-bg: #050b16;
+  --chart-muted: #24496f;
+
+  --font-display: 'Space Mono', 'SFMono-Regular', 'PingFang SC', 'Noto Sans SC', monospace;
+  --font-body: 'Hanken Grotesk', 'PingFang SC', 'Noto Sans SC', system-ui, sans-serif;
+  --font-serif: 'Space Mono', 'PingFang SC', monospace;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', 'PingFang SC', monospace;
+
+  --bg-texture:
+    linear-gradient(rgba(33, 126, 255, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 126, 255, 0.10) 1px, transparent 1px);
+  --bg-texture-size: 40px 40px, 40px 40px;
+  --glow: radial-gradient(50% 62% at 84% 10%, rgba(33, 126, 255, 0.24), transparent 64%);
+}
+
+:root[data-variant='brutalist'] .slidev-layout h1,
+:root[data-variant='brutalist'] .slidev-layout h2 {
+  text-wrap: balance;
+}
+
+.cover-two-lines .fs-cover {
+  max-width: none;
+  font-size: 3.8rem;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+
+.slidev-layout .foot-left {
+  visibility: hidden;
+}
+
+.cover-two-lines .foot-left {
+  visibility: visible;
+  font-size: 0.9rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.035em;
+}
+
+.slidev-layout .source-note {
+  color: var(--fg-dim);
+  font: 500 0.56rem/1.45 var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.slidev-layout .memory-line {
+  border: 2px solid var(--accent);
+  background: color-mix(in oklab, var(--accent) 8%, var(--ink-2));
+  padding: 1rem 1.2rem;
+  font: 600 1.05rem/1.55 var(--font-mono);
+}
+
+.slidev-layout .session-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 1.1rem;
+  margin-top: 1.1rem;
+}
+
+.slidev-layout .session {
+  border: 1px solid color-mix(in oklab, var(--accent) 65%, var(--line));
+  background: color-mix(in oklab, var(--accent) 6%, var(--ink-2));
+  padding: 1rem 1.1rem;
+}
+
+.slidev-layout .session h3 {
+  margin: 0 0 0.7rem;
+  color: var(--accent);
+  font: 700 0.75rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.slidev-layout .session ul {
+  margin: 0;
+}
+
+.slidev-layout .reset-mark {
+  align-self: center;
+  color: var(--bad);
+  font: 800 1rem/1 var(--font-mono);
+  letter-spacing: 0.06em;
+  writing-mode: vertical-rl;
+}
+
+.slidev-layout .boundary-note {
+  margin-top: 1rem;
+  color: var(--fg-dim);
+  font: 600 0.72rem/1.5 var(--font-body);
+}
+
+/* Shared technical-deck primitives. */
+.slidev-layout .statement-bar {
+  margin-top: 0.9rem;
+  border-left: 4px solid var(--accent);
+  background: color-mix(in oklab, var(--accent) 9%, var(--ink-2));
+  padding: 0.75rem 1rem;
+  color: var(--fg);
+  font: 650 0.85rem/1.5 var(--font-body);
+}
+
+.slidev-layout .statement-bar-compact {
+  margin-top: 0.7rem;
+  padding-block: 0.58rem;
+  font-size: 0.74rem;
+}
+
+/* Agenda. */
+.slidev-layout.agenda-slide {
+  display: flex;
+  align-items: center;
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+}
+
+.slidev-layout.agenda-slide .l-body,
+.slidev-layout.agenda-slide .fit,
+.slidev-layout.agenda-slide .fit-inner {
+  width: 100%;
+  max-width: none;
+}
+
+.slidev-layout .agenda-chapters {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  min-height: 15.8rem;
+  border-top: 1px solid color-mix(in oklab, var(--accent) 62%, var(--line));
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in oklab, var(--ink-2) 90%, transparent);
+}
+
+.slidev-layout .agenda-chapters::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cat-1), var(--cat-4), var(--cat-3), var(--cat-2));
+}
+
+.slidev-layout .agenda-chapter {
+  --chapter-color: var(--accent);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.15rem 1.1rem 1.28rem;
+  border-left: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--chapter-color) 9%, transparent), transparent 45%);
+}
+
+.slidev-layout .agenda-chapter:first-child {
+  border-left: 0;
+}
+
+.slidev-layout .agenda-chapter-1 { --chapter-color: var(--cat-1); }
+.slidev-layout .agenda-chapter-2 { --chapter-color: var(--cat-4); }
+.slidev-layout .agenda-chapter-3 { --chapter-color: var(--cat-3); }
+.slidev-layout .agenda-chapter-4 { --chapter-color: var(--cat-2); }
+
+.slidev-layout .agenda-number {
+  color: var(--chapter-color);
+  font: 760 3rem/0.95 var(--font-mono);
+  letter-spacing: -0.08em;
+}
+
+.slidev-layout .agenda-rule {
+  width: 2.25rem;
+  height: 3px;
+  margin-top: auto;
+  margin-bottom: 0.75rem;
+  background: var(--chapter-color);
+}
+
+.slidev-layout .agenda-chapter strong {
+  color: var(--fg);
+  font: 700 1.04rem/1.34 var(--font-body);
+  letter-spacing: -0.02em;
+}
+
+.slidev-layout .agenda-chapter strong em {
+  color: var(--chapter-color);
+  font-style: normal;
+  font-family: var(--font-display);
+}
+
+/* Section dividers. */
+.slidev-layout.section-divider {
+  --section-color: var(--accent);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+}
+
+.slidev-layout.section-divider-1 { --section-color: var(--cat-1); }
+.slidev-layout.section-divider-2 { --section-color: var(--cat-4); }
+.slidev-layout.section-divider-3 { --section-color: var(--cat-3); }
+.slidev-layout.section-divider-4 { --section-color: var(--cat-2); }
+
+.slidev-layout.section-divider .l-body,
+.slidev-layout.section-divider .fit,
+.slidev-layout.section-divider .fit-inner {
+  width: 100%;
+  max-width: none;
+}
+
+.slidev-layout .section-divider-inner {
+  position: relative;
+  width: 100%;
+}
+
+.slidev-layout .section-divider-index {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.35rem;
+  width: 100%;
+}
+
+.slidev-layout .section-divider-index span {
+  flex: 0 0 auto;
+  color: var(--section-color);
+  font: 780 5.6rem/0.82 var(--font-mono);
+  letter-spacing: -0.1em;
+}
+
+.slidev-layout .section-divider-index i {
+  display: block;
+  flex: 1;
+  height: 3px;
+  margin-bottom: 0.23rem;
+  background: linear-gradient(90deg, var(--section-color), transparent 92%);
+}
+
+.slidev-layout .section-divider-inner h1 {
+  max-width: 100%;
+  margin: 1.35rem 0 0;
+  color: var(--fg);
+  font: 780 2.55rem/1.12 var(--font-body);
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.slidev-layout .section-divider-inner h1 em {
+  color: var(--section-color);
+  font-style: normal;
+  font-family: var(--font-display);
+}
+
+/* Why Memory. */
+.slidev-layout .reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.slidev-layout .reason-card {
+  min-height: 10.1rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, var(--line));
+  background:
+    linear-gradient(135deg, color-mix(in oklab, var(--accent) 10%, var(--ink-2)), var(--ink-2) 62%);
+  padding: 0.92rem 1rem;
+}
+
+.slidev-layout .reason-no {
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  font: 800 1.48rem/1 var(--font-mono);
+}
+
+.slidev-layout .reason-card h3 {
+  margin: 0 0 0.58rem;
+  color: var(--fg);
+  font: 750 0.92rem/1.25 var(--font-body);
+}
+
+.slidev-layout .reason-card p {
+  margin: 0;
+  color: var(--fg-dim);
+  font: 500 0.68rem/1.55 var(--font-body);
+}
+
+/* OpenClaw: file layer + index layer. */
+.slidev-layout .two-layer-memory {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+  gap: 0.84rem;
+  margin-top: 0.9rem;
+}
+
+.slidev-layout .memory-layer {
+  min-height: 10.9rem;
+  border: 2px solid var(--line);
+  background: var(--ink-2);
+  padding: 1rem 1.15rem;
+}
+
+.slidev-layout .memory-layer-file {
+  border-color: var(--accent);
+  box-shadow: inset 0.22rem 0 0 color-mix(in oklab, var(--accent) 48%, transparent);
+}
+
+.slidev-layout .memory-layer-index {
+  border-color: var(--cat-2);
+  box-shadow: inset 0.22rem 0 0 color-mix(in oklab, var(--cat-2) 42%, transparent);
+}
+
+.slidev-layout .write-tag {
+  color: var(--fg-dim);
+  font: 700 0.44rem/1 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.slidev-layout .memory-layer h3 {
+  margin: 0 0 0.85rem;
+  color: var(--fg);
+  font: 750 1.08rem/1.15 var(--font-body);
+}
+
+.slidev-layout .layer-points {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.slidev-layout .layer-points > div {
+  border-left: 2px solid color-mix(in oklab, var(--accent) 62%, var(--line));
+  background: color-mix(in oklab, var(--accent) 4%, var(--ink));
+  padding: 0.48rem 0.58rem;
+}
+
+.slidev-layout .memory-layer-index .layer-points > div {
+  border-color: color-mix(in oklab, var(--cat-2) 62%, var(--line));
+  background: color-mix(in oklab, var(--cat-2) 4%, var(--ink));
+}
+
+.slidev-layout .layer-points strong,
+.slidev-layout .layer-points span {
+  display: block;
+}
+
+.slidev-layout .layer-points strong {
+  color: var(--fg);
+  font: 700 0.54rem/1.2 var(--font-mono);
+}
+
+.slidev-layout .layer-points span {
+  margin-top: 0.2rem;
+  color: var(--fg-dim);
+  font: 500 0.49rem/1.42 var(--font-body);
+}
+
+/* Write paths. */
+.slidev-layout .write-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.58rem 0.72rem;
+  margin-top: 0.62rem;
+}
+
+.slidev-layout .write-card {
+  min-height: 6.15rem;
+  border-top: 3px solid var(--accent);
+  background: var(--ink-2);
+  padding: 0.66rem 0.82rem 0.72rem;
+}
+
+.slidev-layout .write-card h3 {
+  margin: 0.48rem 0 0.34rem;
+  color: var(--fg);
+  font: 720 0.74rem/1.2 var(--font-body);
+}
+
+.slidev-layout .write-card p {
+  margin: 0;
+  color: var(--fg-dim);
+  font: 500 0.55rem/1.46 var(--font-body);
+}
+
+.slidev-layout .write-card .write-tag {
+  color: var(--accent);
+  font-size: 0.46rem;
+}
+
+.slidev-layout .write-card code {
+  color: var(--accent);
+  font-size: 0.92em;
+}
+
+/* Search flow. */
+.slidev-layout .search-flow {
+  display: grid;
+  grid-template-columns: 1.12fr auto 1.42fr auto 1.05fr auto 1.15fr;
+  align-items: center;
+  gap: 0.36rem;
+  margin-top: 0.74rem;
+}
+
+.slidev-layout .flow-node,
+.slidev-layout .lane {
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  padding: 0.72rem 0.64rem;
+  text-align: center;
+}
+
+.slidev-layout .flow-query {
+  border: 2px solid var(--accent);
+}
+
+.slidev-layout .flow-result {
+  border-color: var(--cat-2);
+}
+
+.slidev-layout .flow-node small,
+.slidev-layout .lane small {
+  display: block;
+  margin-bottom: 0.34rem;
+  color: var(--fg-dim);
+  font: 700 0.38rem/1 var(--font-mono);
+  letter-spacing: 0.09em;
+}
+
+.slidev-layout .flow-node strong,
+.slidev-layout .lane strong {
+  display: block;
+  color: var(--fg);
+  font: 700 0.56rem/1.25 var(--font-mono);
+}
+
+.slidev-layout .flow-arrow {
+  color: var(--accent);
+  font: 800 0.9rem/1 var(--font-mono);
+}
+
+.slidev-layout .retrieval-lanes {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.slidev-layout .lane {
+  padding-block: 0.48rem;
+}
+
+.slidev-layout .lane span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--fg-dim);
+  font: 500 0.45rem/1.25 var(--font-body);
+}
+
+.slidev-layout .get-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 0.7rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.55rem;
+  color: var(--fg);
+  font: 650 0.62rem/1 var(--font-mono);
+}
+
+.slidev-layout .get-flow code {
+  color: var(--accent);
+}
+
+.slidev-layout .micro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 0.5rem;
+  margin-top: 0.58rem;
+}
+
+.slidev-layout .micro-grid > div {
+  display: flex;
+  gap: 0.5rem;
+  border-left: 2px solid var(--line);
+  padding-left: 0.55rem;
+  color: var(--fg-dim);
+  font: 500 0.48rem/1.35 var(--font-body);
+}
+
+.slidev-layout .micro-grid b {
+  flex: 0 0 auto;
+  color: var(--fg);
+  font-family: var(--font-mono);
+}
+
+/* OpenClaw sequence diagram. */
+.slidev-layout .sequence-board {
+  margin-top: 0.2rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 42%, var(--line));
+  background: color-mix(in oklab, var(--accent) 2%, var(--ink-2));
+  padding: 0.55rem 0.72rem 0.45rem;
+}
+
+.slidev-layout .sequence-head {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding-inline: 0.9rem;
+}
+
+.slidev-layout .sequence-actor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.52rem;
+  border: 1px solid var(--accent);
+  background: var(--ink);
+  padding: 0.38rem 0.48rem;
+  text-align: left;
+}
+
+.slidev-layout .sequence-actor-store {
+  border-color: var(--cat-2);
+}
+
+.slidev-layout .sequence-actor > svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--accent);
+}
+
+.slidev-layout .sequence-actor-store > svg {
+  color: var(--cat-2);
+}
+
+.slidev-layout .sequence-actor strong {
+  display: block;
+  color: var(--fg);
+  font: 700 0.58rem/1.1 var(--font-mono);
+}
+
+.slidev-layout .sequence-actor span {
+  display: block;
+  margin-top: 0.16rem;
+  color: var(--fg-dim);
+  font: 500 0.38rem/1.1 var(--font-body);
+}
+
+.slidev-layout .sequence-body {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1.42rem);
+  padding-inline: 0.9rem;
+}
+
+.slidev-layout .sequence-life {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  border-left: 1px dashed color-mix(in oklab, var(--fg-dim) 44%, transparent);
+}
+
+.slidev-layout .life-agent {
+  left: 16.67%;
+}
+
+.slidev-layout .life-core {
+  left: 50%;
+}
+
+.slidev-layout .life-store {
+  left: 83.33%;
+}
+
+.slidev-layout .sequence-message {
+  position: relative;
+  z-index: 1;
+  height: 1.42rem;
+}
+
+.slidev-layout .sequence-message::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  border-top: 1px solid var(--accent);
+}
+
+.slidev-layout .sequence-message::after {
+  content: '›';
+  position: absolute;
+  top: calc(50% - 0.55rem);
+  right: calc(25% - 0.06rem);
+  color: var(--accent);
+  font: 800 0.92rem/1 var(--font-mono);
+}
+
+.slidev-layout .sequence-message.reverse::before {
+  border-top-style: dashed;
+  border-top-color: var(--cat-2);
+}
+
+.slidev-layout .sequence-message.reverse::after {
+  content: '‹';
+  right: auto;
+  left: calc(25% - 0.06rem);
+  color: var(--cat-2);
+}
+
+.slidev-layout .sequence-message b,
+.slidev-layout .sequence-action b {
+  position: absolute;
+  top: calc(50% - 0.39rem);
+  left: calc(25% - 1.12rem);
+  display: grid;
+  width: 0.78rem;
+  height: 0.78rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font: 750 0.38rem/1 var(--font-mono);
+}
+
+.slidev-layout .sequence-message span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  max-width: 58%;
+  transform: translate(-50%, -50%);
+  background: var(--ink-2);
+  padding: 0.12rem 0.32rem;
+  color: var(--fg);
+  font: 600 0.43rem/1.2 var(--font-body);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.slidev-layout .sequence-message code {
+  color: var(--fg);
+  font: 650 0.42rem/1 var(--font-mono);
+}
+
+.slidev-layout .agent-to-core,
+.slidev-layout .core-to-agent {
+  grid-column: 1 / 3;
+}
+
+.slidev-layout .core-to-store {
+  grid-column: 2 / 4;
+}
+
+.slidev-layout .row-1 {
+  grid-row: 1;
+}
+
+.slidev-layout .row-2 {
+  grid-row: 2;
+}
+
+.slidev-layout .row-3 {
+  grid-row: 3;
+}
+
+.slidev-layout .row-4 {
+  grid-row: 4;
+}
+
+.slidev-layout .row-5 {
+  grid-row: 5;
+}
+
+.slidev-layout .row-6 {
+  grid-row: 6;
+}
+
+.slidev-layout .row-7 {
+  grid-row: 7;
+}
+
+.slidev-layout .row-8 {
+  grid-row: 8;
+}
+
+.slidev-layout .sequence-action {
+  position: relative;
+  z-index: 2;
+  grid-column: 2;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  border: 1px dashed var(--accent);
+  background: var(--ink);
+  padding: 0.22rem 0.42rem;
+  color: var(--fg);
+  font: 600 0.4rem/1 var(--font-mono);
+}
+
+.slidev-layout .sequence-action > svg {
+  width: 0.56rem;
+  height: 0.56rem;
+  color: var(--accent);
+}
+
+.slidev-layout .sequence-action b {
+  left: -1.18rem;
+}
+
+.slidev-layout .sequence-boundary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-top: 0.42rem;
+}
+
+.slidev-layout .sequence-boundary > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-left: 3px solid var(--accent);
+  background: var(--ink-2);
+  padding: 0.38rem 0.5rem;
+}
+
+.slidev-layout .sequence-boundary > div:last-child {
+  border-color: var(--cat-2);
+}
+
+.slidev-layout .sequence-boundary svg {
+  flex: 0 0 auto;
+  width: 0.78rem;
+  height: 0.78rem;
+  color: var(--accent);
+}
+
+.slidev-layout .sequence-boundary > div:last-child svg {
+  color: var(--cat-2);
+}
+
+.slidev-layout .sequence-boundary p {
+  margin: 0;
+}
+
+.slidev-layout .sequence-boundary strong,
+.slidev-layout .sequence-boundary span {
+  display: block;
+}
+
+.slidev-layout .sequence-boundary strong {
+  color: var(--fg);
+  font: 650 0.48rem/1.2 var(--font-body);
+}
+
+.slidev-layout .sequence-boundary span {
+  margin-top: 0.12rem;
+  color: var(--fg-dim);
+  font: 500 0.38rem/1.2 var(--font-body);
+}
+
+/* Default boundary. */
+.slidev-layout .scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.58rem 0.72rem;
+  margin-top: 0.58rem;
+}
+
+.slidev-layout .scope-card {
+  min-height: 6.15rem;
+  border-top: 3px solid var(--line);
+  background: var(--ink-2);
+  padding: 0.66rem 0.82rem 0.72rem;
+}
+
+.slidev-layout .scope-card:nth-child(1) {
+  border-color: var(--accent);
+}
+
+.slidev-layout .scope-card:nth-child(2) {
+  border-color: var(--cat-2);
+}
+
+.slidev-layout .scope-card:nth-child(3) {
+  border-color: var(--cat-3);
+}
+
+.slidev-layout .scope-card:nth-child(4) {
+  border-color: var(--cat-4);
+}
+
+.slidev-layout .scope-icon {
+  color: var(--fg-dim);
+  font: 750 0.46rem/1 var(--font-mono);
+}
+
+.slidev-layout .scope-card h3 {
+  margin: 0.48rem 0 0.34rem;
+  color: var(--fg);
+  font: 720 0.74rem/1.2 var(--font-body);
+}
+
+.slidev-layout .scope-card p {
+  margin: 0;
+  color: var(--fg-dim);
+  font: 500 0.55rem/1.46 var(--font-body);
+}
+
+.slidev-layout .scope-card code {
+  color: var(--accent);
+  font-size: 0.92em;
+}
+
+/* Importance evaluation: six dimensions + two execution paths. */
+.slidev-layout .importance-board {
+  display: grid;
+  grid-template-columns: 1.02fr 1.72fr 0.56fr;
+  gap: 0.58rem;
+  margin-top: -0.42rem;
+}
+
+.slidev-layout .importance-radar {
+  position: relative;
+  min-height: 13.4rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--accent) 62%, var(--line));
+  background: color-mix(in oklab, var(--accent) 4%, var(--ink-2));
+}
+
+.slidev-layout .radar-caption {
+  position: absolute;
+  top: 0.48rem;
+  left: 0.56rem;
+  z-index: 2;
+  color: var(--fg);
+  font: 720 0.62rem/1 var(--font-body);
+}
+
+.slidev-layout .radar-plot {
+  position: absolute;
+  top: 1.35rem;
+  left: 50%;
+  width: 88%;
+  height: 10.15rem;
+  transform: translateX(-50%);
+}
+
+.slidev-layout .radar-grid polygon,
+.slidev-layout .radar-grid line {
+  fill: none;
+  stroke: color-mix(in oklab, var(--fg-dim) 38%, transparent);
+  stroke-width: 1;
+}
+
+.slidev-layout .radar-value {
+  fill: color-mix(in oklab, var(--accent) 24%, transparent);
+  stroke: var(--accent);
+  stroke-width: 2.4;
+}
+
+.slidev-layout .radar-points circle {
+  fill: var(--cat-2);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.slidev-layout .radar-label {
+  position: absolute;
+  z-index: 3;
+  color: var(--fg);
+  font: 650 0.46rem/1.05 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .radar-label small {
+  display: block;
+  margin-top: 0.08rem;
+  color: var(--fg-dim);
+  font: 600 0.37rem/1 var(--font-mono);
+}
+
+.slidev-layout .radar-label-relevance {
+  top: 1.55rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.slidev-layout .radar-label-novelty {
+  top: 4.1rem;
+  right: 0.3rem;
+}
+
+.slidev-layout .radar-label-emotion {
+  right: 0.18rem;
+  bottom: 2.48rem;
+}
+
+.slidev-layout .radar-label-action {
+  bottom: 0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.slidev-layout .radar-label-factual {
+  bottom: 2.48rem;
+  left: 0.35rem;
+}
+
+.slidev-layout .radar-label-personal {
+  top: 4.1rem;
+  left: 0.2rem;
+}
+
+.slidev-layout .radar-core {
+  position: absolute;
+  top: 6.58rem;
+  left: 50%;
+  display: grid;
+  width: 1.32rem;
+  height: 1.32rem;
+  transform: translate(-50%, -50%);
+  place-items: center;
+  border: 1px solid var(--cat-2);
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--cat-2);
+  font: 750 0.42rem/1 var(--font-mono);
+}
+
+.slidev-layout .importance-routes {
+  display: grid;
+  grid-template-rows: 1.55rem repeat(2, 1fr);
+  gap: 0.42rem;
+  min-height: 13.4rem;
+}
+
+.slidev-layout .importance-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 52%;
+  justify-self: center;
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  color: var(--fg);
+  font: 650 0.5rem/1 var(--font-body);
+}
+
+.slidev-layout .importance-input svg {
+  width: 0.56rem;
+  height: 0.56rem;
+  color: var(--accent);
+}
+
+.slidev-layout .importance-input i {
+  position: absolute;
+  margin-top: 1.72rem;
+  color: var(--accent);
+  font: 750 0.58rem/1 var(--font-mono);
+}
+
+.slidev-layout .importance-route {
+  display: grid;
+  grid-template-columns: 0.78fr 1.5fr;
+  gap: 0.42rem;
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  padding: 0.55rem;
+}
+
+.slidev-layout .importance-route-llm {
+  border-color: color-mix(in oklab, var(--accent) 72%, var(--line));
+  background: color-mix(in oklab, var(--accent) 6%, var(--ink-2));
+}
+
+.slidev-layout .importance-route-rule {
+  border-color: color-mix(in oklab, var(--cat-3) 64%, var(--line));
+}
+
+.slidev-layout .importance-route-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-right: 1px solid var(--line);
+  padding-right: 0.42rem;
+}
+
+.slidev-layout .importance-route-head svg {
+  flex: 0 0 auto;
+  width: 0.82rem;
+  height: 0.82rem;
+  color: var(--accent);
+}
+
+.slidev-layout .importance-route-rule .importance-route-head svg {
+  color: var(--cat-3);
+}
+
+.slidev-layout .importance-route-head strong,
+.slidev-layout .importance-route-head span {
+  display: block;
+}
+
+.slidev-layout .importance-route-head strong {
+  color: var(--fg);
+  font: 700 0.56rem/1.16 var(--font-body);
+}
+
+.slidev-layout .importance-route-head span {
+  margin-top: 0.18rem;
+  color: var(--fg-dim);
+  font: 550 0.39rem/1.18 var(--font-body);
+}
+
+.slidev-layout .importance-route-body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.34rem;
+}
+
+.slidev-layout .importance-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.slidev-layout .importance-steps span {
+  border: 1px solid color-mix(in oklab, var(--accent) 44%, var(--line));
+  background: var(--ink);
+  padding: 0.3rem 0.34rem;
+  color: var(--fg);
+  font: 600 0.38rem/1 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .importance-steps i {
+  color: var(--accent);
+  font: 750 0.42rem/1 var(--font-mono);
+}
+
+.slidev-layout .importance-route-body code {
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--fg-dim);
+  font: 550 0.34rem/1.2 var(--font-mono);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slidev-layout .rule-signals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.22rem;
+}
+
+.slidev-layout .rule-signals span {
+  border: 1px solid color-mix(in oklab, var(--cat-3) 38%, var(--line));
+  background: var(--ink);
+  padding: 0.24rem 0.3rem;
+  color: var(--fg);
+  font: 550 0.36rem/1.18 var(--font-body);
+}
+
+.slidev-layout .importance-score {
+  position: relative;
+  display: flex;
+  min-height: 13.4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cat-2);
+  background: color-mix(in oklab, var(--cat-2) 8%, var(--ink-2));
+  text-align: center;
+}
+
+.slidev-layout .importance-score::before,
+.slidev-layout .importance-score::after {
+  content: '→';
+  position: absolute;
+  left: -0.65rem;
+  background: var(--ink);
+  padding: 0.08rem;
+  color: var(--cat-2);
+  font: 800 0.55rem/1 var(--font-mono);
+}
+
+.slidev-layout .importance-score::before {
+  top: 35%;
+}
+
+.slidev-layout .importance-score::after {
+  top: 69%;
+}
+
+.slidev-layout .importance-score small {
+  color: var(--cat-2);
+  font: 750 0.4rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.slidev-layout .importance-score span {
+  margin-top: 0.85rem;
+  color: var(--fg-dim);
+  font: 600 0.4rem/1.2 var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.slidev-layout .importance-score strong {
+  margin-top: 0.7rem;
+  color: var(--fg);
+  font: 800 1.42rem/1 var(--font-mono);
+}
+
+.slidev-layout .importance-score em {
+  margin-top: 0.4rem;
+  color: var(--fg-dim);
+  font: 600 0.37rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+/* Importance evaluation — reference diagram layout. */
+.slidev-layout .importance-board {
+  grid-template-columns: 0.48fr 2fr 0.55fr;
+  grid-template-rows: 7.2rem 6.9rem;
+  gap: 0.42rem 0.58rem;
+  margin-top: -0.28rem;
+}
+
+.slidev-layout .importance-radar {
+  grid-column: 2;
+  grid-row: 1;
+  width: 17rem;
+  min-height: 7.2rem;
+  justify-self: center;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.slidev-layout .radar-plot {
+  top: -0.08rem;
+  width: 83%;
+  height: 7.05rem;
+}
+
+.slidev-layout .radar-label {
+  font-size: 0.42rem;
+}
+
+.slidev-layout .radar-label small {
+  font-size: 0.34rem;
+}
+
+.slidev-layout .radar-label-relevance {
+  top: -0.04rem;
+}
+
+.slidev-layout .radar-label-novelty,
+.slidev-layout .radar-label-personal {
+  top: 1.92rem;
+}
+
+.slidev-layout .radar-label-emotion,
+.slidev-layout .radar-label-factual {
+  bottom: 1.1rem;
+}
+
+.slidev-layout .radar-label-action {
+  bottom: -0.08rem;
+}
+
+.slidev-layout .radar-core {
+  top: 3.58rem;
+  width: 3rem;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--fg);
+  font: 720 0.48rem/1.22 var(--font-body);
+  text-align: center;
+}
+
+.slidev-layout .importance-routes {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.38rem;
+  min-height: 6.9rem;
+}
+
+.slidev-layout .importance-input {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+  width: 100%;
+  min-height: 3.4rem;
+  align-self: center;
+  justify-self: stretch;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-color: color-mix(in oklab, var(--cat-3) 52%, var(--line));
+  background: color-mix(in oklab, var(--cat-3) 8%, var(--ink-2));
+  font-size: 0.52rem;
+  line-height: 1.18;
+  text-align: center;
+}
+
+.slidev-layout .importance-input svg {
+  width: 0.72rem;
+  height: 0.72rem;
+  color: var(--cat-3);
+}
+
+.slidev-layout .importance-input i {
+  display: none;
+}
+
+.slidev-layout .importance-path {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1.15fr;
+  gap: 0.18rem;
+  align-items: center;
+}
+
+.slidev-layout .importance-path::before {
+  content: '→';
+  position: absolute;
+  left: -0.56rem;
+  color: var(--fg-dim);
+  font: 750 0.54rem/1 var(--font-mono);
+}
+
+.slidev-layout .importance-node {
+  display: flex;
+  min-width: 0;
+  min-height: 3.25rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  padding: 0.42rem 0.34rem;
+  text-align: center;
+}
+
+.slidev-layout .importance-node svg {
+  width: 0.86rem;
+  height: 0.86rem;
+}
+
+.slidev-layout .importance-node strong {
+  color: var(--fg);
+  font: 700 0.52rem/1.26 var(--font-body);
+}
+
+.slidev-layout .importance-node span {
+  color: var(--fg-dim);
+  font: 560 0.4rem/1.42 var(--font-body);
+  text-align: left;
+}
+
+.slidev-layout .importance-arrow {
+  color: var(--fg-dim);
+  font: 750 0.55rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .importance-node-llm {
+  border-color: color-mix(in oklab, var(--accent) 70%, var(--line));
+  background: color-mix(in oklab, var(--accent) 9%, var(--ink-2));
+}
+
+.slidev-layout .importance-node-llm svg {
+  color: var(--accent);
+}
+
+.slidev-layout .importance-node-json,
+.slidev-layout .importance-node-parser {
+  border-color: color-mix(in oklab, var(--cat-2) 55%, var(--line));
+  background: color-mix(in oklab, var(--cat-2) 7%, var(--ink-2));
+}
+
+.slidev-layout .importance-node-json svg {
+  color: var(--cat-2);
+}
+
+.slidev-layout .importance-node-rule,
+.slidev-layout .importance-node-signals,
+.slidev-layout .importance-node-cap {
+  border-color: color-mix(in oklab, var(--cat-3) 60%, var(--line));
+  background: color-mix(in oklab, var(--cat-3) 7%, var(--ink-2));
+}
+
+.slidev-layout .importance-node-rule svg,
+.slidev-layout .importance-node-cap svg {
+  color: var(--cat-3);
+}
+
+.slidev-layout .importance-node-signals span {
+  color: var(--fg);
+}
+
+.slidev-layout .importance-score {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  min-height: 14.5rem;
+  border-width: 2px;
+}
+
+.slidev-layout .importance-score::before {
+  top: 59%;
+}
+
+.slidev-layout .importance-score::after {
+  top: 86%;
+}
+
+.slidev-layout .importance-score span {
+  margin-top: 0;
+  color: var(--fg);
+  font-size: 0.44rem;
+}
+
+.slidev-layout .importance-score strong {
+  margin-top: 0.52rem;
+  font-size: 1.18rem;
+}
+
+.slidev-layout .importance-score em {
+  margin-top: 0.62rem;
+  color: var(--fg-dim);
+  font: 580 0.37rem/1.2 var(--font-body);
+}
+
+/* Importance evaluation — redesigned with ui-ux-pro-max guidance. */
+.slidev-layout .importance-board-v3 {
+  display: grid;
+  grid-template-rows: 12.1rem 8.2rem;
+  gap: 0.46rem;
+  height: 20.76rem;
+  margin-top: -4.98rem;
+}
+
+.slidev-layout .importance-radar-v3 {
+  position: relative;
+  width: 16.5rem;
+  height: 12.1rem;
+  justify-self: center;
+  overflow: visible;
+}
+
+.slidev-layout .importance-radar-v3 .radar-plot {
+  top: -0.08rem;
+  width: 82%;
+  height: 11.95rem;
+}
+
+.slidev-layout .importance-radar-v3 .radar-label {
+  font-size: 0.46rem;
+}
+
+.slidev-layout .importance-radar-v3 .radar-label small {
+  font-size: 0.36rem;
+}
+
+.slidev-layout .importance-radar-v3 .radar-label-relevance {
+  top: -0.02rem;
+}
+
+.slidev-layout .importance-radar-v3 .radar-label-novelty {
+  top: 3.22rem;
+  right: auto;
+  left: calc(50% + 4.58rem);
+}
+
+.slidev-layout .importance-radar-v3 .radar-label-personal {
+  top: 3.22rem;
+  right: calc(50% + 4.58rem);
+  left: auto;
+  text-align: right;
+}
+
+.slidev-layout .importance-radar-v3 .radar-label-emotion {
+  bottom: 1.92rem;
+  right: auto;
+  left: calc(50% + 4.58rem);
+}
+
+.slidev-layout .importance-radar-v3 .radar-label-factual {
+  right: calc(50% + 4.58rem);
+  bottom: 1.92rem;
+  left: auto;
+  text-align: right;
+}
+
+.slidev-layout .importance-radar-v3 .radar-label-action {
+  bottom: -0.08rem;
+}
+
+.slidev-layout .importance-radar-v3 .radar-core {
+  top: 6.03rem;
+  width: 3.1rem;
+  color: var(--fg);
+  font: 720 0.5rem/1.2 var(--font-body);
+}
+
+.slidev-layout .importance-flow-v3 {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.76fr 1fr 1fr 1.12fr 0.72fr;
+  grid-template-rows: repeat(2, 3.7rem);
+  gap: 0.8rem 2rem;
+  height: 8.2rem;
+}
+
+.slidev-layout .importance-input-v3,
+.slidev-layout .importance-node-v3,
+.slidev-layout .importance-score-v3 {
+  position: relative;
+  z-index: 2;
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+}
+
+.slidev-layout .importance-input-v3 {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  display: flex;
+  height: 3.1rem;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.16rem;
+  border-color: color-mix(in oklab, var(--cat-3) 68%, var(--line));
+  background: color-mix(in oklab, var(--cat-3) 8%, var(--ink-2));
+  text-align: center;
+}
+
+.slidev-layout .importance-input-v3 svg {
+  width: 0.72rem;
+  height: 0.72rem;
+  margin-bottom: 0.1rem;
+  color: var(--cat-3);
+}
+
+.slidev-layout .importance-input-v3 strong,
+.slidev-layout .importance-input-v3 span {
+  color: var(--fg);
+  font: 680 0.48rem/1.12 var(--font-body);
+}
+
+.slidev-layout .importance-input-v3 span {
+  font-weight: 560;
+}
+
+.slidev-layout .importance-node-v3 {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.35rem;
+  text-align: center;
+}
+
+.slidev-layout .importance-node-v3 svg {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.slidev-layout .importance-node-v3 strong {
+  color: var(--fg);
+  font: 700 0.5rem/1.22 var(--font-body);
+}
+
+.slidev-layout .importance-node-v3 span {
+  color: var(--fg-dim);
+  font: 560 0.39rem/1.35 var(--font-body);
+  text-align: left;
+}
+
+.slidev-layout .importance-node-v3-llm {
+  grid-column: 2;
+  grid-row: 1;
+  border-color: color-mix(in oklab, var(--accent) 74%, var(--line));
+  background: color-mix(in oklab, var(--accent) 9%, var(--ink-2));
+}
+
+.slidev-layout .importance-node-v3-llm svg {
+  color: var(--accent);
+}
+
+.slidev-layout .importance-node-v3-json {
+  grid-column: 3;
+  grid-row: 1;
+  border-color: color-mix(in oklab, var(--cat-2) 62%, var(--line));
+  background: color-mix(in oklab, var(--cat-2) 7%, var(--ink-2));
+}
+
+.slidev-layout .importance-node-v3-json svg {
+  color: var(--cat-2);
+}
+
+.slidev-layout .importance-node-v3-parser {
+  grid-column: 4;
+  grid-row: 1;
+  border-color: color-mix(in oklab, var(--cat-2) 62%, var(--line));
+  background: color-mix(in oklab, var(--cat-2) 7%, var(--ink-2));
+}
+
+.slidev-layout .importance-node-v3-rule {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.slidev-layout .importance-node-v3-signals {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.slidev-layout .importance-node-v3-cap {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.slidev-layout .importance-node-v3-rule,
+.slidev-layout .importance-node-v3-signals,
+.slidev-layout .importance-node-v3-cap {
+  border-color: color-mix(in oklab, var(--cat-3) 68%, var(--line));
+  background: color-mix(in oklab, var(--cat-3) 7%, var(--ink-2));
+}
+
+.slidev-layout .importance-node-v3-rule svg,
+.slidev-layout .importance-node-v3-cap svg {
+  color: var(--cat-3);
+}
+
+.slidev-layout .importance-node-v3-signals span {
+  color: var(--fg);
+}
+
+.slidev-layout .importance-score-v3 {
+  grid-column: 5;
+  grid-row: 1 / 3;
+  display: flex;
+  height: 3.1rem;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cat-2);
+  background: color-mix(in oklab, var(--cat-2) 8%, var(--ink-2));
+  text-align: center;
+}
+
+.slidev-layout .importance-score-v3 span {
+  color: var(--fg-dim);
+  font: 600 0.36rem/1.1 var(--font-mono);
+}
+
+.slidev-layout .importance-score-v3 strong {
+  margin-top: 0.28rem;
+  color: var(--fg);
+  font: 780 0.8rem/1 var(--font-mono);
+}
+
+.slidev-layout .importance-score-v3 em {
+  margin-top: 0.3rem;
+  color: var(--fg-dim);
+  font: 560 0.32rem/1.1 var(--font-body);
+  font-style: normal;
+}
+
+.slidev-layout .importance-connectors-v3 {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.slidev-layout .importance-connector-v3 {
+  fill: none;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.slidev-layout .importance-connector-v3-input {
+  stroke: color-mix(in oklab, var(--fg-dim) 78%, transparent);
+}
+
+.slidev-layout .importance-connector-v3-top {
+  stroke: color-mix(in oklab, var(--cat-2) 78%, var(--accent));
+}
+
+.slidev-layout .importance-connector-v3-bottom {
+  stroke: color-mix(in oklab, var(--cat-3) 78%, var(--fg));
+}
+
+.slidev-layout .importance-connector-v3-merge {
+  stroke: var(--cat-2);
+}
+
+.slidev-layout .importance-junction-v3 {
+  stroke: var(--ink);
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+.slidev-layout .importance-junction-v3-input {
+  fill: var(--fg-dim);
+}
+
+.slidev-layout .importance-junction-v3-merge {
+  fill: var(--cat-2);
+}
+
+.slidev-layout #importance-arrow-neutral path {
+  fill: var(--fg-dim);
+}
+
+.slidev-layout #importance-arrow-top path {
+  fill: var(--cat-2);
+}
+
+.slidev-layout #importance-arrow-bottom path {
+  fill: var(--cat-3);
+}
+
+.slidev-layout .importance-reality {
+  margin-top: 0.45rem;
+  border: 1px solid color-mix(in oklab, var(--warn) 58%, var(--line));
+  background: color-mix(in oklab, var(--warn) 6%, var(--ink-2));
+  padding: 0.42rem 0.62rem;
+  color: var(--fg-dim);
+  font: 550 0.48rem/1.35 var(--font-body);
+}
+
+.slidev-layout .importance-reality strong {
+  margin-right: 0.42rem;
+  color: var(--warn);
+  font-weight: 700;
+}
+
+.slidev-layout .importance-reality code {
+  color: var(--fg);
+  font-size: 0.95em;
+}
+
+/* Cognitive bridge: generated brain illustration + precise HTML labels. */
+.slidev-layout .brain-analogy-stage {
+  position: relative;
+  height: 13.65rem;
+  overflow: hidden;
+  margin-top: -0.34rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 68%, var(--line));
+  background: #020817;
+}
+
+.slidev-layout .brain-analogy-image {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 72%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.slidev-layout .brain-analogy-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 37%,
+      color-mix(in oklab, #020817 34%, transparent) 56%,
+      #020817 73%
+    );
+}
+
+.slidev-layout .brain-analogy-callouts {
+  position: absolute;
+  top: 0.76rem;
+  right: 0.72rem;
+  bottom: 0.76rem;
+  display: grid;
+  width: 35%;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.3rem;
+}
+
+.slidev-layout .brain-callout {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in oklab, #020817 88%, transparent);
+  padding: 0.36rem 0.58rem;
+}
+
+.slidev-layout .brain-callout strong,
+.slidev-layout .brain-callout span {
+  display: block;
+}
+
+.slidev-layout .brain-callout strong {
+  color: var(--fg);
+  font: 740 0.78rem/1.08 var(--font-body);
+}
+
+.slidev-layout .brain-callout span {
+  margin-top: 0.28rem;
+  color: var(--fg);
+  font: 580 0.58rem/1.28 var(--font-body);
+}
+
+.slidev-layout .brain-callout-hippocampus {
+  border-color: #ff765c;
+}
+
+.slidev-layout .brain-callout-neocortex {
+  border-color: #3eddd7;
+}
+
+/* Three-tier memory model. */
+.slidev-layout .memory-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -0.95rem;
+  margin-bottom: 0.34rem;
+  padding: 0 0.72rem;
+}
+
+.slidev-layout .memory-section-head span {
+  color: var(--fg-dim);
+  font: 700 0.48rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-section-head strong {
+  color: var(--fg-dim);
+  font: 650 0.5rem/1 var(--font-body);
+}
+
+.slidev-layout .memory-section-stage {
+  display: block;
+  min-height: 12.8rem;
+}
+
+.slidev-layout .memory-section {
+  display: block;
+  min-width: 0;
+  min-height: 12.8rem;
+}
+
+.slidev-layout .memory-section-axis {
+  position: relative;
+  border-right: 1px solid color-mix(in oklab, var(--fg-dim) 55%, transparent);
+}
+
+.slidev-layout .memory-axis-tick {
+  position: absolute;
+  right: 0.38rem;
+  transform: translateY(-50%);
+  color: var(--fg-dim);
+  font: 720 0.56rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-axis-08 {
+  top: 33.333%;
+}
+
+.slidev-layout .memory-axis-06 {
+  top: 66.667%;
+}
+
+.slidev-layout .memory-section-layers {
+  display: grid;
+  grid-template-rows: repeat(3, 4.08rem);
+  gap: 0.28rem;
+}
+
+.slidev-layout .memory-section-layer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 10.4rem 5.2rem;
+  align-items: stretch;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--fg-dim) 36%, transparent);
+  border-radius: 0.62rem;
+}
+
+.slidev-layout .memory-section-long {
+  background:
+    linear-gradient(90deg, color-mix(in oklab, var(--cat-2) 10%, var(--ink-2)), transparent 72%);
+  border-color: color-mix(in oklab, var(--cat-2) 56%, transparent);
+}
+
+.slidev-layout .memory-section-short {
+  background:
+    linear-gradient(90deg, color-mix(in oklab, var(--accent) 18%, var(--ink-2)), color-mix(in oklab, var(--accent) 6%, var(--ink-2)) 72%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 70%, transparent);
+  box-shadow: inset 0.16rem 0 0 var(--accent);
+}
+
+.slidev-layout .memory-section-working {
+  border-color: color-mix(in oklab, var(--cat-3) 52%, transparent);
+  background:
+    linear-gradient(90deg, color-mix(in oklab, var(--cat-3) 10%, var(--ink-2)), transparent 72%);
+}
+
+.slidev-layout .memory-section-level,
+.slidev-layout .memory-section-copy,
+.slidev-layout .memory-section-title,
+.slidev-layout .memory-section-threshold,
+.slidev-layout .memory-section-scale {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+.slidev-layout .memory-section-level {
+  justify-content: center;
+  color: var(--cat-2);
+  font: 820 1.22rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-section-short .memory-section-level {
+  color: var(--accent);
+}
+
+.slidev-layout .memory-section-working .memory-section-level {
+  color: color-mix(in oklab, var(--cat-3) 72%, white);
+}
+
+.slidev-layout .memory-section-copy {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.34rem;
+  padding: 0.4rem 0.76rem;
+}
+
+.slidev-layout .memory-section-title {
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.slidev-layout .memory-section-title h3 {
+  margin: 0;
+  color: var(--fg);
+  font: 760 1.24rem/1.08 var(--font-body);
+}
+
+.slidev-layout .memory-section-title code {
+  background: transparent;
+  padding: 0;
+  color: var(--fg-dim);
+  font: 620 0.58rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-section-example {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  color: var(--fg-dim);
+}
+
+.slidev-layout .memory-section-example i {
+  width: 0.34rem;
+  height: 0.34rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--bad);
+}
+
+.slidev-layout .memory-section-example span {
+  color: var(--fg);
+  font: 650 0.54rem/1 var(--font-body);
+}
+
+.slidev-layout .memory-section-example code {
+  padding: 0;
+  background: transparent;
+  color: var(--accent);
+  font: 620 0.5rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-section-threshold {
+  justify-content: center;
+  padding: 0.56rem;
+}
+
+.slidev-layout .memory-section-threshold code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8.9rem;
+  min-height: 1.58rem;
+  border: 1px solid color-mix(in oklab, var(--fg-dim) 42%, transparent);
+  border-radius: 0.46rem;
+  background: color-mix(in oklab, var(--ink-3) 88%, transparent);
+  padding: 0.32rem 0.5rem;
+  color: var(--fg);
+  font: 680 0.54rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-section-scale {
+  justify-content: flex-end;
+  gap: 0.18rem;
+  border-left: 1px solid color-mix(in oklab, var(--fg-dim) 24%, transparent);
+  padding: 0.48rem 0.64rem;
+}
+
+.slidev-layout .memory-section-scale strong {
+  color: var(--cat-2);
+  font: 820 1.12rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .memory-section-scale span {
+  color: var(--fg-dim);
+  font: 700 0.68rem/1 var(--font-body);
+}
+
+.slidev-layout .memory-section-short .memory-section-scale strong {
+  color: var(--accent);
+}
+
+.slidev-layout .memory-section-working .memory-section-scale strong {
+  color: color-mix(in oklab, var(--cat-3) 72%, white);
+}
+
+.slidev-layout .memory-section-takeaway {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0.72rem 0 0;
+  color: var(--fg);
+  font: 740 0.9rem/1.2 var(--font-body);
+  text-align: center;
+}
+
+.slidev-layout .memory-section-takeaway::before {
+  content: none;
+}
+
+.slidev-layout .memory-section-side {
+  display: grid;
+  grid-template-rows: repeat(3, 4.7rem);
+  min-width: 0;
+}
+
+.slidev-layout .memory-side-threshold {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  padding-left: 0.62rem;
+  border-left: 1px solid color-mix(in oklab, var(--fg-dim) 42%, transparent);
+}
+
+.slidev-layout .memory-side-threshold-high {
+  justify-content: flex-end;
+  padding-bottom: 0.62rem;
+}
+
+.slidev-layout .memory-side-threshold-low {
+  justify-content: flex-start;
+  padding-top: 0.62rem;
+}
+
+.slidev-layout .memory-side-threshold span {
+  color: var(--fg-dim);
+  font: 680 0.58rem/1 var(--font-body);
+}
+
+.slidev-layout .memory-side-threshold strong {
+  color: var(--fg);
+  font: 720 0.62rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-side-callout {
+  --memory-callout-bg: color-mix(in oklab, var(--bad) 8%, var(--ink-2));
+  position: relative;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.52rem;
+  min-width: 0;
+  min-height: 3.9rem;
+  border: 1.5px solid var(--bad);
+  border-radius: 0.86rem;
+  background: var(--memory-callout-bg);
+  padding: 0.54rem 0.66rem;
+}
+
+.slidev-layout .memory-side-callout::before,
+.slidev-layout .memory-side-callout::after {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  transform: translateY(-50%);
+  content: "";
+}
+
+.slidev-layout .memory-side-callout::before {
+  left: -0.58rem;
+  border-top: 0.42rem solid transparent;
+  border-right: 0.58rem solid var(--bad);
+  border-bottom: 0.42rem solid transparent;
+}
+
+.slidev-layout .memory-side-callout::after {
+  left: -0.5rem;
+  border-top: 0.35rem solid transparent;
+  border-right: 0.5rem solid var(--memory-callout-bg);
+  border-bottom: 0.35rem solid transparent;
+}
+
+.slidev-layout .memory-side-callout svg {
+  width: 1.72rem;
+  height: 1.72rem;
+  color: var(--bad);
+  stroke-width: 1.65;
+}
+
+.slidev-layout .memory-side-callout > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.18rem;
+}
+
+.slidev-layout .memory-side-callout b {
+  color: var(--fg);
+  font: 740 0.68rem/1 var(--font-body);
+}
+
+.slidev-layout .memory-side-callout code {
+  padding: 0;
+  background: transparent;
+  color: var(--fg-dim);
+  font: 650 0.52rem/1 var(--font-mono);
+}
+
+.slidev-layout .memory-side-callout strong {
+  color: var(--bad);
+  font: 740 0.6rem/1 var(--font-mono);
+}
+
+/* Ebbinghaus experiment: simplified three-point forgetting curve. */
+.slidev-layout .ebbinghaus-intro {
+  display: block;
+  min-height: 18.35rem;
+  margin-top: -0.7rem;
+}
+
+.slidev-layout .ebbinghaus-curve-panel {
+  position: relative;
+  width: 100%;
+  min-height: 18.35rem;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--accent) 62%, var(--line));
+  background:
+    radial-gradient(circle at 24% 20%, rgba(33, 126, 255, 0.12), transparent 38%),
+    var(--ink-2);
+}
+
+.slidev-layout .ebbinghaus-y-axis-title {
+  fill: var(--fg);
+  font: 720 17px/1 var(--font-body);
+}
+
+.slidev-layout .ebbinghaus-curve {
+  position: absolute;
+  inset: 0.95rem 0.28rem 0.08rem 0.18rem;
+  width: calc(100% - 0.46rem);
+  height: calc(100% - 1.03rem);
+}
+
+.slidev-layout .ebbinghaus-grid {
+  stroke: color-mix(in oklab, var(--chart-muted) 68%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 5 7;
+}
+
+.slidev-layout .ebbinghaus-axis {
+  stroke: color-mix(in oklab, var(--fg) 82%, var(--line));
+  stroke-width: 2;
+}
+
+.slidev-layout #ebbinghaus-axis-arrow path {
+  fill: color-mix(in oklab, var(--fg) 82%, var(--line));
+}
+
+.slidev-layout .ebbinghaus-area {
+  fill: url(#ebbinghaus-area-fill);
+}
+
+.slidev-layout .ebbinghaus-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.slidev-layout .ebbinghaus-data-guides line {
+  stroke: color-mix(in oklab, var(--cat-2) 78%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+  opacity: 0.48;
+}
+
+.slidev-layout .ebbinghaus-data-points circle {
+  fill: var(--ink);
+  stroke: var(--cat-2);
+  stroke-width: 3;
+}
+
+.slidev-layout .ebbinghaus-data-points .ebbinghaus-dot-start {
+  stroke: var(--accent);
+}
+
+.slidev-layout .ebbinghaus-y-label,
+.slidev-layout .ebbinghaus-x-labels text,
+.slidev-layout .ebbinghaus-time-label {
+  fill: var(--fg-dim);
+  font: 650 17px/1 var(--font-mono);
+}
+
+.slidev-layout .ebbinghaus-time-label {
+  fill: var(--fg);
+  font-size: 19px;
+}
+
+.slidev-layout .ebbinghaus-data-values text {
+  fill: var(--cat-2);
+  font: 720 16px/1 var(--font-mono);
+}
+
+.slidev-layout .ebbinghaus-fast-label {
+  fill: var(--warn);
+  font: 720 18px/1 var(--font-body);
+}
+
+.slidev-layout .ebbinghaus-person {
+  position: absolute;
+  bottom: 0.16rem;
+  left: 0.34rem;
+  z-index: 3;
+  display: flex;
+  width: 4.7rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.08rem;
+  pointer-events: none;
+}
+
+.slidev-layout .ebbinghaus-person img {
+  width: 4.05rem;
+  height: 4.7rem;
+  object-fit: cover;
+  object-position: bottom center;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.48));
+}
+
+.slidev-layout .ebbinghaus-person strong {
+  display: block;
+  color: var(--fg);
+  font: 720 0.46rem/1 var(--font-body);
+}
+
+.slidev-layout .ebbinghaus-formula {
+  position: absolute;
+  top: 0.58rem;
+  right: 0.72rem;
+  z-index: 4;
+  display: grid;
+  min-width: 11.8rem;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, var(--accent) 62%, var(--line));
+  background: color-mix(in oklab, var(--accent) 8%, var(--ink-2));
+  padding: 0.42rem 0.72rem 0.48rem;
+  text-align: center;
+}
+
+.slidev-layout .ebbinghaus-formula span {
+  color: var(--fg-dim);
+  font: 600 0.42rem/1.15 var(--font-body);
+}
+
+.slidev-layout .ebbinghaus-formula strong {
+  color: var(--fg);
+  margin-top: 0.16rem;
+  font: 750 1.12rem/1 var(--font-mono);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.slidev-layout .ebbinghaus-formula sup {
+  color: var(--cat-2);
+  font-size: 0.62em;
+}
+
+.slidev-layout .ebbinghaus-formula small {
+  margin-top: 0.2rem;
+  color: color-mix(in oklab, var(--fg-dim) 78%, transparent);
+  font: 560 0.37rem/1.15 var(--font-body);
+}
+
+/* Ebbinghaus-style exponential decay translated to PowerMem. */
+.slidev-layout .decay-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.48rem;
+  margin-top: -0.42rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.22rem 0 0.48rem;
+}
+
+.slidev-layout .decay-formula strong {
+  color: var(--accent);
+  font: 720 1.05rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .decay-formula sub,
+.slidev-layout .decay-formula sup,
+.slidev-layout .decay-explainer sup {
+  font-size: 0.62em;
+}
+
+.slidev-layout .decay-formula i {
+  color: var(--line-strong);
+  font: 600 0.65rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .decay-formula code {
+  background: transparent;
+  padding: 0;
+  color: var(--fg);
+  font: 620 0.58rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .decay-simple-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 3.4fr) minmax(7.2rem, 0.82fr);
+  gap: 0.56rem;
+  min-height: 10.55rem;
+  margin-top: 0.46rem;
+}
+
+.slidev-layout .decay-simple-chart-panel {
+  border: 1px solid color-mix(in oklab, var(--accent) 62%, var(--line));
+  background: var(--ink-2);
+  padding: 0.5rem 0.62rem 0.24rem;
+}
+
+.slidev-layout .decay-explainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid color-mix(in oklab, var(--cat-2) 58%, var(--line));
+  background: var(--ink-2);
+}
+
+.slidev-layout .decay-explainer > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.58rem 0.62rem;
+}
+
+.slidev-layout .decay-explainer > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.slidev-layout .decay-explainer span {
+  color: var(--fg-dim);
+  font: 600 0.52rem/1 var(--font-body);
+}
+
+.slidev-layout .decay-explainer strong {
+  margin-top: 0.34rem;
+  color: var(--cat-2);
+  font: 760 0.94rem/1 var(--font-mono);
+}
+
+.slidev-layout .decay-explainer > div:last-child strong {
+  color: var(--warn);
+}
+
+.slidev-layout .decay-explainer p {
+  margin: 0.36rem 0 0;
+  color: var(--fg-dim);
+  font: 540 0.5rem/1.42 var(--font-body);
+}
+
+.slidev-layout .decay-explainer b {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.slidev-layout .decay-explainer code {
+  background: transparent;
+  padding: 0;
+  color: var(--fg);
+  font: 600 0.45rem/1.2 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .decay-takeaway {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  min-height: 1.46rem;
+  margin-top: 0.42rem;
+  border: 1px solid color-mix(in oklab, var(--cat-2) 56%, var(--line));
+  background: color-mix(in oklab, var(--cat-2) 5%, var(--ink-2));
+  padding: 0.28rem 0.48rem;
+}
+
+.slidev-layout .decay-takeaway strong {
+  color: var(--cat-2);
+  font: 720 0.55rem/1 var(--font-body);
+}
+
+.slidev-layout .decay-takeaway span {
+  color: var(--fg);
+  font: 580 0.48rem/1 var(--font-body);
+}
+
+.slidev-layout .decay-chart-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.slidev-layout .decay-chart-heading strong,
+.slidev-layout .decay-chart-heading span {
+  display: block;
+}
+
+.slidev-layout .decay-chart-heading strong {
+  color: var(--fg);
+  font: 700 0.66rem/1.15 var(--font-body);
+}
+
+.slidev-layout .decay-chart-heading span {
+  margin-top: 0.15rem;
+  color: var(--fg-dim);
+  font: 550 0.47rem/1.2 var(--font-body);
+}
+
+.slidev-layout .decay-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 760 / 300;
+  margin-top: 0.15rem;
+}
+
+.slidev-layout .decay-axis {
+  stroke: color-mix(in oklab, var(--fg-dim) 80%, var(--line));
+  stroke-width: 1.5;
+}
+
+.slidev-layout .decay-grid-line {
+  stroke: color-mix(in oklab, var(--line) 68%, transparent);
+  stroke-width: 1;
+}
+
+.slidev-layout .decay-threshold {
+  stroke: color-mix(in oklab, var(--warn) 76%, var(--line));
+  stroke-dasharray: 7 6;
+}
+
+.slidev-layout .decay-curve {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.slidev-layout .decay-cross-line {
+  stroke: var(--warn);
+  stroke-dasharray: 6 5;
+  stroke-width: 1.5;
+}
+
+.slidev-layout .decay-strength-line {
+  stroke: color-mix(in oklab, var(--accent) 62%, var(--line));
+  stroke-dasharray: 4 6;
+  stroke-width: 1.2;
+}
+
+.slidev-layout .decay-dot {
+  fill: var(--ink);
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+
+.slidev-layout .decay-dot-start {
+  fill: var(--accent);
+}
+
+.slidev-layout .decay-dot-threshold {
+  fill: var(--warn);
+  stroke: var(--ink);
+}
+
+.slidev-layout .decay-y-label,
+.slidev-layout .decay-x-label,
+.slidev-layout .decay-point-label {
+  fill: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.slidev-layout .decay-y-label {
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.slidev-layout .decay-x-label {
+  font-size: 15px;
+  font-weight: 580;
+}
+
+.slidev-layout .decay-point-label {
+  fill: var(--fg);
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.slidev-layout .decay-y-threshold,
+.slidev-layout .decay-x-threshold,
+.slidev-layout .decay-point-threshold {
+  fill: var(--warn);
+}
+
+/* Reference-led formula / chart / S-card / four-column layout. */
+.slidev-layout:has(.decay-ref-title) {
+  overflow: hidden;
+  padding: 24px 34px 12px !important;
+}
+
+.slidev-layout:has(.decay-ref-title) > .l-head {
+  display: none;
+}
+
+.slidev-layout:has(.decay-ref-title) > .l-body {
+  display: block;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+}
+
+.slidev-layout:has(.decay-ref-title) .fit {
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.slidev-layout:has(.decay-ref-title) .fit-inner {
+  display: grid;
+  grid-template-rows: 58px minmax(0, 1fr) 150px;
+  gap: 8px;
+  height: 100%;
+  width: 100%;
+  transform: none !important;
+}
+
+.slidev-layout .decay-ref-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.slidev-layout .decay-ref-title::after {
+  position: absolute;
+  right: 42%;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  content: "";
+}
+
+.slidev-layout .decay-ref-title span {
+  color: var(--fg);
+  font: 720 27px/1 var(--font-body);
+}
+
+.slidev-layout .decay-ref-title strong {
+  color: var(--accent);
+  font: 730 32px/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .decay-ref-title sub,
+.slidev-layout .decay-ref-title sup {
+  font-size: 0.58em;
+}
+
+.slidev-layout .decay-ref-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 16px;
+  min-height: 0;
+}
+
+.slidev-layout .decay-ref-plot {
+  min-width: 0;
+  min-height: 0;
+}
+
+.slidev-layout .decay-ref-plot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.slidev-layout .decay-ref-axis {
+  stroke: color-mix(in oklab, var(--fg-dim) 90%, var(--line));
+  stroke-width: 2;
+}
+
+.slidev-layout .decay-ref-curve {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.slidev-layout .decay-ref-working {
+  stroke: var(--cat-3);
+  stroke-dasharray: 9 9;
+  stroke-width: 3;
+}
+
+.slidev-layout .decay-ref-short {
+  stroke: var(--accent);
+  stroke-width: 5;
+}
+
+.slidev-layout .decay-ref-long {
+  stroke: var(--cat-2);
+  stroke-dasharray: 12 9;
+  stroke-width: 3;
+}
+
+.slidev-layout .decay-ref-start {
+  fill: var(--accent);
+}
+
+.slidev-layout .decay-ref-axis-title,
+.slidev-layout .decay-ref-y,
+.slidev-layout .decay-ref-ticks,
+.slidev-layout .decay-ref-label,
+.slidev-layout .decay-ref-label-sub {
+  font-family: var(--font-body);
+}
+
+.slidev-layout .decay-ref-axis-title {
+  fill: var(--fg);
+  font-size: 17px;
+  font-weight: 660;
+}
+
+.slidev-layout .decay-ref-y,
+.slidev-layout .decay-ref-ticks {
+  fill: var(--fg-dim);
+  font-size: 16px;
+  font-weight: 580;
+}
+
+.slidev-layout .decay-ref-label {
+  font-size: 18px;
+  font-weight: 720;
+}
+
+.slidev-layout .decay-ref-label-sub {
+  fill: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 620;
+}
+
+.slidev-layout .decay-ref-label-working {
+  fill: var(--cat-3);
+  paint-order: stroke fill;
+  stroke: var(--ink);
+  stroke-linejoin: round;
+  stroke-width: 5px;
+}
+
+.slidev-layout .decay-ref-label-short {
+  fill: var(--accent);
+}
+
+.slidev-layout .decay-ref-label-long {
+  fill: var(--cat-2);
+}
+
+.slidev-layout .decay-ref-s-card {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 195px;
+  border: 1px solid color-mix(in oklab, var(--warn) 68%, var(--line));
+  background: color-mix(in oklab, var(--warn) 5%, var(--ink-2));
+  padding: 16px 13px;
+  text-align: center;
+}
+
+.slidev-layout .decay-ref-s-card span {
+  color: var(--fg);
+  font: 720 16px/1.1 var(--font-body);
+}
+
+.slidev-layout .decay-ref-s-card p {
+  margin: 17px 0 0;
+  color: var(--fg-dim);
+  font: 600 13px/1.45 var(--font-body);
+}
+
+.slidev-layout .decay-ref-s-card p b {
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-weight: 680;
+}
+
+.slidev-layout .decay-ref-s-card strong {
+  margin-top: 5px;
+  color: var(--warn);
+  font: 760 18px/1.1 var(--font-body);
+}
+
+.slidev-layout .decay-ref-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 0;
+  border: 1px solid color-mix(in oklab, var(--cat-3) 58%, var(--line));
+  background: color-mix(in oklab, var(--cat-3) 3%, var(--ink-2));
+}
+
+.slidev-layout .decay-ref-bottom > * + * {
+  border-left: 1px solid var(--line);
+}
+
+.slidev-layout .decay-ref-layer {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.slidev-layout .decay-ref-layer header {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.slidev-layout .decay-ref-layer strong {
+  font: 730 16px/1 var(--font-body);
+}
+
+.slidev-layout .decay-ref-layer span {
+  color: var(--fg-dim);
+  font: 600 12px/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .decay-ref-layer code {
+  background: transparent;
+  padding: 0;
+  color: var(--fg);
+  font: 620 14px/1 var(--font-mono);
+}
+
+.slidev-layout .decay-ref-layer code:nth-of-type(2) {
+  color: var(--fg-dim);
+}
+
+.slidev-layout .decay-ref-layer p {
+  width: 100%;
+  margin: 3px 0 0;
+  border-top: 1px dashed var(--line);
+  padding-top: 7px;
+  color: var(--fg-dim);
+  font: 570 14px/1 var(--font-body);
+  text-align: center;
+}
+
+.slidev-layout .decay-ref-layer p b {
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+
+.slidev-layout .decay-ref-layer-working strong,
+.slidev-layout .decay-ref-layer-working p b {
+  color: var(--cat-3);
+}
+
+.slidev-layout .decay-ref-layer-short {
+  background: color-mix(in oklab, var(--accent) 5%, transparent);
+}
+
+.slidev-layout .decay-ref-layer-short strong,
+.slidev-layout .decay-ref-layer-short p b {
+  color: var(--accent);
+}
+
+.slidev-layout .decay-ref-layer-long strong,
+.slidev-layout .decay-ref-layer-long p b {
+  color: var(--cat-2);
+}
+
+/* Reference-led access-trigger decision tree. */
+.slidev-layout:has(.access-reference-board) {
+  --access-hand-font: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.slidev-layout:has(.access-reference-board) .l-head {
+  position: relative;
+  z-index: 5;
+  visibility: hidden;
+}
+
+.slidev-layout:has(.access-reference-board) .l-body,
+.slidev-layout:has(.access-reference-board) .fit,
+.slidev-layout:has(.access-reference-board) .fit-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slidev-layout:has(.access-reference-board) .fit {
+  display: block;
+}
+
+.slidev-layout:has(.access-reference-board) .fit-inner {
+  transform: none !important;
+}
+
+.slidev-layout .access-reference-board {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  background: rgba(1, 4, 13, 0.18);
+  color: var(--fg);
+  font-family: var(--access-hand-font);
+  pointer-events: none;
+}
+
+.slidev-layout .access-reference-connectors {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.slidev-layout .access-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.35;
+  vector-effect: non-scaling-stroke;
+}
+
+.slidev-layout .access-line-entry,
+.slidev-layout .access-line-no {
+  stroke: var(--fg-dim);
+}
+
+.slidev-layout .access-line-good {
+  stroke: var(--good);
+}
+
+.slidev-layout .access-line-bad {
+  stroke: var(--bad);
+}
+
+.slidev-layout .access-line-warn {
+  stroke: var(--warn);
+}
+
+.slidev-layout .access-line-example {
+  stroke: var(--bad);
+  stroke-dasharray: 1 12;
+  stroke-width: 5;
+}
+
+.slidev-layout .access-reference-entry,
+.slidev-layout .access-reference-gate,
+.slidev-layout .access-reference-result,
+.slidev-layout .access-reference-example,
+.slidev-layout .access-reference-thesis,
+.slidev-layout .access-branch-label {
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.slidev-layout .access-reference-entry {
+  top: 2.2%;
+  left: 28.125%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35.94%;
+  height: 11.1%;
+  border: 2px solid var(--warn);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--warn) 15%, var(--ink-2));
+  box-shadow: 0 0.12rem 0 color-mix(in oklab, var(--warn) 28%, transparent);
+  padding: 0.42rem 1.2rem;
+}
+
+.slidev-layout .access-reference-entry > div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-width: 0;
+  text-align: center;
+}
+
+.slidev-layout .access-reference-entry strong {
+  color: var(--fg);
+  font: 760 1.18rem/1 var(--access-hand-font);
+  letter-spacing: 0.04em;
+}
+
+.slidev-layout .access-reference-entry code {
+  background: transparent;
+  padding: 0;
+  color: var(--warn);
+  font: 650 0.7rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .access-reference-gate {
+  --gate-color: var(--accent);
+  left: 28.125%;
+  display: grid;
+  grid-template-columns: 4.55rem minmax(0, 1fr);
+  align-items: center;
+  width: 35.94%;
+  height: 13.34%;
+  gap: 0.7rem;
+  border: 2px dashed color-mix(in oklab, var(--gate-color) 82%, var(--fg));
+  border-radius: 1.05rem 1.35rem 1.18rem 1.2rem;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--gate-color) 24%, var(--ink-2)),
+      color-mix(in oklab, var(--gate-color) 14%, var(--ink-2))
+    );
+  box-shadow: 0.16rem 0.13rem 0 color-mix(in oklab, var(--gate-color) 20%, transparent);
+  padding: 0.55rem 0.9rem 0.42rem 1.35rem;
+}
+
+.slidev-layout .access-reference-gate-promote {
+  --gate-color: var(--accent);
+  top: 18.06%;
+}
+
+.slidev-layout .access-reference-gate-forget {
+  --gate-color: var(--cat-3);
+  top: 35.28%;
+}
+
+.slidev-layout .access-reference-gate-archive {
+  --gate-color: var(--good);
+  top: 52.5%;
+}
+
+.slidev-layout .access-reference-gate-reprocess {
+  --gate-color: var(--info);
+  top: 69.72%;
+  height: 14.45%;
+}
+
+.slidev-layout .access-reference-gate > svg {
+  width: 3rem;
+  height: 3rem;
+  justify-self: center;
+  color: var(--gate-color);
+  stroke-width: 1.7;
+}
+
+.slidev-layout .access-reference-gate > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.slidev-layout .access-reference-gate strong {
+  color: var(--fg);
+  font: 750 1.06rem/1 var(--access-hand-font);
+  letter-spacing: 0.05em;
+}
+
+.slidev-layout .access-reference-gate code {
+  overflow: hidden;
+  background: transparent;
+  padding: 0;
+  color: var(--fg-dim);
+  font: 620 0.61rem/1.18 var(--font-mono);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slidev-layout .access-reference-tab {
+  position: absolute;
+  top: -0.55rem;
+  left: -0.78rem;
+  border: 1px solid var(--gate-color);
+  background: color-mix(in oklab, var(--gate-color) 48%, var(--ink-2));
+  padding: 0.24rem 0.56rem 0.28rem;
+  color: var(--fg);
+  font: 760 0.66rem/1 var(--access-hand-font);
+  letter-spacing: 0.06em;
+  transform: rotate(-1.2deg);
+}
+
+.slidev-layout .access-reference-result {
+  --result-color: var(--good);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  border: 2px solid var(--result-color);
+  border-radius: 1.15rem 0.95rem 1.12rem 1.02rem;
+  background: color-mix(in oklab, var(--result-color) 11%, var(--ink-2));
+  box-shadow: 0.12rem 0.1rem 0 color-mix(in oklab, var(--result-color) 20%, transparent);
+  padding: 0.42rem 0.65rem;
+  text-align: center;
+}
+
+.slidev-layout .access-result-promote {
+  top: 20.55%;
+  left: 3.28%;
+  width: 16.41%;
+  height: 8.34%;
+}
+
+.slidev-layout .access-result-forget {
+  --result-color: var(--bad);
+  top: 37.78%;
+  left: 3.28%;
+  width: 16.41%;
+  height: 8.34%;
+}
+
+.slidev-layout .access-result-archive {
+  --result-color: var(--warn);
+  top: 55%;
+  left: 3.28%;
+  width: 17.03%;
+  height: 8.9%;
+}
+
+.slidev-layout .access-result-reprocess {
+  top: 72.55%;
+  left: 72.27%;
+  width: 21.1%;
+  height: 8.9%;
+}
+
+.slidev-layout .access-reference-result strong {
+  color: var(--fg);
+  font: 740 0.72rem/1 var(--access-hand-font);
+  letter-spacing: 0.02em;
+}
+
+.slidev-layout .access-reference-result small {
+  color: var(--result-color);
+  font: 680 0.44rem/1 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .access-reference-example {
+  top: 17.22%;
+  left: 77.19%;
+  display: grid;
+  grid-template-columns: 2.45rem minmax(0, 1fr);
+  align-items: center;
+  width: 19.69%;
+  height: 16.12%;
+  gap: 0.52rem;
+  border: 2px solid var(--bad);
+  border-radius: 1.3rem 1.02rem 1.2rem 1.36rem;
+  background: color-mix(in oklab, var(--bad) 10%, var(--ink-2));
+  box-shadow: 0.16rem 0.13rem 0 color-mix(in oklab, var(--bad) 20%, transparent);
+  padding: 0.62rem 0.72rem;
+}
+
+.slidev-layout .access-reference-example > svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--bad);
+  stroke-width: 1.65;
+}
+
+.slidev-layout .access-reference-example > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.slidev-layout .access-reference-example strong {
+  color: var(--fg);
+  font: 750 0.86rem/1 var(--access-hand-font);
+}
+
+.slidev-layout .access-reference-example code,
+.slidev-layout .access-reference-example b {
+  overflow: hidden;
+  background: transparent;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slidev-layout .access-reference-example code {
+  color: var(--fg-dim);
+  font: 620 0.54rem/1.1 var(--font-mono);
+}
+
+.slidev-layout .access-reference-example b {
+  color: var(--bad);
+  font: 720 0.58rem/1.1 var(--access-hand-font);
+}
+
+.slidev-layout .access-branch-label {
+  --branch-color: var(--fg-dim);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.42rem;
+  height: 0.92rem;
+  border: 1px solid color-mix(in oklab, var(--branch-color) 70%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--branch-color) 12%, var(--ink-2));
+  box-shadow: 0 0 0 0.15rem color-mix(in oklab, var(--ink) 92%, transparent);
+  padding: 0 0.32rem 0.03rem;
+  color: var(--branch-color);
+  font: 780 0.56rem/1 var(--access-hand-font);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.slidev-layout .access-label-promote {
+  top: 20.9%;
+  left: 20.7%;
+  --branch-color: var(--good);
+}
+
+.slidev-layout .access-label-forget {
+  top: 38.12%;
+  left: 20.7%;
+  --branch-color: var(--bad);
+}
+
+.slidev-layout .access-label-archive {
+  top: 55.35%;
+  left: 20.7%;
+  --branch-color: var(--warn);
+}
+
+.slidev-layout .access-label-no-1 {
+  top: 32.05%;
+  left: 44.92%;
+}
+
+.slidev-layout .access-label-no-2 {
+  top: 49.27%;
+  left: 44.92%;
+}
+
+.slidev-layout .access-label-no-3 {
+  top: 66.5%;
+  left: 44.92%;
+}
+
+.slidev-layout .access-label-no-1,
+.slidev-layout .access-label-no-2,
+.slidev-layout .access-label-no-3 {
+  min-width: 1.12rem;
+  height: 0.74rem;
+  padding: 0 0.24rem 0.03rem;
+  transform: translateX(-50%);
+}
+
+.slidev-layout .access-label-reprocess {
+  top: 72.02%;
+  left: 67.19%;
+  --branch-color: var(--good);
+}
+
+.slidev-layout .access-reference-thesis {
+  top: 90.3%;
+  left: 25.78%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48.44%;
+  height: 6.8%;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+
+.slidev-layout .access-reference-thesis strong {
+  font: 760 1.08rem/1 var(--access-hand-font);
+  letter-spacing: 0.04em;
+}
+
+/* Search ranking combines retrieval score with live memory state. */
+.slidev-layout .weight-formula {
+  display: grid;
+  grid-template-columns: auto auto 0.9fr auto 1.08fr auto 1.34fr;
+  align-items: center;
+  gap: 0;
+  min-height: 3.2rem;
+  margin-top: -0.74rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 72%, var(--line));
+  border-top: 3px solid var(--accent);
+  background: color-mix(in oklab, var(--accent) 5%, var(--ink-2));
+  padding: 0.34rem 0.5rem;
+}
+
+.slidev-layout .weight-formula > div {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--line);
+  padding: 0.22rem 0.64rem;
+}
+
+.slidev-layout .weight-formula > i {
+  align-self: center;
+  color: var(--fg-dim);
+  padding-inline: 0.42rem;
+  font: 730 0.76rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .weight-formula > strong {
+  color: var(--accent);
+  padding-inline: 0.32rem 0.5rem;
+  font: 760 0.82rem/1 var(--font-mono);
+}
+
+.slidev-layout .weight-formula code {
+  background: transparent;
+  padding: 0;
+  color: var(--fg);
+  font: 670 0.6rem/1 var(--font-mono);
+}
+
+.slidev-layout .weight-formula span {
+  display: block;
+  margin-top: 0.28rem;
+  color: var(--fg-dim);
+  font: 520 0.42rem/1.2 var(--font-body);
+}
+
+.slidev-layout .weight-formula .weight-factor-retention code {
+  color: var(--cat-2);
+}
+
+.slidev-layout .weight-formula .weight-factor-forgotten code {
+  color: var(--warn);
+}
+
+.slidev-layout .weight-layout {
+  display: grid;
+  grid-template-columns: 1.68fr 0.66fr;
+  gap: 0.52rem;
+  min-height: 15rem;
+  margin-top: 0.52rem;
+}
+
+.slidev-layout .weight-ranking,
+.slidev-layout .weight-runtime {
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+}
+
+.slidev-layout .weight-ranking {
+  display: grid;
+  grid-template-rows: auto repeat(3, 1fr);
+  gap: 0.4rem;
+  border-color: color-mix(in oklab, var(--accent) 58%, var(--line));
+  padding: 0.54rem 0.62rem;
+}
+
+.slidev-layout .weight-ranking-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-bottom: 0.22rem;
+}
+
+.slidev-layout .weight-ranking-heading strong,
+.slidev-layout .weight-ranking-heading span {
+  display: block;
+}
+
+.slidev-layout .weight-ranking-heading strong {
+  color: var(--fg);
+  font: 690 0.72rem/1.15 var(--font-body);
+}
+
+.slidev-layout .weight-ranking-heading span {
+  margin-top: 0.16rem;
+  color: var(--fg-dim);
+  font: 520 0.46rem/1.2 var(--font-body);
+}
+
+.slidev-layout .weight-ranking-heading code {
+  background: var(--ink);
+  padding: 0.3rem 0.38rem;
+  color: var(--accent);
+  font: 570 0.46rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .weight-result {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.24fr 1.18fr 0.9fr;
+  align-items: center;
+  gap: 0.42rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  padding: 0.46rem 0.52rem 0.62rem;
+}
+
+.slidev-layout .weight-result > b {
+  color: var(--fg-dim);
+  font: 750 0.66rem/1 var(--font-mono);
+}
+
+.slidev-layout .weight-result-first {
+  border-color: color-mix(in oklab, var(--cat-2) 58%, var(--line));
+}
+
+.slidev-layout .weight-result-first > b {
+  color: var(--cat-2);
+}
+
+.slidev-layout .weight-result-forgotten {
+  border-color: color-mix(in oklab, var(--bad) 45%, var(--line));
+}
+
+.slidev-layout .weight-result-forgotten > b {
+  color: var(--bad);
+}
+
+.slidev-layout .weight-memory strong,
+.slidev-layout .weight-memory span {
+  display: block;
+}
+
+.slidev-layout .weight-memory strong {
+  color: var(--fg);
+  font: 650 0.69rem/1.15 var(--font-body);
+}
+
+.slidev-layout .weight-memory span {
+  margin-top: 0.16rem;
+  color: var(--fg-dim);
+  font: 520 0.48rem/1.15 var(--font-body);
+}
+
+.slidev-layout .weight-math {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0.38rem;
+}
+
+.slidev-layout .weight-math code {
+  background: transparent;
+  padding: 0;
+  color: var(--fg-dim);
+  font: 560 0.48rem/1 var(--font-mono);
+}
+
+.slidev-layout .weight-math strong {
+  color: var(--accent);
+  font: 740 0.8rem/1 var(--font-mono);
+}
+
+.slidev-layout .weight-result-first .weight-math strong {
+  color: var(--cat-2);
+}
+
+.slidev-layout .weight-result-forgotten .weight-math strong {
+  color: var(--bad);
+}
+
+.slidev-layout .weight-result > i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--score);
+  height: 3px;
+  background: var(--accent);
+}
+
+.slidev-layout .weight-result-first > i {
+  background: var(--cat-2);
+}
+
+.slidev-layout .weight-result-forgotten > i {
+  background: var(--bad);
+}
+
+.slidev-layout .weight-runtime {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.42rem;
+  border-color: color-mix(in oklab, var(--cat-2) 58%, var(--line));
+  padding: 0.52rem;
+}
+
+.slidev-layout .weight-runtime-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+
+.slidev-layout .weight-runtime-heading svg {
+  width: 0.7rem;
+  height: 0.7rem;
+  color: var(--cat-2);
+}
+
+.slidev-layout .weight-runtime-heading strong {
+  color: var(--fg);
+  font: 670 0.66rem/1.15 var(--font-body);
+}
+
+.slidev-layout .weight-runtime ol {
+  display: grid;
+  gap: 0.34rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slidev-layout .weight-runtime li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.34rem;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  padding: 0.38rem 0.42rem;
+}
+
+.slidev-layout .weight-runtime li > b {
+  color: var(--accent);
+  font: 730 0.5rem/1 var(--font-mono);
+}
+
+.slidev-layout .weight-runtime li strong,
+.slidev-layout .weight-runtime li span {
+  display: block;
+}
+
+.slidev-layout .weight-runtime li strong {
+  color: var(--fg);
+  font: 630 0.54rem/1.1 var(--font-mono);
+}
+
+.slidev-layout .weight-runtime li span {
+  margin-top: 0.12rem;
+  color: var(--fg-dim);
+  font: 510 0.45rem/1.2 var(--font-body);
+}
+
+.slidev-layout .weight-runtime-note {
+  border: 1px solid color-mix(in oklab, var(--warn) 48%, var(--line));
+  background: color-mix(in oklab, var(--warn) 5%, var(--ink));
+  padding: 0.42rem 0.46rem;
+}
+
+.slidev-layout .weight-runtime-note strong,
+.slidev-layout .weight-runtime-note span {
+  display: block;
+}
+
+.slidev-layout .weight-runtime-note strong {
+  color: var(--warn);
+  font: 640 0.54rem/1.15 var(--font-body);
+}
+
+.slidev-layout .weight-runtime-note span {
+  margin-top: 0.2rem;
+  color: var(--fg-dim);
+  font: 510 0.45rem/1.25 var(--font-body);
+}
+
+.slidev-layout .weight-takeaway {
+  margin-top: 0.48rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 52%, var(--line));
+  background: color-mix(in oklab, var(--accent) 5%, var(--ink-2));
+  padding: 0.52rem 0.6rem;
+  color: var(--fg-dim);
+  font: 540 0.66rem/1.25 var(--font-body);
+  text-align: center;
+}
+
+.slidev-layout .weight-takeaway strong:first-child {
+  color: var(--accent);
+}
+
+.slidev-layout .weight-takeaway strong:last-child {
+  color: var(--cat-2);
+}
+
+/* Search weighting: one formula, three comparable results, one conclusion. */
+.slidev-layout:has(.rank-formula) .fit {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.slidev-layout:has(.rank-formula) .fit-inner {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  transform-origin: top center;
+}
+
+.slidev-layout .rank-formula {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-top: 2px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.slidev-layout .rank-formula code {
+  background: transparent;
+  padding: 0;
+  color: var(--fg);
+  font: 690 21px/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .rank-formula code:first-child {
+  color: var(--accent);
+}
+
+.slidev-layout .rank-formula .rank-formula-retention {
+  color: var(--cat-2);
+}
+
+.slidev-layout .rank-formula .rank-formula-state {
+  color: var(--cat-3);
+}
+
+.slidev-layout .rank-formula i {
+  color: var(--fg-dim);
+  font: 730 23px/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .rank-query {
+  margin: 10px 0 8px;
+  color: var(--fg-dim);
+  font: 560 15px/1 var(--font-body);
+  text-align: center;
+}
+
+.slidev-layout .rank-query strong {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.slidev-layout .rank-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  min-height: 200px;
+  margin-top: 14px;
+}
+
+.slidev-layout .rank-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  padding: 0 15px 13px;
+  text-align: center;
+}
+
+.slidev-layout .rank-card-first {
+  border-color: color-mix(in oklab, var(--cat-2) 66%, var(--line));
+  background: color-mix(in oklab, var(--cat-2) 5%, var(--ink-2));
+}
+
+.slidev-layout .rank-card-second {
+  border-color: color-mix(in oklab, var(--accent) 66%, var(--line));
+  background: color-mix(in oklab, var(--accent) 5%, var(--ink-2));
+}
+
+.slidev-layout .rank-card-third {
+  border-color: color-mix(in oklab, var(--cat-3) 66%, var(--line));
+  background: color-mix(in oklab, var(--cat-3) 5%, var(--ink-2));
+}
+
+.slidev-layout .rank-card header {
+  min-width: 112px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  padding: 7px 18px 8px;
+  color: var(--cat-2);
+  font: 730 16px/1 var(--font-body);
+}
+
+.slidev-layout .rank-card-second header {
+  color: var(--accent);
+}
+
+.slidev-layout .rank-card-third header {
+  color: var(--cat-3);
+}
+
+.slidev-layout .rank-card h3 {
+  margin: 17px 0 15px;
+  color: var(--fg);
+  font: 690 19px/1.1 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .rank-card-math {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: end;
+  gap: 6px;
+  width: 100%;
+}
+
+.slidev-layout .rank-card-math > div {
+  min-width: 0;
+}
+
+.slidev-layout .rank-card-math small,
+.slidev-layout .rank-card-math strong {
+  display: block;
+}
+
+.slidev-layout .rank-card-math small {
+  color: var(--fg-dim);
+  font: 530 11px/1.1 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .rank-card-math strong {
+  margin-top: 7px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  padding: 7px 4px;
+  color: var(--fg);
+  font: 700 18px/1 var(--font-mono);
+}
+
+.slidev-layout .rank-card-math > div:last-child strong {
+  border-color: color-mix(in oklab, var(--cat-2) 55%, var(--line));
+  color: var(--cat-2);
+}
+
+.slidev-layout .rank-card-second .rank-card-math > div:last-child strong {
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--line));
+  color: var(--accent);
+}
+
+.slidev-layout .rank-card-third .rank-card-math > div:last-child strong {
+  border-color: color-mix(in oklab, var(--cat-3) 55%, var(--line));
+  color: var(--cat-3);
+}
+
+.slidev-layout .rank-card-math i {
+  align-self: end;
+  margin-bottom: 9px;
+  color: var(--fg-dim);
+  font: 700 17px/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .rank-card-score {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 13px;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+.slidev-layout .rank-card-score span {
+  color: var(--fg-dim);
+  font: 580 13px/1 var(--font-body);
+}
+
+.slidev-layout .rank-card-score strong {
+  color: var(--cat-2);
+  font: 760 26px/1 var(--font-mono);
+}
+
+.slidev-layout .rank-card-second .rank-card-score strong {
+  color: var(--accent);
+}
+
+.slidev-layout .rank-card-third .rank-card-score strong {
+  color: var(--cat-3);
+}
+
+.slidev-layout .rank-card p {
+  width: 100%;
+  margin: auto 0 4px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  padding: 9px 7px;
+  color: var(--fg-dim);
+  font: 540 13px/1.2 var(--font-body);
+}
+
+.slidev-layout .rank-card-first p {
+  border-color: color-mix(in oklab, var(--cat-2) 48%, var(--line));
+  color: var(--cat-2);
+}
+
+.slidev-layout .rank-card-second p {
+  border-color: color-mix(in oklab, var(--accent) 48%, var(--line));
+  color: var(--accent);
+}
+
+.slidev-layout .rank-card-third p {
+  border-color: color-mix(in oklab, var(--cat-3) 48%, var(--line));
+  color: var(--cat-3);
+}
+
+.slidev-layout .rank-takeaway {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+  border: 1px solid color-mix(in oklab, var(--accent) 52%, var(--line));
+  background: color-mix(in oklab, var(--accent) 4%, var(--ink-2));
+  color: var(--fg);
+  font: 620 18px/1.2 var(--font-body);
+}
+
+.slidev-layout .rank-takeaway strong:first-child {
+  color: var(--accent);
+}
+
+.slidev-layout .rank-takeaway strong:last-child {
+  color: var(--cat-2);
+}
+
+/* Collection-wide governance: three equal strategies, from strict duplication to semantic compression. */
+.slidev-layout .governance-strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.74rem;
+  min-height: 15.6rem;
+  margin-top: 0.64rem;
+}
+
+.slidev-layout .governance-card {
+  --governance-color: var(--accent);
+  display: grid;
+  grid-template-rows: auto 3.2rem auto 1fr auto;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--governance-color) 62%, var(--line));
+  border-top: 3px solid var(--governance-color);
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--governance-color) 8%, var(--ink-2)), var(--ink-2) 36%);
+}
+
+.slidev-layout .governance-card-semantic {
+  --governance-color: var(--cat-2);
+}
+
+.slidev-layout .governance-card-compress {
+  --governance-color: #a99cff;
+}
+
+.slidev-layout .governance-card header {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  min-width: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--governance-color) 34%, var(--line));
+  padding: 0.48rem 0.58rem;
+}
+
+.slidev-layout .governance-card header b {
+  color: var(--governance-color);
+  font: 800 0.62rem/1 var(--font-mono);
+}
+
+.slidev-layout .governance-card header strong {
+  color: var(--fg);
+  font: 740 0.82rem/1 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .governance-card > svg {
+  align-self: center;
+  justify-self: center;
+  width: 2.08rem;
+  height: 2.08rem;
+  color: var(--governance-color);
+  stroke-width: 1.6;
+}
+
+.slidev-layout .governance-card-mechanism {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.38rem;
+  min-width: 0;
+  min-height: 3.5rem;
+  align-content: center;
+  border-block: 1px dashed color-mix(in oklab, var(--governance-color) 32%, var(--line));
+  padding: 0.48rem 0.58rem;
+}
+
+.slidev-layout .governance-card-mechanism small {
+  grid-row: 1 / span 2;
+  align-self: start;
+  border-radius: 0.16rem;
+  background: color-mix(in oklab, var(--governance-color) 16%, var(--ink));
+  padding: 0.16rem 0.24rem;
+  color: var(--governance-color);
+  font: 680 0.46rem/1 var(--font-body);
+}
+
+.slidev-layout .governance-card-mechanism code {
+  min-width: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--governance-color);
+  font: 700 0.54rem/1.22 var(--font-mono);
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.slidev-layout .governance-card-mechanism p {
+  margin: 0;
+  color: var(--fg);
+  font: 560 0.56rem/1.28 var(--font-body);
+}
+
+.slidev-layout .governance-card blockquote {
+  position: relative;
+  align-self: stretch;
+  align-content: center;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.38rem;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.48rem 0.58rem;
+  color: var(--fg);
+  font: 560 0.58rem/1.35 var(--font-body);
+  text-align: left;
+}
+
+.slidev-layout .governance-card blockquote small,
+.slidev-layout .governance-card footer small {
+  border-radius: 0.16rem;
+  background: color-mix(in oklab, var(--governance-color) 16%, var(--ink));
+  padding: 0.16rem 0.24rem;
+  color: var(--governance-color);
+  font: 680 0.46rem/1 var(--font-body);
+}
+
+.slidev-layout .governance-card blockquote span {
+  min-width: 0;
+  text-align: left;
+}
+
+.slidev-layout .governance-card footer {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.38rem;
+  min-height: 2.86rem;
+  border-top: 1px solid color-mix(in oklab, var(--governance-color) 30%, var(--line));
+  padding: 0.42rem 0.58rem;
+  color: var(--fg-dim);
+  font: 560 0.54rem/1.28 var(--font-body);
+  text-align: left;
+}
+
+.slidev-layout .governance-card footer span {
+  min-width: 0;
+}
+
+.slidev-layout .governance-spectrum {
+  display: grid;
+  grid-template-columns: 1fr auto 1.18fr auto 1fr;
+  align-items: center;
+  gap: 0.42rem;
+  margin-top: 0.54rem;
+  border: 1px solid color-mix(in oklab, var(--warn) 54%, var(--line));
+  background:
+    linear-gradient(90deg, color-mix(in oklab, var(--accent) 8%, var(--ink-2)), color-mix(in oklab, var(--warn) 7%, var(--ink-2)), color-mix(in oklab, var(--cat-3) 8%, var(--ink-2)));
+  padding: 0.46rem 0.62rem;
+  text-align: center;
+}
+
+.slidev-layout .governance-spectrum span {
+  color: var(--fg-dim);
+  font: 620 0.56rem/1 var(--font-body);
+}
+
+.slidev-layout .governance-spectrum i {
+  color: var(--warn);
+  font: 760 0.7rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .governance-spectrum strong {
+  color: var(--fg);
+  font: 740 0.68rem/1 var(--font-body);
+}
+
+/* A seven-stop snake path summarizes one memory's lifecycle without shrinking it into a dense table. */
+.slidev-layout .journey-input {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  margin-top: -0.58rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 70%, var(--line));
+  border-top: 3px solid var(--accent);
+  background: color-mix(in oklab, var(--accent) 6%, var(--ink-2));
+  padding: 0.48rem 0.68rem;
+}
+
+.slidev-layout .journey-input > svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--accent);
+}
+
+.slidev-layout .journey-input strong {
+  color: var(--fg);
+  font: 690 0.76rem/1.15 var(--font-body);
+}
+
+.slidev-layout .journey-input span {
+  justify-self: end;
+  color: var(--fg-dim);
+  font: 530 0.52rem/1.2 var(--font-body);
+}
+
+.slidev-layout .journey-input span code {
+  background: transparent;
+  padding: 0;
+  color: var(--accent);
+  font: 650 0.52rem/1.2 var(--font-mono);
+}
+
+.slidev-layout .journey-path {
+  margin-top: 0.58rem;
+}
+
+.slidev-layout .journey-row {
+  display: grid;
+  align-items: stretch;
+  gap: 0.4rem;
+}
+
+.slidev-layout .journey-row-top {
+  grid-template-columns: minmax(0, 1fr) 3.5rem minmax(0, 1fr) 3.5rem minmax(0, 1fr);
+}
+
+.slidev-layout .journey-row-middle {
+  grid-template-columns: minmax(0, 1fr) 4.8rem minmax(0, 1fr) 4.8rem minmax(0, 1fr);
+}
+
+.slidev-layout .journey-link {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  gap: 0.18rem;
+  min-width: 0;
+  text-align: center;
+}
+
+.slidev-layout .journey-link i {
+  color: var(--fg);
+  font: 780 1.25rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .journey-link small {
+  color: var(--fg-dim);
+  font: 620 0.58rem/1.16 var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.slidev-layout .journey-link-reverse small {
+  white-space: nowrap;
+}
+
+.slidev-layout .journey-node {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+  align-items: center;
+  column-gap: 0.46rem;
+  min-height: 5.62rem;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  background: var(--ink-2);
+  padding: 0.54rem 0.6rem;
+}
+
+.slidev-layout .journey-node > b {
+  grid-row: 1 / 3;
+  color: var(--accent);
+  font: 760 0.9rem/1 var(--font-mono);
+}
+
+.slidev-layout .journey-node > strong {
+  color: var(--fg);
+  font: 690 0.72rem/1.1 var(--font-body);
+}
+
+.slidev-layout .journey-node > code {
+  align-self: start;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0.24rem;
+  background: var(--ink);
+  padding: 0.16rem 0.26rem;
+  color: var(--accent);
+  font: 590 0.5rem/1.22 var(--font-mono);
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.slidev-layout .journey-node > span {
+  grid-column: 1 / 3;
+  align-self: end;
+  margin-top: 0.4rem;
+  color: var(--fg-dim);
+  font: 520 0.5rem/1.22 var(--font-body);
+}
+
+.slidev-layout .journey-node-2,
+.slidev-layout .journey-node-6 {
+  border-top-color: var(--cat-2);
+}
+
+.slidev-layout .journey-node-2 > b,
+.slidev-layout .journey-node-2 > code,
+.slidev-layout .journey-node-6 > b,
+.slidev-layout .journey-node-6 > code {
+  color: var(--cat-2);
+}
+
+.slidev-layout .journey-node-3,
+.slidev-layout .journey-node-7 {
+  border-top-color: #7bd6a5;
+}
+
+.slidev-layout .journey-node-3 > b,
+.slidev-layout .journey-node-3 > code,
+.slidev-layout .journey-node-7 > b,
+.slidev-layout .journey-node-7 > code {
+  color: #7bd6a5;
+}
+
+.slidev-layout .journey-node-4 {
+  border-top-color: var(--cat-3);
+}
+
+.slidev-layout .journey-node-4 > b,
+.slidev-layout .journey-node-4 > code {
+  color: #a99cff;
+}
+
+.slidev-layout .journey-node-5 {
+  border-top-color: var(--warn);
+}
+
+.slidev-layout .journey-node-5 > b,
+.slidev-layout .journey-node-5 > code {
+  color: var(--warn);
+}
+
+.slidev-layout .journey-turn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  min-height: 1.35rem;
+  padding-right: 11.5%;
+}
+
+.slidev-layout .journey-turn span {
+  color: var(--fg-dim);
+  font: 620 0.6rem/1 var(--font-body);
+}
+
+.slidev-layout .journey-turn i {
+  color: #a99cff;
+  font: 780 1.04rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .journey-final-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 3.5rem minmax(0, 1fr) 3.5rem minmax(0, 1fr);
+  gap: 0.4rem;
+  margin-top: 0.22rem;
+}
+
+.slidev-layout .journey-final-stack {
+  grid-column: 1;
+}
+
+.slidev-layout .journey-final-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.34rem;
+  min-height: 1.25rem;
+  color: var(--fg-dim);
+  font: 620 0.56rem/1 var(--font-body);
+  text-align: center;
+}
+
+.slidev-layout .journey-final-link i {
+  color: #7bd6a5;
+  font: 780 0.98rem/1 var(--font-mono);
+  font-style: normal;
+}
+
+.slidev-layout .journey-final-stack .journey-node {
+  min-height: 4.08rem;
+}
+
+.slidev-layout .next-line {
+  margin-top: 0.76rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.6rem;
+  color: var(--fg-dim);
+  font: 600 0.65rem/1.4 var(--font-body);
+  text-align: center;
+}
+
+/* Three explicit layers keep the architecture readable as one diagram, not a dashboard. */
+.slidev-layout .architecture-map {
+  display: grid;
+  align-content: space-between;
+  min-height: 22.1rem;
+  margin-top: -0.58rem;
+}
+
+.slidev-layout .architecture-layer {
+  display: grid;
+  grid-template-columns: 6.2rem minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0.7rem;
+}
+
+.slidev-layout .architecture-layer-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.28rem;
+  border-right: 1px solid var(--line);
+  padding-right: 0.62rem;
+  color: var(--fg-dim);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.slidev-layout .architecture-layer-label strong,
+.slidev-layout .architecture-layer-label span {
+  color: var(--fg);
+  font: 700 0.62rem/1.12 var(--font-body);
+}
+
+.slidev-layout .architecture-agent-grid,
+.slidev-layout .architecture-foundation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.68rem;
+}
+
+.slidev-layout .architecture-agent,
+.slidev-layout .architecture-service {
+  --architecture-color: var(--accent);
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.62rem;
+  min-width: 0;
+  min-height: 3.92rem;
+  border: 1px solid color-mix(in oklab, var(--architecture-color) 58%, var(--line));
+  border-radius: 0.34rem;
+  background: color-mix(in oklab, var(--architecture-color) 5%, var(--ink-2));
+  box-shadow: none;
+  padding: 0.52rem 0.72rem;
+}
+
+.slidev-layout .architecture-agent > img,
+.slidev-layout .architecture-service > svg {
+  width: 1.42rem;
+  height: 1.42rem;
+  color: var(--architecture-color);
+  stroke-width: 1.7;
+}
+
+.slidev-layout .architecture-agent > img {
+  display: block;
+  object-fit: contain;
+}
+
+.slidev-layout .architecture-agent-claude > img {
+  width: 1.52rem;
+  height: 1.52rem;
+}
+
+.slidev-layout .architecture-agent-openclaw > img {
+  width: 1.68rem;
+  height: 1.68rem;
+}
+
+.slidev-layout .architecture-agent-codex > img {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.slidev-layout .architecture-agent strong {
+  color: var(--fg);
+  font: 720 0.78rem/1.08 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .architecture-agent-openclaw {
+  --architecture-color: var(--cat-2);
+}
+
+.slidev-layout .architecture-agent-codex {
+  --architecture-color: #a99cff;
+}
+
+.slidev-layout .architecture-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.64rem;
+  min-height: 2rem;
+  margin-left: 6.9rem;
+  color: var(--fg-dim);
+  font: 700 0.76rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .architecture-bridge i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.68rem;
+  height: 1.68rem;
+  color: var(--accent);
+  font-style: normal;
+}
+
+.slidev-layout .architecture-bridge i > svg {
+  width: 1.62rem;
+  height: 1.62rem;
+  stroke-width: 2.45;
+}
+
+.slidev-layout .architecture-bridge-in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.2rem minmax(0, 1fr);
+  column-gap: 0.9rem;
+}
+
+.slidev-layout .architecture-bridge-in span:first-child {
+  text-align: right;
+}
+
+.slidev-layout .architecture-bridge-in span:last-child {
+  text-align: left;
+}
+
+.slidev-layout .architecture-bridge-in i,
+.slidev-layout .architecture-bridge-out i {
+  width: 2.2rem;
+  height: 2rem;
+}
+
+.slidev-layout .architecture-bridge-in i > svg,
+.slidev-layout .architecture-bridge-out i > svg {
+  transform: scaleY(1.32);
+}
+
+.slidev-layout .architecture-bridge-out i {
+  color: #7bd6a5;
+}
+
+.slidev-layout .architecture-engine {
+  min-width: 0;
+  border: 1px solid color-mix(in oklab, #a99cff 62%, var(--line));
+  border-radius: 0.38rem;
+  background: color-mix(in oklab, #a99cff 4%, var(--ink-2));
+  box-shadow: none;
+  padding: 0.48rem 0.62rem 0.58rem;
+}
+
+.slidev-layout .architecture-memory-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.54rem;
+  min-width: 0;
+}
+
+.slidev-layout .architecture-dashboard-link {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: var(--fg);
+}
+
+.slidev-layout .architecture-dashboard-link > svg {
+  flex: none;
+  width: 1.38rem;
+  height: 1.38rem;
+  stroke-width: 2.4;
+}
+
+.slidev-layout .architecture-dashboard {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  align-items: center;
+  width: 5.8rem;
+  min-height: 5.45rem;
+  border: 1px solid color-mix(in oklab, var(--accent) 54%, var(--line));
+  border-radius: 0.34rem;
+  background: color-mix(in oklab, var(--accent) 5%, var(--ink-2));
+  box-shadow: none;
+  padding: 0.48rem 0.55rem 0.42rem;
+}
+
+.slidev-layout .architecture-dashboard-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 0.38rem;
+}
+
+.slidev-layout .architecture-dashboard-charts > svg:first-child {
+  width: 1.55rem;
+  height: 1.55rem;
+  color: #ff8d72;
+  stroke-width: 1.8;
+}
+
+.slidev-layout .architecture-dashboard-charts > svg:last-child {
+  width: 1.62rem;
+  height: 1.62rem;
+  color: #a99cff;
+  stroke-width: 1.8;
+}
+
+.slidev-layout .architecture-dashboard-lines {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: 0.3rem;
+  margin-top: 0.34rem;
+}
+
+.slidev-layout .architecture-dashboard-lines span {
+  height: 2px;
+  background: var(--fg-dim);
+  opacity: 0.72;
+}
+
+.slidev-layout .architecture-dashboard strong {
+  margin-top: 0.34rem;
+  color: var(--fg);
+  font: 720 0.58rem/1 var(--font-body);
+  text-align: center;
+}
+
+.slidev-layout .architecture-engine header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  border-bottom: 1px solid color-mix(in oklab, #a99cff 30%, var(--line));
+  padding: 0 0.12rem 0.4rem;
+}
+
+.slidev-layout .architecture-engine header div,
+.slidev-layout .architecture-engine header span {
+  display: flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+
+.slidev-layout .architecture-engine header div > svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #a99cff;
+}
+
+.slidev-layout .architecture-engine header strong {
+  color: var(--fg);
+  font: 740 0.72rem/1 var(--font-body);
+}
+
+.slidev-layout .architecture-engine header span {
+  color: var(--fg-dim);
+  font: 580 0.46rem/1 var(--font-mono);
+  white-space: nowrap;
+}
+
+.slidev-layout .architecture-engine header span > svg {
+  width: 0.68rem;
+  height: 0.68rem;
+  color: var(--accent);
+}
+
+.slidev-layout .architecture-engine-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1.18fr;
+  align-items: stretch;
+  gap: 0.48rem;
+  margin-top: 0.5rem;
+}
+
+.slidev-layout .architecture-engine-flow article {
+  --architecture-color: var(--accent);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.7rem;
+  min-width: 0;
+  min-height: 3.78rem;
+  border: 1px solid color-mix(in oklab, var(--architecture-color) 48%, var(--line));
+  border-radius: 0.32rem;
+  background: color-mix(in oklab, var(--architecture-color) 4%, var(--ink));
+  box-shadow: none;
+  padding: 0.48rem 0.58rem;
+}
+
+.slidev-layout .architecture-engine-flow article:nth-of-type(2) {
+  --architecture-color: var(--cat-2);
+}
+
+.slidev-layout .architecture-engine-flow article:nth-of-type(3) {
+  --architecture-color: var(--warn);
+}
+
+.slidev-layout .architecture-engine-flow article > svg {
+  grid-row: auto;
+  align-self: center;
+  width: 1.34rem;
+  height: 1.34rem;
+  color: var(--architecture-color);
+  stroke-width: 1.9;
+}
+
+.slidev-layout .architecture-engine-flow article strong {
+  color: var(--fg);
+  font: 720 0.68rem/1.12 var(--font-body);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.slidev-layout .architecture-engine-flow article span {
+  margin-top: 0.16rem;
+  color: var(--fg-dim);
+  font: 560 0.46rem/1.18 var(--font-body);
+}
+
+.slidev-layout .architecture-engine-flow > i {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 1.48rem;
+  height: 1.48rem;
+  color: var(--fg);
+  font-style: normal;
+}
+
+.slidev-layout .architecture-engine-flow > i > svg {
+  width: 1.42rem;
+  height: 1.42rem;
+  stroke-width: 2.35;
+}
+
+.slidev-layout .architecture-foundation-grid {
+  grid-template-columns: 0.9fr 1.08fr 1.28fr;
+}
+
+.slidev-layout .architecture-service-llm {
+  --architecture-color: #a99cff;
+}
+
+.slidev-layout .architecture-service-embedding {
+  --architecture-color: var(--cat-2);
+}
+
+.slidev-layout .architecture-service-storage {
+  --architecture-color: #7bd6a5;
+}
+
+.slidev-layout .architecture-service div {
+  min-width: 0;
+  text-align: center;
+}
+
+.slidev-layout .architecture-service strong,
+.slidev-layout .architecture-service span {
+  display: block;
+}
+
+.slidev-layout .architecture-service strong {
+  color: var(--fg);
+  font: 700 0.64rem/1.12 var(--font-body);
+  white-space: nowrap;
+}
+
+.slidev-layout .architecture-service span {
+  margin-top: 0.22rem;
+  color: var(--fg-dim);
+  font: 560 0.48rem/1.18 var(--font-body);
+}
+
+.slidev-layout .architecture-service-storage span {
+  color: #7bd6a5;
+  font-family: var(--font-mono);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+/* seekdb hybrid-search architecture. */
+.slidev-layout .seekdb-architecture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25.4rem;
+  margin: 0.78rem 0 0;
+}
+
+.slidev-layout .seekdb-architecture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 1px solid color-mix(in oklab, var(--accent) 46%, var(--line));
+  background: #000;
+}
+
+/* PowerMem Docker deployment. */
+.slidev-layout .deploy-simple {
+  display: grid;
+  gap: 0.46rem;
+  margin-top: 0.08rem;
+}
+
+.slidev-layout .deploy-simple section > h3 {
+  margin: 0 0 0.28rem;
+  color: var(--fg);
+  font: 740 0.9rem/1.18 var(--font-body);
+}
+
+.slidev-layout .deploy-simple section > h3 code {
+  color: var(--cat-2);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.slidev-layout .deploy-code {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  overflow: visible;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--code-bg);
+  padding: 0.48rem 0.72rem;
+  white-space: nowrap;
+  color: var(--fg);
+  font: 560 0.7rem/1.22 var(--font-mono);
+  tab-size: 2;
+}
+
+.slidev-layout .deploy-code > span,
+.slidev-layout .deploy-code > b,
+.slidev-layout .deploy-code > em {
+  display: block;
+}
+
+.slidev-layout .deploy-code i {
+  color: inherit;
+  font-style: normal;
+}
+
+.slidev-layout .deploy-code > b {
+  color: var(--cat-2);
+  font-weight: 760;
+}
+
+.slidev-layout .deploy-code > em {
+  height: 0.34rem;
+}
+
+.slidev-layout .deploy-code-env {
+  border-left: 3px solid var(--accent);
+  font-size: 0.7rem;
+  line-height: 1.22;
+}
+
+.slidev-layout .deploy-code-start {
+  border-color: color-mix(in oklab, var(--cat-2) 54%, var(--line));
+  color: var(--cat-2);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* OpenClaw memory-powermem plugin setup. */
+.slidev-layout .plugin-setup {
+  display: grid;
+  gap: 0.54rem;
+  margin-top: 0.08rem;
+}
+
+.slidev-layout .plugin-setup section > h3 {
+  margin: 0 0 0.28rem;
+  color: var(--fg);
+  font: 740 0.9rem/1.18 var(--font-body);
+}
+
+.slidev-layout .plugin-code {
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--line);
+  background: var(--code-bg);
+  padding: 0.48rem 0.72rem;
+  color: var(--fg);
+  font: 560 0.7rem/1.42 var(--font-mono);
+}
+
+.slidev-layout .plugin-code > span,
+.slidev-layout .plugin-code > em {
+  display: block;
+}
+
+.slidev-layout .plugin-code > span {
+  white-space: nowrap;
+}
+
+.slidev-layout .plugin-code > em {
+  height: 0.24rem;
+}
+
+.slidev-layout .plugin-code i {
+  color: inherit;
+  font-style: normal;
+}
+
+.slidev-layout .plugin-code-verify {
+  border-color: color-mix(in oklab, var(--cat-2) 54%, var(--line));
+  color: var(--cat-2);
+  font-weight: 700;
+}
+
+/* PowerMem interactive demo video. */
+.slidev-layout .powermem-demo-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25.4rem;
+  margin: 0.78rem 0 0;
+}
+
+.slidev-layout .powermem-demo-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 1px solid color-mix(in oklab, var(--accent) 46%, var(--line));
+  background: #000;
+  box-shadow: 0 1rem 2.6rem rgb(0 0 0 / 32%);
+}

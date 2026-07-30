@@ -1,0 +1,20 @@
+[   75205ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_TIMED_OUT @ https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800&family=Archivo:wght@400..800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Anton&display=swap:0
+[ 7805656ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[ 8817089ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[ 8817095ms] [ERROR] Failed to load resource: net::ERR_NETWORK_IO_SUSPENDED @ https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800&family=Archivo:wght@400..800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Anton&display=swap:0
+[ 9886935ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800&family=Archivo:wght@400..800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Anton&display=swap:0
+[ 9886997ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://raw.githubusercontent.com/slidevjs/slidev/v52.18.0/assets/favicon.png:0
+[13959966ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[36333337ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_TIMED_OUT @ https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800&family=Archivo:wght@400..800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Anton&display=swap:0
+[46507379ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[47135496ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800&family=Archivo:wght@400..800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Anton&display=swap:0
+[47135681ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://cdn.jsdelivr.net/gh/slidevjs/slidev/assets/favicon.png:0
+[49236300ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[49237124ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800&family=Archivo:wght@400..800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Anton&display=swap:0
+[49237253ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://cdn.jsdelivr.net/gh/slidevjs/slidev/assets/favicon.png:0
+[50100792ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[56450614ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[86792077ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[87748948ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992
+[89084590ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_TIMED_OUT @ https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPx7cwgknk-6nFg.woff2:0
+[90157645ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3030/@vite/client:992

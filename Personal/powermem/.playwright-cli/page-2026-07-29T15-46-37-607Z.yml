@@ -1,0 +1,157 @@
+- generic [active] [ref=e1]:
+  - link "跳到实验台" [ref=e2] [cursor=pointer]:
+    - /url: "#workspace"
+  - banner [ref=e3]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: PowerMem Memory Lab
+      - generic [ref=e11]: 真实数据 · 真实搜索 · 真实状态变化
+    - generic [ref=e12]:
+      - generic [ref=e13]: PowerMem 已连接
+      - button "初始化或重新开始实验" [ref=e16] [cursor=pointer]:
+        - generic [ref=e20]: 重新开始
+  - main [ref=e21]:
+    - region [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: LIVE MEMORY LIFECYCLE
+          - heading "一条记忆，如何被遗忘又被记住？" [level=1] [ref=e26]
+          - paragraph [ref=e27]: 从写入、衰减到访问强化与层级晋升，每一步都调用真实 PowerMem API。
+        - generic [ref=e28]:
+          - generic [ref=e29]: COLLECTION
+          - strong [ref=e30]: memories_decay_demo
+      - list "记忆生命周期进度" [ref=e31]:
+        - listitem [ref=e32]:
+          - generic [ref=e33]: "01"
+          - generic [ref=e34]:
+            - strong [ref=e35]: 写入
+            - generic [ref=e36]: 工作记忆
+          - text: 已完成
+        - listitem [ref=e37]:
+          - generic [ref=e38]: "02"
+          - generic [ref=e39]:
+            - strong [ref=e40]: 衰减
+            - generic [ref=e41]: 24h 未访问
+          - text: 已完成
+        - listitem [ref=e42]:
+          - generic [ref=e43]: "03"
+          - generic [ref=e44]:
+            - strong [ref=e45]: 强化
+            - generic [ref=e46]: 再次被检索
+          - text: 当前
+        - listitem [ref=e47]:
+          - generic [ref=e48]: "04"
+          - generic [ref=e49]:
+            - strong [ref=e50]: 晋升
+            - generic [ref=e51]: 持续访问
+        - listitem [ref=e52]:
+          - generic [ref=e53]: "05"
+          - generic [ref=e54]:
+            - strong [ref=e55]: 验证
+            - generic [ref=e56]: 长期记忆
+      - region [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]: 当前实验记忆
+            - heading "Atlas 项目的支付请求必须携带幂等键；重复请求直接返回首次处理结果。" [level=2] [ref=e61]
+            - code [ref=e62]: Memory ID 737697337861734400
+          - generic [ref=e63]: 工作记忆
+        - generic [ref=e64]:
+          - article [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e67]: 实时保留率
+              - generic [ref=e68]: 工作记忆经过 24 小时
+            - generic [ref=e69]:
+              - strong [ref=e70]: "25.7"
+              - generic [ref=e71]: "%"
+            - progressbar "实时保留率" [ref=e72]
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - term [ref=e75]: 访问次数
+              - definition [ref=e76]: 0 / 5
+              - generic [ref=e77]: access_count
+            - generic [ref=e78]:
+              - term [ref=e79]: 强化次数
+              - definition [ref=e80]: "0"
+              - generic [ref=e81]: review_count
+            - generic [ref=e82]:
+              - term [ref=e83]: 未访问时间
+              - definition [ref=e84]: 24 小时
+              - generic [ref=e85]: last_reviewed
+        - generic "三层记忆状态" [ref=e86]:
+          - article [ref=e87]:
+            - generic [ref=e88]: L1
+            - generic [ref=e89]:
+              - strong [ref=e90]: 工作记忆
+              - code [ref=e91]: working
+            - generic [ref=e92]: 基础 S = 1.5
+          - article [ref=e95]:
+            - generic [ref=e96]: L2
+            - generic [ref=e97]:
+              - strong [ref=e98]: 短期记忆
+              - code [ref=e99]: short_term
+            - generic [ref=e100]: 基础 S = 10.5
+          - article [ref=e103]:
+            - generic [ref=e104]: L3
+            - generic [ref=e105]:
+              - strong [ref=e106]: 长期记忆
+              - code [ref=e107]: long_term
+            - generic [ref=e108]: 基础 S = 90
+      - generic [ref=e109]:
+        - region [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - generic [ref=e113]: 用户操作
+              - heading "推进这条记忆" [level=2] [ref=e114]
+            - generic [ref=e115]: 第 3 步 / 5
+          - generic [ref=e116]:
+            - generic [ref=e121]:
+              - generic [ref=e122]: 推进时间
+              - generic [ref=e123]: 真实回拨 last_reviewed，观察自然衰减。
+            - strong [ref=e124]: +24h
+            - button "推进 24 小时" [disabled] [ref=e125]
+          - generic [ref=e127]:
+            - generic [ref=e128]: 向 Agent 提出问题
+            - generic [ref=e129]:
+              - searchbox "向 Agent 提出问题" [ref=e133]: Atlas 如何避免支付重试造成重复扣款？
+              - button "提出问题" [ref=e134] [cursor=pointer]
+            - paragraph [ref=e138]: PowerMem 会自动检索记忆，并将命中作为访问反馈；无需手动选择记忆。
+        - region [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - generic [ref=e142]: 本次检索反馈
+              - heading "记忆状态如何影响检索" [level=2] [ref=e143]
+            - generic [ref=e144]: 尚未提问
+          - paragraph [ref=e148]: 第一次提问后，这里会显示检索前后的真实记忆状态。
+      - generic [ref=e153]:
+        - generic [ref=e154]: 下一步
+        - strong [ref=e155]: 提出问题；本次搜索会使用衰减后的保留率，并在命中后自动强化。
+    - complementary [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - generic [ref=e159]: LIVE TRACE
+          - heading "实时事件" [level=2] [ref=e160]
+          - paragraph [ref=e161]: 用户动作与 PowerMem 自动反馈
+        - button "清空事件日志" [ref=e162] [cursor=pointer]
+      - list [ref=e165]:
+        - listitem [ref=e166]:
+          - generic [ref=e167]: —
+          - generic [ref=e168]:
+            - strong [ref=e169]: 实验台已加载
+            - paragraph [ref=e170]: 页面不会自动播放预设状态，等待你的第一次操作。
+        - listitem [ref=e177]:
+          - generic [ref=e178]: "01"
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - strong [ref=e181]: 时间推进 24 小时
+              - time [ref=e182]: 23:46:36
+            - paragraph [ref=e183]: 工作记忆的时间锚点被回拨；实时保留率 0.500 → 0.257。计数与层级保持不变。
+            - generic [ref=e184]:
+              - generic [ref=e185]: PATCH
+              - code [ref=e186]: storage.update_memory
+      - generic [ref=e171]:
+        - generic [ref=e172]: PowerMem 源码行为
+        - code [ref=e173]: search hit → on_get → access_count + 1
+        - code [ref=e174]:
+          - text: R(t) = R₀ · e
+          - superscript [ref=e175]: −t / 24S
+  - status [ref=e188]: 时间已推进 24 小时，记忆状态已重新计算。

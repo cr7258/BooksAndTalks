@@ -1,0 +1,33 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e8]:
+        - generic [ref=e11]:
+          - generic [ref=e12]: "[ PowerMem · 原理与实践 ]"
+          - heading "让 Agent 像人一样记忆" [level=1] [ref=e13]
+          - generic [ref=e14]: 从记住、衰减到遗忘 · Claude Code 与 Dashboard 演示
+        - generic [ref=e15]:
+          - generic [ref=e16]: 让 Agent 像人一样记忆
+          - generic [ref=e17]: 01 / 06
+      - text: "[ ] [ ] [ ] [ ] [ ]"
+    - navigation [ref=e19]:
+      - generic [ref=e20]:
+        - button "Enter fullscreen" [ref=e21] [cursor=pointer]
+        - button "Go to previous slide"
+        - button "Go to next slide" [ref=e24] [cursor=pointer]
+        - button "Show slide overview" [ref=e27] [cursor=pointer]
+        - button "Toggle camera view" [ref=e31] [cursor=pointer]
+        - button "Record video" [ref=e34] [cursor=pointer]
+        - button [ref=e38] [cursor=pointer]:
+          - button "Select recording device" [ref=e39]
+        - button "Show drawing toolbar" [ref=e43] [cursor=pointer]
+        - button "Presenter Mode" [ref=e47] [cursor=pointer]
+        - button "Show editor" [ref=e50] [cursor=pointer]
+        - link "Browser Exporter" [ref=e53] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e58] [cursor=pointer]:
+          - button "Change sync settings" [ref=e59]
+        - button [ref=e64] [cursor=pointer]:
+          - button "More Options" [ref=e65]
+        - generic [ref=e69]: 1 / 6
+  - textbox "Goto..." [disabled] [ref=e72]

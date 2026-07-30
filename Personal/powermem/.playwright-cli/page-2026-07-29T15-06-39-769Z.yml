@@ -1,0 +1,86 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹
+      - generic [ref=e8]:
+        - heading "搜索加权" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - code [ref=e15]: final_score
+            - generic [ref=e16]: =
+            - code [ref=e17]: base_score
+            - generic [ref=e18]: ×
+            - code [ref=e19]: effective_retention
+          - generic [ref=e20]:
+            - article [ref=e21]:
+              - generic [ref=e22]: "排名 #3"
+              - heading "1 分钟前的闲聊" [level=3] [ref=e23]
+              - generic [ref=e24]:
+                - generic [ref=e25]:
+                  - generic [ref=e26]: 基础检索分
+                  - strong [ref=e27]: "0.45"
+                - generic [ref=e28]: ×
+                - generic [ref=e29]:
+                  - generic [ref=e30]: 有效留存率
+                  - strong [ref=e31]: "0.30"
+                - generic [ref=e32]: =
+                - generic [ref=e33]:
+                  - generic [ref=e34]: 最终得分
+                  - strong [ref=e35]: "0.14"
+            - article [ref=e36]:
+              - generic [ref=e37]: "排名 #1"
+              - heading "3 小时前的会议记录" [level=3] [ref=e38]
+              - generic [ref=e39]:
+                - generic [ref=e40]:
+                  - generic [ref=e41]: 基础检索分
+                  - strong [ref=e42]: "0.92"
+                - generic [ref=e43]: ×
+                - generic [ref=e44]:
+                  - generic [ref=e45]: 有效留存率
+                  - strong [ref=e46]: "0.71"
+                - generic [ref=e47]: =
+                - generic [ref=e48]:
+                  - generic [ref=e49]: 最终得分
+                  - strong [ref=e50]: "0.65"
+            - article [ref=e51]:
+              - generic [ref=e52]: "排名 #2"
+              - heading "10 天前的会议记录" [level=3] [ref=e53]
+              - generic [ref=e54]:
+                - generic [ref=e55]:
+                  - generic [ref=e56]: 基础检索分
+                  - strong [ref=e57]: "0.98"
+                - generic [ref=e58]: ×
+                - generic [ref=e59]:
+                  - generic [ref=e60]: 有效留存率
+                  - strong [ref=e61]: "0.28"
+                - generic [ref=e62]: =
+                - generic [ref=e63]:
+                  - generic [ref=e64]: 最终得分
+                  - strong [ref=e65]: "0.27"
+          - generic [ref=e66]:
+            - strong [ref=e67]: 相关性
+            - text: 与
+            - strong [ref=e68]: 有效留存率
+            - text: 共同决定排序
+        - generic [ref=e69]: 13 / 19
+    - navigation [ref=e72]:
+      - generic [ref=e73]:
+        - button "Enter fullscreen" [ref=e74] [cursor=pointer]
+        - button "Go to previous slide" [ref=e77] [cursor=pointer]
+        - button "Go to next slide" [ref=e80] [cursor=pointer]
+        - button "Show slide overview" [ref=e83] [cursor=pointer]
+        - button "Toggle camera view" [ref=e87] [cursor=pointer]
+        - button "Record video" [ref=e90] [cursor=pointer]
+        - button [ref=e94] [cursor=pointer]:
+          - button "Select recording device" [ref=e95]
+        - button "Show drawing toolbar" [ref=e99] [cursor=pointer]
+        - button "Presenter Mode" [ref=e103] [cursor=pointer]
+        - button "Show editor" [ref=e106] [cursor=pointer]
+        - link "Browser Exporter" [ref=e109] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e114] [cursor=pointer]:
+          - button "Change sync settings" [ref=e115]
+        - button [ref=e120] [cursor=pointer]:
+          - button "More Options" [ref=e121]
+        - generic [ref=e125]: 13 / 19
+  - textbox "Goto..." [disabled] [ref=e128]

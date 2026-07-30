@@ -1,0 +1,90 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹ → →
+      - generic [ref=e8]:
+        - generic [ref=e11]:
+          - generic [ref=e12]:
+            - generic [ref=e13]: 衰减公式：
+            - strong [ref=e14]:
+              - text: R
+              - subscript [ref=e15]: current
+              - text: (t) = R₀ · e
+              - superscript [ref=e16]: −t/S
+          - generic [ref=e17]:
+            - img "相同初始保留率 0.72 下，working、short_term 和 long_term 三个层级的保留率衰减曲线" [ref=e19]:
+              - generic [ref=e26]: 当前保留率
+              - generic [ref=e27]: "0.72"
+              - generic [ref=e28]: "0.30"
+              - generic [ref=e29]: "0"
+              - generic [ref=e30]:
+                - generic [ref=e31]: "0"
+                - generic [ref=e32]: "2"
+                - generic [ref=e33]: "4"
+                - generic [ref=e34]: "6"
+                - generic [ref=e35]: "8"
+                - generic [ref=e36]: "10"
+                - generic [ref=e37]: "12"
+                - generic [ref=e38]: "14"
+              - generic [ref=e39]: 时间（天）
+              - generic [ref=e40]: long_term · S = 90d
+              - generic [ref=e41]: 会议信息 · short_term
+              - generic [ref=e42]: rate = 10.5 · S = 10.5d
+              - generic [ref=e43]: working · S = 1.5d
+              - generic [ref=e44]: 跌至 0.30
+              - generic [ref=e45]: 9.2d
+              - generic [ref=e46]: t = S → 0.265
+              - generic [ref=e47]: 10.5d
+            - complementary [ref=e48]:
+              - generic [ref=e49]: S 参数含义
+              - code [ref=e50]: S = 24 × rate
+              - paragraph [ref=e51]: 当 t = S 时
+              - strong [ref=e52]: 衰减因子 ≈ 36.8%
+              - generic [ref=e53]: 本例当前保留率0.72 ÷ e ≈ 0.265
+          - generic [ref=e54]:
+            - article [ref=e55]:
+              - strong [ref=e56]: working
+              - generic [ref=e57]: 工作记忆
+              - code [ref=e58]: rate = 1.5
+              - code [ref=e59]: S = 36h
+              - paragraph [ref=e60]: 1 天后 R ≈ 0.370
+            - article [ref=e61]:
+              - strong [ref=e62]: short_term
+              - generic [ref=e63]: 短期记忆
+              - code [ref=e64]: rate = 10.5
+              - code [ref=e65]: S = 10.5d
+              - paragraph [ref=e66]: 1 天后 R ≈ 0.655
+            - article [ref=e67]:
+              - strong [ref=e68]: long_term
+              - generic [ref=e69]: 长期记忆
+              - code [ref=e70]: rate = 90
+              - code [ref=e71]: S = 90d
+              - paragraph [ref=e72]: 1 天后 R ≈ 0.712
+            - generic [ref=e73]:
+              - generic [ref=e74]: 结论
+              - strong [ref=e75]: S 越大
+              - generic [ref=e76]: 遗忘越慢
+              - generic [ref=e77]: 相同初始保留率下
+        - generic [ref=e78]: 11 / 15
+      - text: → → ↓ ← ← → → →
+    - navigation [ref=e81]:
+      - generic [ref=e82]:
+        - button "Enter fullscreen" [ref=e83] [cursor=pointer]
+        - button "Go to previous slide" [ref=e86] [cursor=pointer]
+        - button "Go to next slide" [ref=e89] [cursor=pointer]
+        - button "Show slide overview" [ref=e92] [cursor=pointer]
+        - button "Toggle camera view" [ref=e96] [cursor=pointer]
+        - button "Record video" [ref=e99] [cursor=pointer]
+        - button [ref=e103] [cursor=pointer]:
+          - button "Select recording device" [ref=e104]
+        - button "Show drawing toolbar" [ref=e108] [cursor=pointer]
+        - button "Presenter Mode" [ref=e112] [cursor=pointer]
+        - button "Show editor" [ref=e115] [cursor=pointer]
+        - link "Browser Exporter" [ref=e118] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e123] [cursor=pointer]:
+          - button "Change sync settings" [ref=e124]
+        - button [ref=e129] [cursor=pointer]:
+          - button "More Options" [ref=e130]
+        - generic [ref=e134]: 11 / 15
+  - textbox "Goto..." [disabled] [ref=e137]

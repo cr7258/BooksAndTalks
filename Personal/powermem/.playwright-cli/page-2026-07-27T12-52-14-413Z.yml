@@ -1,0 +1,87 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "访问触发" [level=2] [ref=e10]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e17]:
+            - strong [ref=e18]: 用户访问记忆
+            - generic [ref=e19]:
+              - code [ref=e20]: Memory.get(id)
+              - text: /
+              - code [ref=e21]: Memory.search(query)
+          - generic [ref=e22]: →
+          - generic [ref=e23]:
+            - code [ref=e24]: new_count = old_count + 1
+            - generic [ref=e25]: 到期时：R′ = R + 0.3(1 − R)
+        - generic [ref=e26]:
+          - article [ref=e27]:
+            - generic [ref=e28]:
+              - generic [ref=e29]: YES ←
+              - generic [ref=e30]: 晋升一级
+              - code [ref=e31]: working → short_term → long_term
+            - generic [ref=e32]:
+              - generic [ref=e33]: "01"
+              - generic [ref=e36]:
+                - strong [ref=e37]: 晋升检查
+                - code [ref=e38]: old_count ≥ 3 · 已访问且 age > 24h · importance ≥ 0.6
+              - text: ↓
+            - complementary [ref=e39]:
+              - generic [ref=e44]:
+                - generic [ref=e45]: 会议纪要
+                - code [ref=e46]: short_term · importance = 0.72
+                - strong [ref=e47]: 首次访问 → long_term
+          - article [ref=e48]:
+            - generic [ref=e49]:
+              - generic [ref=e50]: YES ←
+              - generic [ref=e51]:
+                - code [ref=e52]: get
+                - text: 软标记
+              - code [ref=e53]: should_forget = true
+            - generic [ref=e54]:
+              - generic [ref=e55]: "02"
+              - generic [ref=e62]:
+                - strong [ref=e63]: 遗忘检查
+                - code [ref=e64]: current_retention < 0.3
+              - emphasis [ref=e65]:
+                - text: 仅本次未晋升 ·
+                - code [ref=e66]: search
+                - text: 忽略遗忘标志
+              - text: ↓
+          - article [ref=e67]:
+            - generic [ref=e68]:
+              - generic [ref=e69]: YES ←
+              - generic [ref=e70]: 只写元数据
+              - code [ref=e71]: metadata.archived = true
+            - generic [ref=e72]:
+              - generic [ref=e73]: "03"
+              - generic [ref=e78]:
+                - strong [ref=e79]: 归档检查
+                - code [ref=e80]: age > 30d · importance < 0.3
+              - text: ↓
+          - article [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]: YES ←
+              - generic [ref=e84]: 刷新衰减与复习计划
+              - code [ref=e85]: 保留 retention / review progress
+            - generic [ref=e86]:
+              - generic [ref=e87]: "04"
+              - generic [ref=e94]:
+                - strong [ref=e95]: 周期重处理
+                - code [ref=e96]: type_changed · new_count % 5 == 0
+        - strong [ref=e100]: 访问是记忆系统最重要的反馈信号。
+      - generic [ref=e101]: 12 / 15
+    - navigation [ref=e104]:
+      - generic [ref=e105]:
+        - button "Enter fullscreen" [ref=e106] [cursor=pointer]
+        - button "Go to previous slide" [ref=e109] [cursor=pointer]
+        - button "Go to next slide" [ref=e112] [cursor=pointer]
+        - button "Show slide overview" [ref=e115] [cursor=pointer]
+        - button "Show drawing toolbar" [ref=e119] [cursor=pointer]
+        - button "Presenter Mode" [ref=e123] [cursor=pointer]
+        - button [ref=e128] [cursor=pointer]:
+          - button "Change sync settings" [ref=e129]
+        - button [ref=e134] [cursor=pointer]:
+          - button "More Options" [ref=e135]
+        - generic [ref=e139]: 12 / 15
+  - textbox "Goto..." [disabled] [ref=e142]

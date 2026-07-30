@@ -1,0 +1,1 @@
+[     697ms] [WARNING] [tahta] slide content overflows even at min scale (0.42): 1448px of content in a 388px frame — split this slide or trim its content. @ http://localhost:3030/@vite/client:524

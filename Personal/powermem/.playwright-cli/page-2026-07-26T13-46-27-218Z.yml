@@ -1,0 +1,98 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "访问触发" [level=2] [ref=e10]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - code [ref=e18]: Memory.get(id)
+          - generic [ref=e19]: 或
+          - code [ref=e25]: Memory.search(query)
+          - generic [ref=e26]: →
+          - strong [ref=e27]: 一次访问，推动一次生命周期演进
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - article [ref=e30]:
+              - generic [ref=e31]: "01"
+              - strong [ref=e32]: 更新访问计数
+              - code [ref=e33]: new_count = old_count + 1
+              - paragraph [ref=e34]: 记录本次访问，后续重处理使用新计数。
+              - text: →
+            - article [ref=e35]:
+              - generic [ref=e36]: "02"
+              - strong [ref=e37]: 检查到期强化
+              - code [ref=e38]: now ≥ next_review
+              - paragraph [ref=e39]: 满足时先执行 R′ = R + 0.3(1 − R)。
+              - text: →
+            - article [ref=e40]:
+              - generic [ref=e41]: "03"
+              - strong [ref=e42]: 检查晋升
+              - generic [ref=e43]:
+                - generic [ref=e44]: old_count ≥ 3
+                - generic [ref=e45]: old_count > 0 且存活 > 24h
+                - generic [ref=e46]: importance ≥ 0.6
+              - emphasis [ref=e47]: 本例：short_term → long_term
+              - text: ↓
+            - article [ref=e48]:
+              - generic [ref=e49]: "04"
+              - strong [ref=e50]: 检查遗忘
+              - code [ref=e51]: current_retention < 0.3
+              - paragraph [ref=e52]:
+                - text: 仅当本次
+                - strong [ref=e53]: 没有层级变化
+                - text: ；命中后提前返回。
+              - emphasis [ref=e54]: 当前没有“7 天未访问”条件
+              - text: ←
+            - article [ref=e55]:
+              - generic [ref=e56]: "05"
+              - strong [ref=e57]: 检查归档
+              - code [ref=e58]: age > 30d 或 importance < 0.3
+              - paragraph [ref=e59]: 当前实现写入 metadata.archived = true。
+              - text: ←
+            - article [ref=e60]:
+              - generic [ref=e61]: "06"
+              - strong [ref=e62]: 周期重处理
+              - code [ref=e63]: type_changed 或 new_count % 5 == 0
+              - paragraph [ref=e64]: 刷新层级强度与复习时刻表，保留已有复习进度。
+          - complementary [ref=e65]:
+            - strong [ref=e75]: 接口行为不同
+            - generic [ref=e76]:
+              - code [ref=e77]: Memory.get()
+              - strong [ref=e78]: 软标记遗忘
+              - paragraph [ref=e79]:
+                - code [ref=e80]: delete_flag=true
+                - text: 时写入
+                - code [ref=e81]: should_forget=true
+                - text: ，不做物理删除；本次仍返回已读取的结果。
+            - generic [ref=e82]:
+              - code [ref=e83]: Memory.search()
+              - strong [ref=e84]: 忽略删除标志
+              - paragraph [ref=e85]:
+                - text: 搜索会复用同一处理链，但当前明确忽略
+                - code [ref=e86]: delete_flag
+                - text: ，不会因本次搜索写入遗忘标记。
+            - generic [ref=e87]:
+              - code [ref=e88]: archive
+              - strong [ref=e89]: 目前只是元数据标记
+              - paragraph [ref=e90]: 默认搜索路径没有看到自动排除归档记忆，也没有专门的归档检索接口。
+      - generic [ref=e91]: 12 / 15
+    - navigation [ref=e94]:
+      - generic [ref=e95]:
+        - button "Enter fullscreen" [ref=e96] [cursor=pointer]
+        - button "Go to previous slide" [ref=e99] [cursor=pointer]
+        - button "Go to next slide" [ref=e102] [cursor=pointer]
+        - button "Show slide overview" [ref=e105] [cursor=pointer]
+        - button "Toggle camera view" [ref=e109] [cursor=pointer]
+        - button "Record video" [ref=e112] [cursor=pointer]
+        - button [ref=e116] [cursor=pointer]:
+          - button "Select recording device" [ref=e117]
+        - button "Show drawing toolbar" [ref=e121] [cursor=pointer]
+        - button "Presenter Mode" [ref=e125] [cursor=pointer]
+        - button "Show editor" [ref=e128] [cursor=pointer]
+        - link "Browser Exporter" [ref=e131] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e136] [cursor=pointer]:
+          - button "Change sync settings" [ref=e137]
+        - button [ref=e142] [cursor=pointer]:
+          - button "More Options" [ref=e143]
+        - generic [ref=e147]: 12 / 15
+  - textbox "Goto..." [disabled] [ref=e150]

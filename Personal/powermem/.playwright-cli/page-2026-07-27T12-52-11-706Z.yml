@@ -1,0 +1,65 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - heading "全局优化" [level=2] [ref=e10]
+      - generic [ref=e13]:
+        - generic [ref=e14]: 从完全重复，到语义重复，再到相关碎片
+        - generic [ref=e15]:
+          - article [ref=e16]:
+            - generic [ref=e17]:
+              - generic [ref=e18]: "01"
+              - strong [ref=e19]: 精确去重
+              - generic [ref=e20]: 当前可用
+            - generic [ref=e23]:
+              - generic [ref=e24]: 机制
+              - code [ref=e25]: MD5 完全相同
+              - paragraph [ref=e26]: 保留最早记录，删除其余副本
+            - blockquote [ref=e27]:
+              - text: “Q2 评审改到周三” × 2
+              - strong [ref=e28]: → 只留一条
+            - generic [ref=e29]: 字节级严格匹配
+          - article [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]: "02"
+              - strong [ref=e33]: 语义去重
+              - generic [ref=e34]: 主链路待接
+            - generic [ref=e40]:
+              - generic [ref=e41]: 机制
+              - code [ref=e42]: cosine ≥ 0.95
+              - paragraph [ref=e43]: 不同措辞表达同一事实时，保留较早记录
+            - blockquote [ref=e44]: “Q2 评审改到周三”≈ “Q2 review 推迟到周三”
+            - generic [ref=e45]: 算法代码存在 · 缺 embedding 输入
+          - article [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e48]: "03"
+              - strong [ref=e49]: 记忆压缩
+              - generic [ref=e50]: 主链路待接
+            - generic [ref=e53]:
+              - generic [ref=e54]: 机制
+              - code [ref=e55]: cosine ≥ 0.85 → LLM
+              - paragraph [ref=e56]: 相似记忆聚类后，生成一条新摘要
+            - blockquote [ref=e57]:
+              - text: 议程 + 决策 + 行动项
+              - strong [ref=e58]: → 一条摘要
+            - generic [ref=e59]: 需要 embedding 与可用 LLM
+        - generic [ref=e60]:
+          - generic [ref=e61]: 判定最严格
+          - generic [ref=e62]: →
+          - strong [ref=e63]: 三种策略协同
+          - generic [ref=e64]: →
+          - generic [ref=e65]: 覆盖面最广
+      - generic [ref=e66]: 14 / 15
+    - navigation [ref=e69]:
+      - generic [ref=e70]:
+        - button "Enter fullscreen" [ref=e71] [cursor=pointer]
+        - button "Go to previous slide" [ref=e74] [cursor=pointer]
+        - button "Go to next slide" [ref=e77] [cursor=pointer]
+        - button "Show slide overview" [ref=e80] [cursor=pointer]
+        - button "Show drawing toolbar" [ref=e84] [cursor=pointer]
+        - button "Presenter Mode" [ref=e88] [cursor=pointer]
+        - button [ref=e93] [cursor=pointer]:
+          - button "Change sync settings" [ref=e94]
+        - button [ref=e99] [cursor=pointer]:
+          - button "More Options" [ref=e100]
+        - generic [ref=e104]: 14 / 15
+  - textbox "Goto..." [disabled] [ref=e107]

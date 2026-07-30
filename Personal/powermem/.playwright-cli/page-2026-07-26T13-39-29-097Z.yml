@@ -1,0 +1,67 @@
+- generic [ref=f2e2]:
+  - generic [ref=f2e4]:
+    - generic [ref=f2e8]:
+      - heading "三层记忆模型" [level=2] [ref=f2e10]
+      - generic [ref=f2e13]:
+        - generic [ref=f2e14]:
+          - generic [ref=f2e15]:
+            - generic [ref=f2e16]:
+              - generic [ref=f2e17]: L3
+              - generic [ref=f2e18]:
+                - generic [ref=f2e19]:
+                  - heading "长期记忆" [level=3] [ref=f2e20]
+                  - code [ref=f2e21]: long_term
+                - paragraph [ref=f2e22]: 长期、稳定的分布式表征
+              - generic [ref=f2e23]:
+                - strong [ref=f2e24]: importance ≥ 0.8
+                - generic [ref=f2e25]: 默认衰减尺度 90 天
+            - generic [ref=f2e26]:
+              - generic [ref=f2e27]: L2
+              - generic [ref=f2e28]:
+                - generic [ref=f2e29]:
+                  - heading "短期记忆" [level=3] [ref=f2e30]
+                  - code [ref=f2e31]: short_term
+                - paragraph [ref=f2e32]: 编码经历，等待进一步巩固
+              - generic [ref=f2e33]:
+                - strong [ref=f2e34]: 0.6 ≤ importance < 0.8
+                - generic [ref=f2e35]: 默认衰减尺度 10.5 天
+            - generic [ref=f2e36]:
+              - generic [ref=f2e37]: L1
+              - generic [ref=f2e38]:
+                - generic [ref=f2e39]:
+                  - heading "工作记忆" [level=3] [ref=f2e40]
+                  - code [ref=f2e41]: working
+                - paragraph [ref=f2e42]: 维持当前任务所需的信息
+              - generic [ref=f2e43]:
+                - strong [ref=f2e44]: importance < 0.6
+                - generic [ref=f2e45]: 默认衰减尺度 36 小时
+          - complementary [ref=f2e46]:
+            - generic [ref=f2e47]:
+              - text: ←
+              - generic [ref=f2e48]: 会议纪要
+              - strong [ref=f2e49]: importance = 0.72
+              - generic [ref=f2e50]: ↓
+              - generic [ref=f2e51]: short_term
+        - generic [ref=f2e52]: 层级越高，默认衰减越慢，信息保留越久。
+      - generic [ref=f2e53]: 09 / 15
+    - navigation [ref=f2e56]:
+      - generic [ref=f2e57]:
+        - button "Enter fullscreen" [ref=f2e58] [cursor=pointer]
+        - button "Go to previous slide" [ref=f2e61] [cursor=pointer]
+        - button "Go to next slide" [ref=f2e64] [cursor=pointer]
+        - button "Show slide overview" [ref=f2e67] [cursor=pointer]
+        - button "Toggle camera view" [ref=f2e71] [cursor=pointer]
+        - button "Record video" [ref=f2e74] [cursor=pointer]
+        - button [ref=f2e78] [cursor=pointer]:
+          - button "Select recording device" [ref=f2e79]
+        - button "Show drawing toolbar" [ref=f2e83] [cursor=pointer]
+        - button "Presenter Mode" [ref=f2e87] [cursor=pointer]
+        - button "Show editor" [ref=f2e90] [cursor=pointer]
+        - link "Browser Exporter" [ref=f2e93] [cursor=pointer]:
+          - /url: /export
+        - button [ref=f2e98] [cursor=pointer]:
+          - button "Change sync settings" [ref=f2e99]
+        - button [ref=f2e104] [cursor=pointer]:
+          - button "More Options" [ref=f2e105]
+        - generic [ref=f2e109]: 9 / 15
+  - textbox "Goto..." [disabled] [ref=f2e112]

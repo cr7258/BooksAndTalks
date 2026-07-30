@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="用一条真实记忆观察 PowerMem 的时间衰减、访问强化与层级晋升"
+    />
+    <title>PowerMem · Memory Lifecycle Lab</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/app.css?v=20260730-18" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">跳到实验台</a>
+
+    <header class="appbar">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M7 9.5 16 4l9 5.5v13L16 28l-9-5.5Z" />
+          <path d="m11 12 5-3 5 3v8l-5 3-5-3Z" />
+          <path d="M16 9v14M11 12l10 8M21 12l-10 8" />
+        </svg>
+        <div>
+          <strong>PowerMem Memory Lab</strong>
+          <span>真实数据 · 真实搜索 · 真实状态变化</span>
+        </div>
+      </div>
+
+      <div class="appbar-actions">
+        <span id="connection-status" class="connection-status" data-state="loading">
+          <i aria-hidden="true"></i>
+          <span>正在连接</span>
+        </span>
+        <button
+          id="reset-button"
+          class="button quiet"
+          type="button"
+          aria-label="重新开始实验"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4v6h6M20 20v-6h-6"></path>
+            <path d="M5.6 15a7 7 0 0 0 11.8 2M18.4 9A7 7 0 0 0 6.6 7"></path>
+          </svg>
+          <span id="reset-label">重新开始</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="workspace" class="workspace">
+      <section class="lab" aria-label="PowerMem 记忆生命周期实验">
+        <ol class="journey" aria-label="记忆生命周期进度">
+          <li data-stage="write">
+            <span>01</span>
+            <div><strong>写入</strong><small>工作记忆</small></div>
+          </li>
+          <li data-stage="decay">
+            <span>02</span>
+            <div><strong>衰减</strong><small>24h 未访问</small></div>
+          </li>
+          <li data-stage="reinforce">
+            <span>03</span>
+            <div><strong>强化</strong><small>再次被检索</small></div>
+          </li>
+          <li data-stage="promote">
+            <span>04</span>
+            <div><strong>晋升</strong><small>持续访问</small></div>
+          </li>
+          <li data-stage="verify">
+            <span>05</span>
+            <div><strong>验证</strong><small>长期记忆</small></div>
+          </li>
+        </ol>
+
+        <section class="memory-card" aria-labelledby="memory-heading">
+          <header class="memory-header">
+            <div>
+              <span class="section-kicker">当前实验记忆</span>
+              <h2 id="memory-heading">
+                Atlas 项目的支付请求必须携带幂等键；重复请求直接返回首次处理结果。
+              </h2>
+              <code id="memory-id">等待写入</code>
+            </div>
+            <span id="memory-tier-badge" class="tier-badge" data-tier="empty">
+              未写入
+            </span>
+          </header>
+
+          <div class="memory-metrics">
+            <article class="retention-metric">
+              <div class="metric-label">
+                <span>记忆保留率</span>
+                <small id="retention-context">等待 PowerMem 数据</small>
+              </div>
+              <div class="retention-number">
+                <strong id="retention-value">—</strong>
+                <span>%</span>
+              </div>
+              <div
+                id="retention-track"
+                class="retention-track"
+                role="progressbar"
+                aria-label="记忆保留率"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+              >
+                <i></i>
+              </div>
+            </article>
+
+            <dl class="metric-list">
+              <div>
+                <dt>访问次数</dt>
+                <dd id="access-count">—</dd>
+                <small>access_count</small>
+              </div>
+              <div>
+                <dt>强化次数</dt>
+                <dd id="review-count">—</dd>
+                <small>review_count</small>
+              </div>
+              <div>
+                <dt>距上次强化</dt>
+                <dd id="memory-age">—</dd>
+                <small>last_reviewed</small>
+              </div>
+              <div
+                id="review-schedule"
+                class="next-review-metric"
+                data-state="unavailable"
+              >
+                <dt>下次强化</dt>
+                <dd id="next-review-relative">—</dd>
+                <small>
+                  <code>next_review</code>
+                  <time id="next-review-time">—</time>
+                </small>
+              </div>
+            </dl>
+          </div>
+
+          <p class="tier-scale-note">时间尺度越长，记忆衰减越慢。</p>
+          <div id="tier-track" class="tier-track" aria-label="三层记忆状态；衰减时间尺度越长，记忆衰减越慢">
+            <article data-tier="working">
+              <span>L1</span>
+              <div><strong>工作记忆</strong><code>working</code></div>
+              <small>衰减时间尺度 1.5 天</small>
+            </article>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h16M14 6l6 6-6 6"></path>
+            </svg>
+            <article data-tier="short_term">
+              <span>L2</span>
+              <div><strong>短期记忆</strong><code>short_term</code></div>
+              <small>衰减时间尺度 10.5 天</small>
+            </article>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12h16M14 6l6 6-6 6"></path>
+            </svg>
+            <article data-tier="long_term">
+              <span>L3</span>
+              <div><strong>长期记忆</strong><code>long_term</code></div>
+              <small>衰减时间尺度 90 天</small>
+            </article>
+          </div>
+        </section>
+
+        <div class="interaction-grid">
+          <section class="action-card" aria-labelledby="action-heading">
+            <header class="card-heading">
+              <div>
+                <span class="section-kicker">用户操作</span>
+                <h2 id="action-heading">操作这条记忆</h2>
+              </div>
+              <span id="step-badge" class="step-badge">等待开始</span>
+            </header>
+
+            <form
+              id="add-form"
+              class="action-block add-block"
+              aria-labelledby="add-action-label"
+            >
+              <div class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 6.5h14v11H5z"></path>
+                  <path d="M8 10h8M8 14h5"></path>
+                </svg>
+              </div>
+              <div class="action-copy">
+                <strong id="add-action-label" class="action-label">
+                  写入 PowerMem
+                </strong>
+                <span>调用 Memory.add 创建工作记忆，成功后才进入下一步。</span>
+              </div>
+              <button id="add-button" class="button primary" type="submit" disabled>
+                <span>写入这条记忆</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5"></path>
+                </svg>
+              </button>
+            </form>
+
+            <form
+              id="age-form"
+              class="action-block"
+              aria-labelledby="age-action-label"
+            >
+              <div class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="8"></circle>
+                  <path d="M12 7v5l3 2"></path>
+                </svg>
+              </div>
+              <div class="action-copy">
+                <strong id="age-action-label" class="action-label">模拟时间流逝</strong>
+                <span id="age-help">让记忆模拟经过 24 小时，观察自然衰减。</span>
+              </div>
+              <strong class="time-value" aria-label="模拟经过二十四小时">+24h</strong>
+              <button id="age-button" class="button secondary" type="submit" disabled>
+                <span>模拟经过 24 小时</span>
+              </button>
+            </form>
+
+            <form id="search-form" class="question-form">
+              <label for="query-input">向 Agent 提出问题</label>
+              <div class="question-field">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6.5"></circle>
+                  <path d="m16 16 4 4"></path>
+                </svg>
+                <input
+                  id="query-input"
+                  name="query"
+                  type="search"
+                  maxlength="160"
+                  autocomplete="off"
+                  value="Atlas 如何避免支付重试造成重复扣款？"
+                  disabled
+                />
+                <button id="search-button" class="button secondary" type="submit" disabled>
+                  <span>提出问题</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M14 7l5 5-5 5"></path>
+                  </svg>
+                </button>
+              </div>
+              <p>
+                PowerMem 会自动检索记忆，并将命中作为访问反馈；无需手动选择记忆。
+              </p>
+            </form>
+          </section>
+
+          <section class="feedback-card" aria-labelledby="feedback-heading">
+            <header class="card-heading">
+              <div>
+                <span class="section-kicker">本次检索反馈</span>
+                <h2 id="feedback-heading">记忆状态如何影响检索</h2>
+              </div>
+              <span id="search-duration" class="latency-badge">尚未提问</span>
+            </header>
+
+            <div id="feedback-empty" class="feedback-empty">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M14 7l5 5-5 5"></path>
+              </svg>
+              <p>第一次提问后，这里会显示检索前后的真实记忆状态。</p>
+            </div>
+
+            <div id="feedback-content" class="feedback-content" hidden>
+              <div class="feedback-summary">
+                <div>
+                  <span>语义相关性</span>
+                  <strong id="semantic-status">基准已记录</strong>
+                  <small>相同问题时保持不变</small>
+                </div>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5"></path>
+                </svg>
+                <div>
+                  <span>本次使用的保留率</span>
+                  <strong id="search-retention">—</strong>
+                  <small>访问发生前的快照</small>
+                </div>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5"></path>
+                </svg>
+                <div class="feedback-outcome">
+                  <span>访问后的状态</span>
+                  <strong id="feedback-outcome">等待结果</strong>
+                  <small id="feedback-outcome-detail">—</small>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section id="next-action" class="next-action" data-state="reset" aria-live="polite">
+          <span class="next-action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12h14M14 7l5 5-5 5"></path>
+            </svg>
+          </span>
+          <div>
+            <small>下一步</small>
+            <strong>点击“写入这条记忆”，由 PowerMem 创建一条真实工作记忆。</strong>
+          </div>
+        </section>
+      </section>
+
+      <aside class="activity-panel" aria-labelledby="activity-heading">
+        <header class="activity-header">
+          <div>
+            <span class="section-kicker">LIVE TRACE</span>
+            <h2 id="activity-heading">实时事件</h2>
+            <p>用户动作与 PowerMem 自动反馈</p>
+          </div>
+          <button id="clear-log" class="icon-button" type="button" aria-label="清空事件日志">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13"></path>
+            </svg>
+          </button>
+        </header>
+        <ol id="event-log" class="event-log" aria-live="polite">
+          <li class="event welcome">
+            <span class="event-index">—</span>
+            <div>
+              <strong>实验台已加载</strong>
+              <p>页面不会自动写入预设数据，请先写入这条记忆。</p>
+            </div>
+          </li>
+        </ol>
+        <footer class="formula-footer">
+          <span>PowerMem 源码行为</span>
+          <code>search hit → on_get → access_count + 1</code>
+          <code>R(t) = R₀ · e<sup>−t/S</sup></code>
+        </footer>
+      </aside>
+    </main>
+
+    <template id="event-template">
+      <li class="event">
+        <span class="event-index"></span>
+        <div class="event-body">
+          <div class="event-title-row">
+            <strong class="event-title"></strong>
+            <time class="event-time"></time>
+          </div>
+          <p class="event-detail"></p>
+          <div class="event-calculation" hidden>
+            <span class="calculation-label">计算依据</span>
+            <code class="calculation-formula"></code>
+            <dl class="calculation-parameters"></dl>
+            <small class="calculation-result"></small>
+            <small class="calculation-note"></small>
+          </div>
+          <div class="event-request">
+            <span class="request-method"></span>
+            <code class="request-target"></code>
+            <span class="request-duration"></span>
+          </div>
+        </div>
+      </li>
+    </template>
+
+    <div id="toast-region" class="toast-region" aria-live="polite"></div>
+    <script src="/app.js?v=20260730-18" defer></script>
+  </body>
+</html>

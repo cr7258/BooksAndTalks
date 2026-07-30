@@ -1,0 +1,77 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - text: › › › ‹ › › ‹ → →
+      - generic [ref=e8]:
+        - heading "衰减计算" [level=2] [ref=e10]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - strong [ref=e15]:
+              - text: R
+              - subscript [ref=e16]: current
+              - text: (t) = R₀ · e
+              - superscript [ref=e17]: −t/S
+            - generic [ref=e18]: ·
+            - code [ref=e19]: S = 24 × rate
+          - generic [ref=e20]:
+            - generic [ref=e21]:
+              - generic [ref=e23]:
+                - strong [ref=e24]: 会议记忆 · short_term
+                - generic [ref=e25]: R₀ = 0.72 · rate = 1.5 × 7 = 10.5 · S = 252h
+              - img "short_term 记忆从初始保留率 0.72 随时间指数衰减，并在约 9.2 天时降到 0.3" [ref=e26]:
+                - generic [ref=e31]: "0.72"
+                - generic [ref=e32]: "0.30"
+                - generic [ref=e33]: T₀
+                - generic [ref=e34]: ≈ 9.2d
+                - generic [ref=e35]: 10.5d = S
+                - generic [ref=e36]: 21d
+                - generic [ref=e37]: 初始 0.72
+                - generic [ref=e38]: 跌破阈值
+                - generic [ref=e39]: "0.265"
+            - complementary [ref=e40]:
+              - generic [ref=e41]:
+                - generic [ref=e42]: S 的含义
+                - strong [ref=e43]: 10.5 天
+                - paragraph [ref=e44]: 时间走过一个 S，保留率剩下初始值的 36.8%。
+              - generic [ref=e45]:
+                - generic [ref=e46]: 遗忘阈值
+                - strong [ref=e47]: 约 9.2 天
+                - paragraph [ref=e48]:
+                  - code [ref=e49]:
+                    - text: 0.72e
+                    - superscript [ref=e50]: −t/252
+                    - text: = 0.30
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - generic [ref=e53]: working
+              - strong [ref=e54]: S = 36h
+            - generic [ref=e55]:
+              - generic [ref=e56]: short_term
+              - strong [ref=e57]: S = 10.5d
+            - generic [ref=e58]:
+              - generic [ref=e59]: long_term
+              - strong [ref=e60]: S = 90d
+            - paragraph [ref=e61]: S 越大，衰减越慢
+        - generic [ref=e62]: 11 / 15
+      - text: → → ↓ ← ← → → →
+    - navigation [ref=e65]:
+      - generic [ref=e66]:
+        - button "Enter fullscreen" [ref=e67] [cursor=pointer]
+        - button "Go to previous slide" [ref=e70] [cursor=pointer]
+        - button "Go to next slide" [ref=e73] [cursor=pointer]
+        - button "Show slide overview" [ref=e76] [cursor=pointer]
+        - button "Toggle camera view" [ref=e80] [cursor=pointer]
+        - button "Record video" [ref=e83] [cursor=pointer]
+        - button [ref=e87] [cursor=pointer]:
+          - button "Select recording device" [ref=e88]
+        - button "Show drawing toolbar" [ref=e92] [cursor=pointer]
+        - button "Presenter Mode" [ref=e96] [cursor=pointer]
+        - button "Show editor" [ref=e99] [cursor=pointer]
+        - link "Browser Exporter" [ref=e102] [cursor=pointer]:
+          - /url: /export
+        - button [ref=e107] [cursor=pointer]:
+          - button "Change sync settings" [ref=e108]
+        - button [ref=e113] [cursor=pointer]:
+          - button "More Options" [ref=e114]
+        - generic [ref=e118]: 11 / 15
+  - textbox "Goto..." [disabled] [ref=e121]
